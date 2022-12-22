@@ -1,10 +1,12 @@
 const { Schema, model } = require('mongoose');
 
-const coachSchema = new Schema({
+const CoachSchema = new Schema({
     name: String,
+    userName:String,
+    password:String,
     age: Number,
     weight: Number,
     height: Number
 });
 
-module.exports = model('Coach', coachShema);
+module.exports = model('Coach', CoachSchema);

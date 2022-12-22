@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit{
   user={
     Nombre:'',
     Contracena:'',
-
+    TypeUser:''
   }
   showAlert = false;
   showPassword = false;
@@ -30,7 +30,13 @@ export class LoginComponent implements OnInit{
       (res) => {
         console.log(this.user);
         localStorage.setItem('token', res.token);
-        this.router.navigate(['/adminHome']);
+        if(this.user.TypeUser=="Manager"){
+          this.router.navigate(['/adminHome']);
+        }
+        if(this.user.TypeUser=="Trainer"){
+          this.router.navigate(['/coach']);
+        }
+        
       },
       (err) => {
         console.log(err);
