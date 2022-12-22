@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { AdminHomeComponent } from './components/adminModules/admin-home/admin-home.component';
+import { CoachManagementComponent } from './components/adminModules/coach-management/coach-management.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { AdminHomeComponent } from './components/adminModules/admin-home/admin-h
     CoachComponent,
     LoginComponent,
     AdminHomeComponent,
+    CoachManagementComponent,
   ],
   imports: [
     BrowserModule,
