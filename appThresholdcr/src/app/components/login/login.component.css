@@ -21,7 +21,7 @@
     position: absolute;
     width: 500px;
     height: 500px;
-    background-image: conic-gradient(transparent,transparent,transparent,#f2ff00);
+    background-image: conic-gradient(transparent,transparent,transparent,#00ffad);
     animation: rotate 4s linear infinite;
 }
 .box:after{
@@ -37,14 +37,14 @@
     position: absolute;
     inset: 5px;
     border-radius: 16px;
-    background-color: rgb(154, 70, 70);
+    background-color: rgb(3, 52, 97);
     z-index: 2;
 }
 .box h3 {
     position: relative;
     display: grid;
     border-radius: 20px;
-    background-color: #5aac66;
+    background-color: #2213f7;
     place-items: center;
 }
 @keyframes rotate{
@@ -57,6 +57,9 @@
     }
 }
 
+.card-headerB {
+  display: grid;
+}
 
 button{
     background: black;
@@ -83,6 +86,8 @@ button{
     filter: blur(8px);
     animation: glowing 20s linear infinite;
   }
+
+
   @keyframes glowing{
     0%{
       background-position: 0 0;

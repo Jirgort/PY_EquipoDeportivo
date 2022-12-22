@@ -21,14 +21,16 @@
                                     <input type="text" [(ngModel)]="user.Contracena" name="password" class="form-control" placeholder="Password" required autofocus >
                                 </div>
                                </div>
-                               <label for="typeUser">Choose a user:</label>
+                               <div class="form-selector">
+                                    <label for="typeUser">Choose a user:</label>
                                     <select name="typeUser"[(ngModel)]="user.TypeUser" id="typeUser">
                                     <option value="Manager">Manager</option>
                                     <option value="Trainer">Trainer</option>
                                     <option value="User">User</option>
-                                   
                                     </select>
-                               <div class="card-header">
+                               </div>
+                               <div class="card-headerB">
+                                <br>
                                 <button type="submit" >SignIn</button>  
                               </div>
                               
