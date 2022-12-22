@@ -1,0 +1,48 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button style="background-color: transparent; border-style: none;">
+      <mat-icon (click)="drawer.toggle();">menu</mat-icon>
+    </button>
+    <h1>Gestión de Entrenadores</h1>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <div class="d-flex flex-column mb-3">
+      <button mat-raised-button (click)="changeOperation('create');">
+        Crear Entrenador
+      </button>
+      <button mat-raised-button (click)="changeOperation('read');">
+        Mostrar Entrenadores
+      </button>
+      <button mat-raised-button (click)="changeOperation('update');">
+        Modificar Entrenador
+      </button>
+      <button mat-raised-button (click)="changeOperation('delete');">
+        Eliminar Entrenador
+      </button>
+    </div>
+  </mat-drawer>
+  <div class="example-sidenav-content">
+  </div>
+  <div *ngIf="this.currentOperation == ''" style="height: 500px; width: 500px">MANEGEMENT MODULE</div>
+  <app-coach-management *ngIf="this.currentOperation == 'create'"></app-coach-management>
+  <h1 *ngIf="this.currentOperation == 'read'">READ OPERATION</h1>
+  <h1 *ngIf="this.currentOperation == 'update'">UPDATE OPERATION</h1>
+  <h1 *ngIf="this.currentOperation == 'delete'">DELETE OPERATION</h1>
+</mat-drawer-container>
+
+<!--
+<div *ngIf="this.currentOperation == 'create'">
+  <h1>CREATE OPERATION</h1>
+</div>
+<div *ngIf="this.currentOperation == 'read'">
+  <h1>READ OPERATION</h1>
+</div>
+<div *ngIf="this.currentOperation == 'update'">
+  <h1>UPDATE OPERATION</h1>
+</div>
+<div *ngIf="this.currentOperation == 'delete'">
+  <h1>DELETE OPERATION</h1>
+</div>
+-->

@@ -14,6 +14,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { AdminHomeComponent } from './components/adminModules/admin-home/admin-home.component';
 import { CoachManagementComponent } from './components/adminModules/coach-management/coach-management.component';
+import { CoachSidenavOperationsComponent } from './components/coach-sidenav-operations/coach-sidenav-operations.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CoachManagementComponent } from './components/adminModules/coach-manage
     LoginComponent,
     AdminHomeComponent,
     CoachManagementComponent,
+    CoachSidenavOperationsComponent,
   ],
   imports: [
     BrowserModule,

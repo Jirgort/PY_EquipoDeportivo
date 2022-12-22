@@ -1,39 +1,47 @@
-<div class="d-flex container justify-content-center w-50">
+<div class="d-flex justify-content-start">
+  <div class="d-flex container justify-content-center w-50">
     <div class="d-flex align-items-center justify-content-center">
-        <div class="border p-4 rounded shadow bg-white rounded">
-            <div class="row justify-content-center">
-                <h1>Registro de Entrenadores</h1>
-                    <form (ngSubmit)="submit()">
-                        <div class="form-outline input-group-sm">
-                            <label class="form-label" for="name">Nombre</label>
-                            <input formControlName="nombre" type="text" id="name" class="form-control" placeholder="Nombre" ngModel required/>
-                        </div>
-                        <div class="form-outline input-group-sm">
-                            <label class="form-label" for="nameUser">Nombre de usuario</label>
-                            <input formControlName="nombre" type="text" id="nameUser" class="form-control" placeholder="Nombre de usuario" ngModel required/>
-                        </div>
-                        <div class="form-outline input-group-sm">
-                            <label class="form-label" for="password">Contraceña</label>
-                            <input formControlName="nombre" type="text" id="password" class="form-control" placeholder="Contraceña" ngModel required/>
-                        </div>
-                        <h1></h1>
-                        <h3>Datos de personales</h3>
-                        <div class="form-outline input-group-sm">
-                            <label class="form-label" for="age">Edad</label>
-                            <input formControlName="nombre" type="text" id="age" class="form-control" placeholder="Edad" ngModel required/>
-                        </div>
-                        <div class="form-outline input-group-sm">
-                            <label class="form-label" for="weight">Peso</label>
-                            <input formControlName="nombre" type="text" id="weight" class="form-control" placeholder="Peso" ngModel required/>
-                        </div>
-                        <div class="form-outline input-group-sm">
-                            <label class="form-label" for="height">Altura</label>
-                            <input formControlName="nombre" type="text" id="height" class="form-control" placeholder="Altura" ngModel required/>
-                        </div>
-                        <h1></h1>
-                        <button type="submit" class="btn btn-primary btn-block">Guardar</button>
-                    </form>	
+      <div class="border p-4 rounded shadow bg-white rounded">
+        <div class="row justify-content-center">
+          <h1>Registro de Entrenadores</h1>
+          <form (ngSubmit)="submit()">
+            <div class="form-outline input-group-sm">
+              <label class="form-label" for="name">Nombre</label>
+              <input formControlName="nombre" type="text" id="name" class="form-control" placeholder="Nombre" ngModel
+                required />
             </div>
+            <div class="form-outline input-group-sm">
+              <label class="form-label" for="nameUser">Nombre de usuario</label>
+              <input formControlName="nombre" type="text" id="nameUser" class="form-control"
+                placeholder="Nombre de usuario" ngModel required />
+            </div>
+            <div class="form-outline input-group-sm">
+              <label class="form-label" for="password">Contraseña</label>
+              <input formControlName="nombre" type="text" id="password" class="form-control" placeholder="Contraseña"
+                ngModel required />
+            </div>
+            <h1></h1>
+            <h3>Datos de personales</h3>
+            <div class="form-outline input-group-sm">
+              <label class="form-label" for="age">Edad</label>
+              <input formControlName="nombre" type="text" id="age" class="form-control" placeholder="Edad" ngModel
+                required />
+            </div>
+            <div class="form-outline input-group-sm">
+              <label class="form-label" for="weight">Peso</label>
+              <input formControlName="nombre" type="text" id="weight" class="form-control" placeholder="Peso" ngModel
+                required />
+            </div>
+            <div class="form-outline input-group-sm">
+              <label class="form-label" for="height">Altura</label>
+              <input formControlName="nombre" type="text" id="height" class="form-control" placeholder="Altura" ngModel
+                required />
+            </div>
+            <h1></h1>
+            <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+          </form>
         </div>
+      </div>
     </div>
+  </div>
 </div>

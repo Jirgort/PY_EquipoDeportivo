@@ -1,0 +1,18 @@
+.example-container {
+  width: auto;
+  height: auto;
+  border: 1px solid white;
+  background-color: white;
+}
+
+.example-sidenav-content {
+  display: flex;
+  width: auto;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  padding: 20px;
+}
