@@ -11,7 +11,6 @@ export class LoginComponent implements OnInit{
   user={
     Nombre:'',
     Contracena:'',
-    typeUser:''
 
   }
   showAlert = false;
