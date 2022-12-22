@@ -12,12 +12,12 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit {
-  user = {
-    Nombre: '',
-    Contracena: '',
-    typeUser: '',
-  };
+export class LoginComponent implements OnInit{
+  user={
+    Nombre:'',
+    Contracena:'',
+
+  }
   showAlert = false;
   showPassword = false;
   succesLogin = true;
