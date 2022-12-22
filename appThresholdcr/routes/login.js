@@ -13,6 +13,16 @@ const Coach = require('../models/Coach');
 const jwt =require('jsonwebtoken')
 router.get('/', (req, res) => res.send("hola mundo"));
 
+router.post('/registrarEntrenador',async(req,res)=>{
+    const {name,userName,password,age,weight,height}=req.body;
+    
+    const newUser=new Coach({name,userName,password,age,weight,height});
+    await newUser.save();
+    const token=jwt.sign({_id: newUser._id},'secreteKey')
+
+    res.status(200).json({token});
+})
+
 router.post('/signup',async(req,res)=>{
     const {Nombre, Contracena}=req.body;
     console.log({Nombre, Contracena})
