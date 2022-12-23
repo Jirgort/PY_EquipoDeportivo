@@ -25,6 +25,8 @@ export class TrainersService {
   getTrainer(id:string):Observable<any>{
     return this.http.get(`${environment.URL}/trainer/${id}`);
   }
+
+  
   newTrainer(user: any) {
     return this.http.post<any>(`${environment.URL}/registrarEntrenador`, user);
   }

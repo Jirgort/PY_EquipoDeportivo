@@ -13,6 +13,7 @@ const Coach = require('../models/Coach');
 const jwt =require('jsonwebtoken')
 router.get('/', (req, res) => res.send("hola mundo"));
 
+
 router.get('/trainers', function(req, res, next) {
 	Coach
 		.find()
