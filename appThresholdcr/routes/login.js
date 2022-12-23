@@ -13,6 +13,7 @@ const Athlete = require('../models/Athlete');
 const jwt =require('jsonwebtoken');
 router.get('/', (req, res) => res.send("hola mundo"));
 
+
 router.get('/trainers', function(req, res, next) {
 	Coach
 		.find()
@@ -23,22 +24,6 @@ router.post('/registrarEntrenador',async(req,res)=>{
     const {name,userName,password,age,weight,height}=req.body;
     
     const newUser=new Coach({name,userName,password,age,weight,height});
-    await newUser.save();
-    const token=jwt.sign({_id: newUser._id},'secreteKey')
-
-    res.status(200).json({token});
-})
-
-router.get('/athletes', function(req, res, next) {
-	Athlete
-		.find()
-		.then((data) => res.json(data))
-		.catch((err) => res.status(500).json({ message: 'Error getting trainers' }));
-});
-router.post('/registrarAtleta',async(req,res)=>{
-    const {name,userName,password,category,age,weight,height}=req.body;
-    
-    const newUser=new Athlete({name,userName,password,category,age,weight,height});
     await newUser.save();
     const token=jwt.sign({_id: newUser._id},'secreteKey')
 
@@ -85,7 +70,22 @@ router.post('/signin',async(req,res)=>{
         return res.status(200).json({token})
     }
     
+    
+    router.get('/athletes', function(req, res, next) {
+        Athlete
+            .find()
+            .then((data) => res.json(data))
+            .catch((err) => res.status(500).json({ message: 'Error getting trainers' }));
+    });
+    router.post('/registrarAtleta',async(req,res)=>{
+        const {name,userName,password,category,age,weight,height}=req.body;
+        
+        const newUser=new Athlete({name,userName,password,category,age,weight,height});
+        await newUser.save();
+        const token=jwt.sign({_id: newUser._id},'secreteKey')
 
+        res.status(200).json({token});
+    })
  
 })
 module.exports=router;
