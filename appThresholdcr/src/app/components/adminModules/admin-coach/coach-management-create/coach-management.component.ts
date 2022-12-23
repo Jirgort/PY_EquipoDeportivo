@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Validators, FormBuilder } from '@angular/forms';
-import {TrainersService} from '../../../services/trainers.service';
+import {TrainersService} from '../../../../services/trainers.service';
 
 @Component({
   selector: 'app-coach-management',
