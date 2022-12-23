@@ -16,6 +16,11 @@ import { AdminHomeComponent } from './components/adminModules/admin-home/admin-h
 import { CoachManagementComponent } from './components/adminModules/admin-coach/coach-management-create/coach-management.component';
 import { CoachSidenavOperationsComponent } from './components/adminModules/admin-coach/coach-sidenav-operations/coach-sidenav-operations.component';
 import { CoachManagementReadComponent } from './components/adminModules/admin-coach/coach-management-read/coach-management-read.component';
+import { AthleteSidenavOperationsComponent } from './components/adminModules/admin-athlete/athlete-sidenav-operations/athlete-sidenav-operations.component';
+import { AthleteManagmentCreateComponent } from './components/adminModules/admin-athlete/athlete-managment-create/athlete-managment-create.component';
+import { AthleteManagmentReadComponent } from './components/adminModules/admin-athlete/athlete-managment-read/athlete-managment-read.component';
+import { AthleteManagmentUpdateComponent } from './components/adminModules/admin-athlete/athlete-managment-update/athlete-managment-update.component';
+import { AthleteManagmentDeleteComponent } from './components/adminModules/admin-athlete/athlete-managment-delete/athlete-managment-delete.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +31,11 @@ import { CoachManagementReadComponent } from './components/adminModules/admin-co
     CoachManagementComponent,
     CoachSidenavOperationsComponent,
     CoachManagementReadComponent,
+    AthleteSidenavOperationsComponent,
+    AthleteManagmentCreateComponent,
+    AthleteManagmentReadComponent,
+    AthleteManagmentUpdateComponent,
+    AthleteManagmentDeleteComponent,
   ],
   imports: [
     BrowserModule,
