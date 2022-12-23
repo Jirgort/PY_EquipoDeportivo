@@ -50,8 +50,8 @@ router.post('/signin',async(req,res)=>{
         return res.status(200).json({token})
     }
     if(TypeUser=="Trainer"){
-        const name=Nombre;
-        const coach=await Coach.findOne({name});
+        const userName=Nombre;
+        const coach=await Coach.findOne({userName});
         console.log(Nombre)
         console.log(coach)
         console.log("xxxxxxxxxxxxxxxxxxxxx")
