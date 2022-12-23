@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { AdminHomeComponent } from './components/adminModules/admin-home/admin-home.component';
+
 import { CoachManagementComponent } from './components/adminModules/admin-coach/coach-management-create/coach-management.component';
 import { CoachSidenavOperationsComponent } from './components/adminModules/admin-coach/coach-sidenav-operations/coach-sidenav-operations.component';
 import { CoachManagementReadComponent } from './components/adminModules/admin-coach/coach-management-read/coach-management-read.component';
@@ -21,6 +22,8 @@ import { AthleteManagmentCreateComponent } from './components/adminModules/admin
 import { AthleteManagmentReadComponent } from './components/adminModules/admin-athlete/athlete-managment-read/athlete-managment-read.component';
 import { AthleteManagmentUpdateComponent } from './components/adminModules/admin-athlete/athlete-managment-update/athlete-managment-update.component';
 import { AthleteManagmentDeleteComponent } from './components/adminModules/admin-athlete/athlete-managment-delete/athlete-managment-delete.component';
+import { CoachReadComponent } from './components/adminModules/coach-read/coach-read.component';
+
 
 @NgModule({
   declarations: [
@@ -36,6 +39,7 @@ import { AthleteManagmentDeleteComponent } from './components/adminModules/admin
     AthleteManagmentReadComponent,
     AthleteManagmentUpdateComponent,
     AthleteManagmentDeleteComponent,
+    CoachReadComponent,
   ],
   imports: [
     BrowserModule,

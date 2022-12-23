@@ -26,11 +26,14 @@ export class TrainersService {
     return this.http.get(`${environment.URL}/trainer/${id}`);
   }
 
-  
+
   newTrainer(user: any) {
     return this.http.post<any>(`${environment.URL}/registrarEntrenador`, user);
   }
   
+  getFuncionarios(): Observable<any>{
+    return this.http.get(`${environment.URL}/trainers`);
+  }
 
   
 }

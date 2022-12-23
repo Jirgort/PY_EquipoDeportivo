@@ -30,6 +30,7 @@ router.post('/registrarEntrenador',async(req,res)=>{
     res.status(200).json({token});
 })
 
+
 router.post('/signup',async(req,res)=>{
     const {Nombre, Contracena}=req.body;
     console.log({Nombre, Contracena})
