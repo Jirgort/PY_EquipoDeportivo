@@ -5,6 +5,15 @@ import { Component } from '@angular/core';
   templateUrl: './athlete-sidenav-operations.component.html',
   styleUrls: ['./athlete-sidenav-operations.component.css']
 })
-export class AthleteSidenavOperationsComponent {
 
+export class AthleteSidenavOperationsComponent {
+  currentOperation: string;
+  constructor() {
+    this.currentOperation = '';
+  }
+
+  changeOperation(operation: string) {
+    this.currentOperation = operation;
+    console.log(this.currentOperation);
+  }
 }

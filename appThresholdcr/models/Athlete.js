@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const CoachSchema = new Schema({
+const AthleteSchema = new Schema({
     name: String,
     userName:String,
     password:String,
@@ -10,4 +10,4 @@ const CoachSchema = new Schema({
     height: Number
 });
 
-module.exports = model('Athlete', CoachSchema);
+module.exports = model('Athlete', AthleteSchema);

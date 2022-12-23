@@ -8,6 +8,7 @@ import {TrainersService} from '../../../../services/trainers.service';
   templateUrl: './coach-management.component.html',
   styleUrls: ['./coach-management.component.css'],
 })
+
 export class CoachManagementComponent {
   constructor(private router: Router,private formBuilder: FormBuilder,private trainersService: TrainersService) {}
   registerForm=this.formBuilder.group({
