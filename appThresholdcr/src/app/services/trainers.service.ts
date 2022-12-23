@@ -28,7 +28,7 @@ export class TrainersService {
   newTrainer(user: any) {
     return this.http.post<any>(`${environment.URL}/registrarEntrenador`, user);
   }
-
+  
 
   
 }

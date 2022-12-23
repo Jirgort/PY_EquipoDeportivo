@@ -15,6 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { AdminHomeComponent } from './components/adminModules/admin-home/admin-home.component';
 import { CoachManagementComponent } from './components/adminModules/admin-coach/coach-management-create/coach-management.component';
 import { CoachSidenavOperationsComponent } from './components/adminModules/admin-coach/coach-sidenav-operations/coach-sidenav-operations.component';
+import { CoachManagementReadComponent } from './components/adminModules/admin-coach/coach-management-read/coach-management-read.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { CoachSidenavOperationsComponent } from './components/adminModules/admin
     AdminHomeComponent,
     CoachManagementComponent,
     CoachSidenavOperationsComponent,
+    CoachManagementReadComponent,
   ],
   imports: [
     BrowserModule,

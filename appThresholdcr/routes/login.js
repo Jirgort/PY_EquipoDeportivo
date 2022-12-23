@@ -13,6 +13,12 @@ const Coach = require('../models/Coach');
 const jwt =require('jsonwebtoken')
 router.get('/', (req, res) => res.send("hola mundo"));
 
+router.get('/trainers', function(req, res, next) {
+	Coach
+		.find()
+		.then((data) => res.json(data))
+		.catch((err) => res.status(500).json({ message: 'Error getting trainers' }));
+});
 router.post('/registrarEntrenador',async(req,res)=>{
     const {name,userName,password,age,weight,height}=req.body;
     

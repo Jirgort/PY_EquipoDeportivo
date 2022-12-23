@@ -7,7 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AdminHomeComponent } from './components/adminModules/admin-home/admin-home.component';
 import { CoachManagementComponent } from './components/adminModules/admin-coach/coach-management-create/coach-management.component';
 import { CoachSidenavOperationsComponent } from './components/adminModules/admin-coach/coach-sidenav-operations/coach-sidenav-operations.component';
-
+import {CoachManagementReadComponent}from './components/adminModules/admin-coach/coach-management-read/coach-management-read.component';
 const routes: Routes = [
   {
     path: '',
@@ -34,6 +34,10 @@ const routes: Routes = [
     path: 'coachSidenav',
     component: CoachSidenavOperationsComponent,
   },
+  {
+    path: 'trainers',
+    component: CoachManagementReadComponent,
+  }
 ];
 
 @NgModule({
