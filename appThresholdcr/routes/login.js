@@ -30,6 +30,25 @@ router.post('/registrarEntrenador',async(req,res)=>{
     res.status(200).json({token});
 })
 
+router.get('/athletes', function(req, res, next) {
+    Athlete
+        .find()
+        .then((data) => res.json(data))
+        .catch((err) => res.status(500).json({ message: 'Error getting athlete' }));
+});
+
+router.post('/registrarAtleta',async(req,res)=>{
+    
+    const {name,userName,password,category,age,weight,height}=req.body;
+    
+    const newUser=new Athlete({name,userName,password,category,age,weight,height});
+    console.log(newUser);
+    await newUser.save();
+    const token=jwt.sign({_id: newUser._id},'secreteKey')
+
+    res.status(200).json({token});
+})
+
 router.post('/signup',async(req,res)=>{
     const {Nombre, Contracena}=req.body;
     console.log({Nombre, Contracena})
@@ -69,23 +88,6 @@ router.post('/signin',async(req,res)=>{
         const token=jwt.sign({_id:coach._id}, 'secreteKey');
         return res.status(200).json({token})
     }
-    
-    
-    router.get('/athletes', function(req, res, next) {
-        Athlete
-            .find()
-            .then((data) => res.json(data))
-            .catch((err) => res.status(500).json({ message: 'Error getting trainers' }));
-    });
-    router.post('/registrarAtleta',async(req,res)=>{
-        const {name,userName,password,category,age,weight,height}=req.body;
-        
-        const newUser=new Athlete({name,userName,password,category,age,weight,height});
-        await newUser.save();
-        const token=jwt.sign({_id: newUser._id},'secreteKey')
-
-        res.status(200).json({token});
-    })
  
 })
 module.exports=router;

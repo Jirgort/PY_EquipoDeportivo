@@ -26,8 +26,8 @@
     <div class="example-sidenav-content">
     </div>
     <div *ngIf="this.currentOperation == ''" style="height: 500px; width: 500px">MANEGEMENT MODULE</div>
-    <app-athlete-managment *ngIf="this.currentOperation == 'create'"></app-athlete-managment>
-    <app-coach-management-read *ngIf="this.currentOperation == 'read'"></app-coach-management-read>
+    <app-athlete-managment-create *ngIf="this.currentOperation == 'create'"></app-athlete-managment-create>
+    <app-athlete-managment-read *ngIf="this.currentOperation == 'read'"></app-athlete-managment-read>
     <h1 *ngIf="this.currentOperation == 'update'">UPDATE OPERATION</h1>
     <h1 *ngIf="this.currentOperation == 'delete'">DELETE OPERATION</h1>
   </mat-drawer-container>

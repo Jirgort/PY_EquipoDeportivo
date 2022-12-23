@@ -26,8 +26,13 @@ export class AthleteService {
   getAthlete(id:string):Observable<any>{
     return this.http.get(`${environment.URL}/athlete/${id}`);
   }
+  
   newAthlete(user: any) {
     return this.http.post<any>(`${environment.URL}/registrarAtleta`, user);
+  }
+
+  getFuncionarios(): Observable<any>{
+    return this.http.get(`${environment.URL}/athletes`);
   }
 
 }

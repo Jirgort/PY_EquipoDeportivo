@@ -4,7 +4,7 @@ import { Validators, FormBuilder } from '@angular/forms';
 import {AthleteService} from '../../../../services/athlete.service';
 
 @Component({
-  selector: 'app-athlete-managment',
+  selector: 'app-athlete-managment-create',
   templateUrl: './athlete-managment-create.component.html',
 })
 
@@ -14,7 +14,7 @@ export class AthleteManagmentCreateComponent {
     name: ['', Validators.required],
     userName: ['', Validators.required],
     password: ['', Validators.required],
-    categories: [[], Validators.required],
+    category: [[], Validators.required],
     age: [Validators.required],
     weight: [Validators.required],
     height: ['', Validators.nullValidator],
