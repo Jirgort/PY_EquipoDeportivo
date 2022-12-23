@@ -23,6 +23,8 @@ import { AthleteManagmentReadComponent } from './components/adminModules/admin-a
 import { AthleteManagmentUpdateComponent } from './components/adminModules/admin-athlete/athlete-managment-update/athlete-managment-update.component';
 import { AthleteManagmentDeleteComponent } from './components/adminModules/admin-athlete/athlete-managment-delete/athlete-managment-delete.component';
 import { CoachReadComponent } from './components/adminModules/coach-read/coach-read.component';
+import { CoachManagementDeleteComponent } from './components/adminModules/admin-coach/coach-management-delete/coach-management-delete.component';
+import { CoachManagementEditComponent } from './components/adminModules/admin-coach/coach-management-edit/coach-management-edit.component';
 
 
 @NgModule({
@@ -40,6 +42,8 @@ import { CoachReadComponent } from './components/adminModules/coach-read/coach-r
     AthleteManagmentUpdateComponent,
     AthleteManagmentDeleteComponent,
     CoachReadComponent,
+    CoachManagementDeleteComponent,
+    CoachManagementEditComponent,
   ],
   imports: [
     BrowserModule,
