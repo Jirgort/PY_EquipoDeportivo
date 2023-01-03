@@ -1,1 +1,78 @@
-<p>coach-management-edit works!</p>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog d-flex justify-content-center">
+    <div class="modal-content w-75">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">Actualizacion de Entrenador</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+        <form [formGroup]="updateForm">
+          <!-- name input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="name">Nombre</label>
+            <input formControlName="name" type="text" id="name" class="form-control" value="{{ coachName }}"
+              ngModelrequired />
+          </div>
+
+          <!-- username input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="userName">Nombre de Usuario</label>
+            <input formControlName="userName" type="text" id="userName" class="form-control" value="{{ coachUserName }}"
+              ngModelrequired />
+          </div>
+
+          <!-- password input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="password">Contraseña</label>
+            <input formControlName="password" type="password" id="coachPass" class="form-control"
+              value="{{ coachPassword }}" ngModelrequired />
+          </div>
+
+          <!-- age input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="age">Edad</label>
+            <input formControlName="age" type="text" id="age" class="form-control" value="{{ coachAge }}"
+              ngModelrequired />
+          </div>
+
+          <!-- weight input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="weight">Peso</label>
+            <input formControlName="weight" type="text" id="weight" class="form-control" value="{{ coachWeight }}"
+              ngModelrequired />
+          </div>
+
+          <!-- height input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="height">Peso</label>
+            <input formControlName="height" type="text" id="height" class="form-control" value="{{ coachHeight }}"
+              ngModelrequired />
+          </div>
+
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-primary">Actualizar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-3">
+  <div class="row row-cols-1 row-cols-md-3 g-2">
+    <div *ngFor="let trainer of trainers">
+      <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">Entrenador</div>
+        <div class="card-body card-text-center">
+          <h6 class="card-title fs-6 text-center">Nombre: {{trainer.name}}</h6>
+          <h6 class="card-title fs-6 text-center">Nombre de usuario: {{trainer.userName}}</h6>
+          <h6 class="card-title fs-6 text-center">Age: {{trainer.age}}</h6>
+          <h6 class="card-title fs-6 text-center">Weight: {{trainer.weight}} kg</h6>
+          <h6 class="card-title fs-6 text-center">Height: {{trainer.height}} cm</h6>
+        </div>
+        <button type="button" (click)="submit(trainer)" class="btn btn-primary" data-bs-toggle="modal"
+          data-bs-target="#exampleModal">Update</button>
+      </div>
+    </div>
+  </div>
+</div>

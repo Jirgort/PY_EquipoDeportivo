@@ -28,8 +28,8 @@
   <div *ngIf="this.currentOperation == ''" style="height: 500px; width: 500px">MANEGEMENT MODULE</div>
   <app-coach-management *ngIf="this.currentOperation == 'create'"></app-coach-management>
   <app-coach-management-read *ngIf="this.currentOperation == 'read'"></app-coach-management-read>
-  <h1 *ngIf="this.currentOperation == 'update'">UPDATE OPERATION</h1>
-  <h1 *ngIf="this.currentOperation == 'delete'">DELETE OPERATION</h1>
+  <app-coach-management-edit *ngIf="this.currentOperation == 'update'"></app-coach-management-edit>
+  <app-coach-management-delete *ngIf="this.currentOperation == 'delete'">DELETE OPERATION</app-coach-management-delete>
 </mat-drawer-container>
 
 <!--
