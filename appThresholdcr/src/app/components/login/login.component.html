@@ -7,7 +7,7 @@
                 <div class="card-md-4 mx-auto">
                     
                         <div class="card-header">
-                                <h3>SignIn</h3>
+                                <h3>Sign In</h3>
                         </div>
                         
                             <form (submit)="signIn()">
@@ -16,13 +16,14 @@
                                      <input type="text" [(ngModel)]="user.Nombre" name="name" class="form-control" placeholder="Name" required autofocus>
                                     </div>
                                 </div>
+                                <p></p>
                                 <div class="form-group ">
                                     <div class="card-header">
                                     <input type="text" [(ngModel)]="user.Contracena" name="password" class="form-control" placeholder="Password" required autofocus >
                                 </div>
                                </div>
                                <div class="form-selector">
-                                    <label for="typeUser">Choose a user:</label>
+                                    <label style="color: white;" for="typeUser">Choose a user:</label>
                                     <select name="typeUser"[(ngModel)]="user.TypeUser" id="typeUser">
                                     <option value="Manager">Manager</option>
                                     <option value="Trainer">Trainer</option>
@@ -31,7 +32,7 @@
                                </div>
                                <div class="card-headerB">
                                 <br>
-                                <button type="submit" >SignIn</button>  
+                                <button type="submit" >Sign In</button>  
                               </div>
                               
                             </form>
