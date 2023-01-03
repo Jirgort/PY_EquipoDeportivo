@@ -25,7 +25,10 @@ import { AthleteManagmentDeleteComponent } from './components/adminModules/admin
 import { CoachReadComponent } from './components/adminModules/coach-read/coach-read.component';
 import { CoachManagementDeleteComponent } from './components/adminModules/admin-coach/coach-management-delete/coach-management-delete.component';
 import { CoachManagementEditComponent } from './components/adminModules/admin-coach/coach-management-edit/coach-management-edit.component';
-
+import { SportManagementCreateComponent } from './components/adminModules/admin-sport/sport-management-create/sport-management-create.component';
+import { SportManagementReadComponent } from './components/adminModules/admin-sport/sport-management-read/sport-management-read.component';
+import { SportManagementUpdateComponent } from './components/adminModules/admin-sport/sport-management-update/sport-management-update.component';
+import { SportManagementDeleteComponent } from './components/adminModules/admin-sport/sport-management-delete/sport-management-delete.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +47,10 @@ import { CoachManagementEditComponent } from './components/adminModules/admin-co
     CoachReadComponent,
     CoachManagementDeleteComponent,
     CoachManagementEditComponent,
+    SportManagementCreateComponent,
+    SportManagementReadComponent,
+    SportManagementUpdateComponent,
+    SportManagementDeleteComponent,
   ],
   imports: [
     BrowserModule,
