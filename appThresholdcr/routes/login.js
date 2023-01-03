@@ -81,6 +81,22 @@ router.post('/registrarAtleta',async(req,res)=>{
     res.status(200).json({token});
 })
 
+router.delete('/athletes/delete/:id', async(req,res)=>{
+
+    Athlete.deleteOne({
+        _id: req.params.id
+    }, function(err) {
+        if(err) {
+            console.log("DELETE OPERATION FAILED.");
+            res.json(err);
+        } else {
+            console.log("DELETE OPERATION SUCCEDED.");
+            //res.redirect('/')
+        }
+    })
+})
+
+
 router.post('/signup',async(req,res)=>{
     const {Nombre, Contracena}=req.body;
     console.log({Nombre, Contracena})

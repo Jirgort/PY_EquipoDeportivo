@@ -35,4 +35,12 @@ export class AthleteService {
     return this.http.get(`${environment.URL}/athletes`);
   }
 
+  updateAthlete(id: string, data: any): Observable<any> {
+    return this.http.put(`${environment.URL}/athletes/put/${id}`, data);
+  }
+
+  deleteAthlete(id: string): Observable<any> {
+    return this.http.delete(`${environment.URL}/athletes/delete/${id}`);
+  }
+
 }

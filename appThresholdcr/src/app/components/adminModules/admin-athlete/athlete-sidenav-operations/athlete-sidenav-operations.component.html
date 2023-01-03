@@ -32,7 +32,7 @@
     <app-athlete-managment-create *ngIf="this.currentOperation == 'create'"></app-athlete-managment-create>
     <app-athlete-managment-read *ngIf="this.currentOperation == 'read'"></app-athlete-managment-read>
     <h1 *ngIf="this.currentOperation == 'update'">UPDATE OPERATION</h1>
-    <h1 *ngIf="this.currentOperation == 'delete'">DELETE OPERATION</h1>
+    <app-athlete-managment-delete *ngIf="this.currentOperation == 'delete'">DELETE OPERATION</app-athlete-managment-delete>
   </mat-drawer-container>
   
   <!--
