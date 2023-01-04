@@ -3,30 +3,32 @@ const {Router}=require('express');
 const { async } = require('rxjs');
 const router =Router();
 
-const Coach = require('../models/Coach');
+const Sport = require('../models/Sport');
 
 const jwt =require('jsonwebtoken');
 
-router.get('/trainers', function(req, res, next) {
-	Coach
+//Sports
+
+router.get('/Sports', function(req, res, next) {
+	Sport
 		.find()
 		.then((data) => res.json(data))
-		.catch((err) => res.status(500).json({ message: 'Error getting trainers' }));
+		.catch((err) => res.status(500).json({ message: 'Error getting sports' }));
 });
-router.post('/registrarEntrenador',async(req,res)=>{
-    const {name,userName,password,age,weight,height}=req.body;
-    console.log("COACH TO SAVE: " + req.body.age);
-    const newUser=new Coach({name,userName,password,age,weight,height});
+
+router.post('/registrarDeporte',async(req,res)=>{
+    const {name}=req.body;
+    console.log("SPORT TO SAVE: " + req.body.age);
+    const newUser=new Sport({name});
     await newUser.save();
     const token=jwt.sign({_id: newUser._id},'secreteKey')
 
     res.status(200).json({token});
 })
 
-
-router.put('/trainers/put/:id', async(req, res, next) => {
+router.put('/Sports/put/:id', async(req, res, next) => {
     console.log('BODY PARAMS ARE:' + req.body.age);
-    Coach.findByIdAndUpdate(req.params.id, {
+    Sport.findByIdAndUpdate(req.params.id, {
         $set: req.body
       }, (error, data) => {
         if (error) {
@@ -40,10 +42,9 @@ router.put('/trainers/put/:id', async(req, res, next) => {
       })
 })
 
+router.delete('/Sports/delete/:id', async(req,res)=>{
 
-router.delete('/trainers/delete/:id', async(req,res)=>{
-
-    Coach.deleteOne({
+    Sport.deleteOne({
         _id: req.params.id
     }, function(err) {
         if(err) {
@@ -55,4 +56,5 @@ router.delete('/trainers/delete/:id', async(req,res)=>{
         }
     })
 });
+
 module.exports = router;

@@ -7,7 +7,7 @@ import { NewsService } from '../../../../services/news.service';
   styleUrls: ['./news-management-read.component.css'],
 })
 export class NewsManagementReadComponent {
-  news: any = ['1', '2', '3'];
+  allNews: any = ['1', '2', '3'];
 
   constructor(private newsService: NewsService) {}
 
@@ -18,9 +18,9 @@ export class NewsManagementReadComponent {
   private getNews() {
     this.newsService.readNews().subscribe({
       next: (response: any) => {
-        console.log('holaaaaaaaaaaaaaaaa');
-        this.news = response;
-        console.log(this.news);
+        console.log('GETTIN NEWS');
+        this.allNews = response;
+        console.log(this.allNews);
       },
       error: (err) => {
         console.log(err);

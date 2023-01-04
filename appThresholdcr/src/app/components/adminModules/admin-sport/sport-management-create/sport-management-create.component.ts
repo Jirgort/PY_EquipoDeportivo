@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Validators, FormBuilder } from '@angular/forms';
+import { SportService } from '../../../../services/sport.service';
+
 
 @Component({
   selector: 'app-sport-management-create',
@@ -6,5 +10,29 @@ import { Component } from '@angular/core';
   styleUrls: ['./sport-management-create.component.css']
 })
 export class SportManagementCreateComponent {
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private sportService: SportService
+  ) {}
 
+registerForm = this.formBuilder.group({
+  name: ['', Validators.required],
+});
+
+submit() {
+  this.newSport(this.registerForm.value);
+  this.router.navigate(['/adminHome']);
+}
+newSport(sport: any): void {
+  this.sportService.newSport(this.registerForm.value).subscribe(
+    (res) => {
+      console.log(this.registerForm);
+      localStorage.setItem('token', res.token);
+    },
+    (err) => {
+      console.log(err);
+    }
+  );
+}
 }

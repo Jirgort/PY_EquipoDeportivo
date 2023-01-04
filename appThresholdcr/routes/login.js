@@ -3,9 +3,6 @@ const {Router}=require('express');
 const { async } = require('rxjs');
 const router =Router();
 
-
-
-
 const User = require('../models/User');
 const Coach = require('../models/Coach');
 const Athlete = require('../models/Athlete');
@@ -31,6 +28,7 @@ router.post('/registrarEntrenador',async(req,res)=>{
     res.status(200).json({token});
 })
 
+// NEWS OPERATIONS START.
 router.post('/createNews',async(req,res) => {
 	const { title, content, date, votes } = req.body;
 	console.log("NEWS TO SAVE: " + req.body.title);
@@ -40,6 +38,14 @@ router.post('/createNews',async(req,res) => {
 
 	res.status(200).json({token});
 })
+router.get('/news', function(req, res, next) {
+	News
+		.find()
+		.then((data) => res.json(data))
+		.catch((err) => res.status(500).json({ message: 'Error getting trainers' }));
+});
+// NEWS OPERATIONS END.
+
 
 router.put('/trainers/put/:id', async(req, res, next) => {
     console.log('BODY PARAMS ARE:' + req.body.age);
@@ -108,6 +114,7 @@ router.delete('/athletes/delete/:id', async(req,res)=>{
 })
 
 
+// login
 router.post('/signup',async(req,res)=>{
     const {Nombre, Contracena}=req.body;
     console.log({Nombre, Contracena})

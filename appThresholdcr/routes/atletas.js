@@ -3,30 +3,35 @@ const {Router}=require('express');
 const { async } = require('rxjs');
 const router =Router();
 
-const Coach = require('../models/Coach');
+const Athlete = require('../models/Athlete');
 
 const jwt =require('jsonwebtoken');
 
-router.get('/trainers', function(req, res, next) {
-	Coach
-		.find()
-		.then((data) => res.json(data))
-		.catch((err) => res.status(500).json({ message: 'Error getting trainers' }));
+//atletas
+
+router.get('/athletes', function(req, res, next) {
+    Athlete
+        .find()
+        .then((data) => res.json(data))
+        .catch((err) => res.status(500).json({ message: 'Error getting athlete' }));
 });
-router.post('/registrarEntrenador',async(req,res)=>{
-    const {name,userName,password,age,weight,height}=req.body;
-    console.log("COACH TO SAVE: " + req.body.age);
-    const newUser=new Coach({name,userName,password,age,weight,height});
+
+
+router.post('/registrarAtleta',async(req,res)=>{
+    
+    const {name,userName,password,category,age,weight,height}=req.body;
+    
+    const newUser=new Athlete({name,userName,password,category,age,weight,height});
+    console.log(newUser);
     await newUser.save();
     const token=jwt.sign({_id: newUser._id},'secreteKey')
 
     res.status(200).json({token});
 })
 
-
-router.put('/trainers/put/:id', async(req, res, next) => {
+router.put('/athletes/put/:id', async(req, res, next) => {
     console.log('BODY PARAMS ARE:' + req.body.age);
-    Coach.findByIdAndUpdate(req.params.id, {
+    Athlete.findByIdAndUpdate(req.params.id, {
         $set: req.body
       }, (error, data) => {
         if (error) {
@@ -40,10 +45,9 @@ router.put('/trainers/put/:id', async(req, res, next) => {
       })
 })
 
+router.delete('/athletes/delete/:id', async(req,res)=>{
 
-router.delete('/trainers/delete/:id', async(req,res)=>{
-
-    Coach.deleteOne({
+    Athlete.deleteOne({
         _id: req.params.id
     }, function(err) {
         if(err) {
@@ -54,5 +58,5 @@ router.delete('/trainers/delete/:id', async(req,res)=>{
             //res.redirect('/')
         }
     })
-});
-module.exports = router;
+})
+module.exports=router;
