@@ -1,1 +1,33 @@
-<p>sport-management-update works!</p>
+<div class="container mt-3">
+    <div class="row row-cols-1 row-cols-md-3 g-2">
+      <div *ngFor="let sport of sports">
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+          <div class="card-header">Deporte</div>
+          <div class="card-body card-text-center">
+            <h6 class="card-title fs-6 text-center">Nombre: {{sport.name}}</h6>
+          </div>
+          <button class="btn btn-success" (click)="open(content, sport)">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #content let-modal>
+    <div class="modal-header" style="margin: 10px;height: 25px">
+      <h4 class="modal-title" id="modal-basic-title">Actualizacion del Deporte</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body" style="padding: 5px; margin: 10px">
+      <form [formGroup]="updateForm">
+        <!-- name input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="name">Nombre</label>
+          <input formControlName="name" type="text" id="name" class="form-control" ngModelrequired />
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-success" (click)="modal.close('Save click'); updateSport()">Update</button>
+    </div>
+  </ng-template>
+  <hr />

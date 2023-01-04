@@ -29,10 +29,10 @@
     <div class="example-sidenav-content">
     </div>
     <div *ngIf="this.currentOperation == ''" style="height: 500px; width: 500px">MANEGEMENT MODULE</div>
-    <h1 *ngIf="this.currentOperation == 'create'"></h1>
+    <app-sport-management-create *ngIf="this.currentOperation == 'create'"></app-sport-management-create>
     <app-sport-management-read *ngIf="this.currentOperation == 'read'"></app-sport-management-read>
-    <h1 *ngIf="this.currentOperation == 'update'">UPDATE OPERATION</h1>
-    <h1 *ngIf="this.currentOperation == 'delete'">DELETE OPERATION</h1>
+    <app-sport-management-update *ngIf="this.currentOperation == 'update'">UPDATE OPERATION</app-sport-management-update>
+    <app-sport-management-delete *ngIf="this.currentOperation == 'delete'">DELETE OPERATION</app-sport-management-delete>
   </mat-drawer-container>
   
 
