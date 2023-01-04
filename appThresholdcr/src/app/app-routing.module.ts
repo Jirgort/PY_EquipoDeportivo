@@ -7,8 +7,9 @@ import { LoginComponent } from './components/login/login.component';
 import { AdminHomeComponent } from './components/adminModules/admin-home/admin-home.component';
 import { CoachManagementComponent } from './components/adminModules/admin-coach/coach-management-create/coach-management.component';
 import { CoachSidenavOperationsComponent } from './components/adminModules/admin-coach/coach-sidenav-operations/coach-sidenav-operations.component';
-import {CoachManagementReadComponent}from './components/adminModules/admin-coach/coach-management-read/coach-management-read.component';
+import { CoachManagementReadComponent }from './components/adminModules/admin-coach/coach-management-read/coach-management-read.component';
 import { AthleteSidenavOperationsComponent } from './components/adminModules/admin-athlete/athlete-sidenav-operations/athlete-sidenav-operations.component';
+import { SportSidenavOperationsComponent } from './components/adminModules/admin-sport/sport-sidenav-operations/sport-sidenav-operations.component';
 const routes: Routes = [
   {
     path: '',
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path: 'trainers',
     component: CoachManagementReadComponent,
+  },
+  {
+    path: 'sportSidenav',
+    component: SportSidenavOperationsComponent,
   }
 ];
 

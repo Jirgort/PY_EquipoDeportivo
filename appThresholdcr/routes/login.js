@@ -69,6 +69,7 @@ router.get('/athletes', function(req, res, next) {
         .catch((err) => res.status(500).json({ message: 'Error getting athlete' }));
 });
 
+
 router.post('/registrarAtleta',async(req,res)=>{
     
     const {name,userName,password,category,age,weight,height}=req.body;

@@ -29,6 +29,7 @@ import { SportManagementCreateComponent } from './components/adminModules/admin-
 import { SportManagementReadComponent } from './components/adminModules/admin-sport/sport-management-read/sport-management-read.component';
 import { SportManagementUpdateComponent } from './components/adminModules/admin-sport/sport-management-update/sport-management-update.component';
 import { SportManagementDeleteComponent } from './components/adminModules/admin-sport/sport-management-delete/sport-management-delete.component';
+import { SportSidenavOperationsComponent } from './components/adminModules/admin-sport/sport-sidenav-operations/sport-sidenav-operations.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { SportManagementDeleteComponent } from './components/adminModules/admin-
     SportManagementReadComponent,
     SportManagementUpdateComponent,
     SportManagementDeleteComponent,
+    SportSidenavOperationsComponent,
   ],
   imports: [
     BrowserModule,
