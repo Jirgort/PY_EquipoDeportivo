@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button style="background-color: transparent; border-style: none;">
+      <mat-icon (click)="drawer.toggle();">menu</mat-icon>
+    </button>
+    <h1>Gestión de Entrenadores</h1>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <div class="d-flex flex-column mb-3">
+      <button mat-raised-button (click)="changeOperation('create');">
+        Publicar Noticia
+      </button>
+      <button mat-raised-button (click)="changeOperation('read');">
+        Mostrar Noticias
+      </button>
+      <button mat-raised-button (click)="changeOperation('update');">
+        Modificar Noticia
+      </button>
+      <button mat-raised-button (click)="changeOperation('delete');">
+        Eliminar Noticia
+      </button>
+      <button mat-raised-button routerLink="/adminHome">
+        Volver
+      </button>
+    </div>
+  </mat-drawer>
+  <div class="example-sidenav-content">
+  </div>
+  <div *ngIf="this.currentOperation == ''" style="height: 500px; width: 500px">MANEGEMENT MODULE</div>
+  <app-news-management-create *ngIf="this.currentOperation == 'create'"></app-news-management-create>
+  <app-news-management-read *ngIf="this.currentOperation == 'read'"></app-news-management-read>
+  <app-news-management-edit *ngIf="this.currentOperation == 'update'"></app-news-management-edit>
+  <app-news-management-delete *ngIf="this.currentOperation == 'delete'">DELETE OPERATION</app-news-management-delete>
+</mat-drawer-container>
