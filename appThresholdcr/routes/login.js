@@ -44,6 +44,21 @@ router.get('/news', function(req, res, next) {
 		.then((data) => res.json(data))
 		.catch((err) => res.status(500).json({ message: 'Error getting trainers' }));
 });
+
+router.delete('/news/delete/:id', async(req,res)=>{
+
+    News.deleteOne({
+        _id: req.params.id
+    }, function(err) {
+        if(err) {
+            console.log("NEWS DELETE OPERATION FAILED.");
+            res.json(err);
+        } else {
+            console.log("NEWS DELETE OPERATION SUCCEDED.");
+            //res.redirect('/')
+        }
+    })
+})
 // NEWS OPERATIONS END.
 
 

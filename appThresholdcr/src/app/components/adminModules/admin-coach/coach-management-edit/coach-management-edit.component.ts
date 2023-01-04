@@ -76,6 +76,7 @@ export class CoachManagementEditComponent {
           console.log(err);
         },
       });
+    this.getFuncionarios();
   }
 
   open(content: any, trainer: any) {

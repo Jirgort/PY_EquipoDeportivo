@@ -39,5 +39,6 @@ export class CoachManagementDeleteComponent {
         console.log(err);
       },
     });
+    this.getCoaches();
   }
 }

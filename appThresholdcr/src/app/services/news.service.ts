@@ -15,4 +15,8 @@ export class NewsService {
   readNews(): Observable<any> {
     return this.http.get(`${environment.URL}/news`);
   }
+
+  deleteNews(id: string): Observable<any> {
+    return this.http.delete(`${environment.URL}/news/delete/${id}`);
+  }
 }
