@@ -4,8 +4,6 @@ const { async } = require('rxjs');
 const router =Router();
 
 const Sport = require('../models/Sport');
-const ClassType = require('../models/ClassType');
-const EventType = require('../models/EventType');
 
 const jwt =require('jsonwebtoken');
 
