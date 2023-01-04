@@ -13,6 +13,6 @@ export class NewsService {
   }
 
   readNews(): Observable<any> {
-    return this.http.get(`${environment.URL}/News`);
+    return this.http.get(`${environment.URL}/news`);
   }
 }

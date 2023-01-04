@@ -6,10 +6,10 @@
     <h1>Administración Equipo Threshold</h1>
   </mat-toolbar-row>
 </mat-toolbar>
-<mat-drawer-container class="example-container" autosize>
+<mat-drawer-container class="example-container" style="width: 1500px; height: auto;">
   <mat-drawer #drawer class="example-sidenav" mode="side">
     <div class="d-flex flex-column mb-3">
-      <button mat-raised-button >
+      <button mat-raised-button>
         Inicio
       </button>
       <button mat-raised-button routerLink="/coachSidenav">
@@ -18,12 +18,16 @@
       <button mat-raised-button routerLink="/athleteSidenav">
         Gestión de Atletas
       </button>
+      <button mat-raised-button routerLink="/sportSidenav">
+        Gestión de Deportes
+      </button>
       <button mat-raised-button routerLink="/login">
         Salir
       </button>
     </div>
   </mat-drawer>
   <div class="example-sidenav-content">
+    <app-news-management-read></app-news-management-read>
   </div>
 
 </mat-drawer-container>

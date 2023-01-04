@@ -1,1 +1,27 @@
-<p>news-management-create works!</p>
+<div class="d-flex justify-content-center">
+  <div style="width: 750px">
+    <div class=" modal-body" style="padding: 5px; margin: 10px;">
+      <form [formGroup]="newsForm">
+        <!-- title input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="title">Título</label>
+          <input formControlName="title" type="text" id="title" class="form-control" ngModelrequired />
+        </div>
+
+        <!-- content input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="content">Contenido</label>
+          <input formControlName="content" type="text" id="content" class="form-control" matInput style="height: 125px;"
+            ngModelrequired />
+        </div>
+
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-success" (click)="createNews()">Publicar</button>
+    </div>
+  </div>
+  <div *ngIf="this.bool">
+    <h1>BOOL IS TRUE</h1>
+  </div>
+</div>

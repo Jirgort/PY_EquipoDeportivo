@@ -12,6 +12,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { DatePipe } from '@angular/common';
+
 import { AdminHomeComponent } from './components/adminModules/admin-home/admin-home.component';
 
 import { CoachManagementComponent } from './components/adminModules/admin-coach/coach-management-create/coach-management.component';
@@ -34,6 +37,7 @@ import { NewsManagementEditComponent } from './components/adminModules/admin-new
 import { NewsManagementReadComponent } from './components/adminModules/admin-news/news-management-read/news-management-read.component';
 import { NewsManagementDeleteComponent } from './components/adminModules/admin-news/news-management-delete/news-management-delete.component';
 import { NewsSidenavOperationsComponent } from './components/adminModules/admin-news/news-sidenav-operations/news-sidenav-operations.component';
+import { SportSidenavOperationsComponent } from './components/adminModules/admin-sport/sport-sidenav-operations/sport-sidenav-operations.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +65,7 @@ import { NewsSidenavOperationsComponent } from './components/adminModules/admin-
     NewsManagementReadComponent,
     NewsManagementDeleteComponent,
     NewsSidenavOperationsComponent,
+    SportSidenavOperationsComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,8 +79,9 @@ import { NewsSidenavOperationsComponent } from './components/adminModules/admin-
     MatIconModule,
     MatListModule,
     MatButtonModule,
+    MatCardModule,
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
