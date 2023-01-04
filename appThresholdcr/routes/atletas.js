@@ -29,6 +29,22 @@ router.post('/registrarAtleta',async(req,res)=>{
     res.status(200).json({token});
 })
 
+router.put('/athletes/put/:id', async(req, res, next) => {
+    console.log('BODY PARAMS ARE:' + req.body.age);
+    Athlete.findByIdAndUpdate(req.params.id, {
+        $set: req.body
+      }, (error, data) => {
+        if (error) {
+          return next(error);
+        } else {
+          res.json(data);
+          console.log('UPDATE DATA IS:' + data);
+          console.log('Data updated successfully');
+          return res.status(200).json;
+        }
+      })
+})
+
 router.delete('/athletes/delete/:id', async(req,res)=>{
 
     Athlete.deleteOne({

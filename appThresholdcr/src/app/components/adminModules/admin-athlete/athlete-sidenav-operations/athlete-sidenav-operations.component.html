@@ -31,7 +31,7 @@
     <div *ngIf="this.currentOperation == ''" style="height: 500px; width: 500px">MANEGEMENT MODULE</div>
     <app-athlete-managment-create *ngIf="this.currentOperation == 'create'"></app-athlete-managment-create>
     <app-athlete-managment-read *ngIf="this.currentOperation == 'read'"></app-athlete-managment-read>
-    <h1 *ngIf="this.currentOperation == 'update'">UPDATE OPERATION</h1>
+    <app-athlete-managment-update *ngIf="this.currentOperation == 'update'">UPDATE OPERATION</app-athlete-managment-update>
     <app-athlete-managment-delete *ngIf="this.currentOperation == 'delete'">DELETE OPERATION</app-athlete-managment-delete>
   </mat-drawer-container>
   

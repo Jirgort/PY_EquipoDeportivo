@@ -1,1 +1,67 @@
-<p>athlete-managment-update works!</p>
+<div class="container mt-3">
+    <div class="row row-cols-1 row-cols-md-3 g-2">
+      <div *ngFor="let athlete of athletes">
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+          <div class="card-header">Atleta</div>
+          <div class="card-body card-text-center">
+            <h6 class="card-title fs-6 text-center">Nombre: {{athlete.name}}</h6>
+            <h6 class="card-title fs-6 text-center">Nombre de usuario: {{athlete.userName}}</h6>
+            <h6 class="card-title fs-6 text-center">Age: {{athlete.age}}</h6>
+            <h6 class="card-title fs-6 text-center">Weight: {{athlete.weight}} kg</h6>
+            <h6 class="card-title fs-6 text-center">Height: {{athlete.height}} cm</h6>
+          </div>
+          <button class="btn btn-success" (click)="open(content, athlete)">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #content let-modal>
+    <div class="modal-header" style="margin: 10px;height: 25px">
+      <h4 class="modal-title" id="modal-basic-title">Actualizacion del Atleta</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body" style="padding: 5px; margin: 10px">
+      <form [formGroup]="updateForm">
+        <!-- name input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="name">Nombre</label>
+          <input formControlName="name" type="text" id="name" class="form-control" ngModelrequired />
+        </div>
+  
+        <!-- username input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="userName">Nombre de Usuario</label>
+          <input formControlName="userName" type="text" id="userName" class="form-control" ngModelrequired />
+        </div>
+  
+        <!-- password input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="password">Contraseña</label>
+          <input formControlName="password" type="password" id="coachPass" class="form-control" ngModelrequired />
+        </div>
+  
+        <!-- age input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="age">Edad</label>
+          <input formControlName="age" type="text" id="age" class="form-control" ngModelrequired />
+        </div>
+  
+        <!-- weight input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="weight">Peso</label>
+          <input formControlName="weight" type="text" id="weight" class="form-control" ngModelrequired />
+        </div>
+  
+        <!-- height input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="height">Peso</label>
+          <input formControlName="height" type="text" id="height" class="form-control" ngModelrequired />
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-success" (click)="modal.close('Save click'); updateAthlete()">Update</button>
+    </div>
+  </ng-template>
+  <hr />

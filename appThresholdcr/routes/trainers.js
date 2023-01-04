@@ -40,6 +40,7 @@ router.put('/trainers/put/:id', async(req, res, next) => {
       })
 })
 
+
 router.delete('/trainers/delete/:id', async(req,res)=>{
 
     Coach.deleteOne({
