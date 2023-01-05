@@ -12,6 +12,7 @@ import { AthleteSidenavOperationsComponent } from './components/adminModules/adm
 import { SportSidenavOperationsComponent } from './components/adminModules/admin-sport/sport-sidenav-operations/sport-sidenav-operations.component';
 import { NewsSidenavOperationsComponent } from './components/adminModules/admin-news/news-sidenav-operations/news-sidenav-operations.component';
 import { ClassesSidenavOperationsComponent } from './components/adminModules/admin-classes/classes-sidenav-operations/classes-sidenav-operations.component';
+import { EventSidenavOperationsComponent } from './components/adminModules/admin-event/event-sidenav-operations/event-sidenav-operations.component';
 
 const routes: Routes = [
   {
@@ -58,6 +59,10 @@ const routes: Routes = [
   {
     path: 'classesSidenav',
     component: ClassesSidenavOperationsComponent,
+  },
+  {
+    path: 'eventsSidenav',
+    component: EventSidenavOperationsComponent,
   },
 ];
 

@@ -1,0 +1,40 @@
+
+<div class="d-flex justify-content-start">
+    <div class="d-flex container justify-content-center w-50">
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="border p-4 rounded shadow bg-white rounded">
+          <div class="row justify-content-center">
+            <h1>Registro de Eventos</h1>
+            <form [formGroup]="registerForm" (ngSubmit)="submit()">
+              <div class="form-outline input-group-sm">
+                <label class="form-label" for="type">Tipo de evento</label>
+                <input formControlName="type" type="text" id="type" class="form-control" placeholder="Tipo" ngModelrequired />
+              </div>
+              <div class="form-outline input-group-sm">
+                <label class="form-label" for="title">Titulo de evento</label>
+                <input formControlName="title" type="text" id="title" class="form-control" placeholder="Titulo" ngModel required />
+              </div>
+              <div class="form-outline input-group-sm">
+                <label class="form-label" for="sportClass">Deportes</label>
+                <input formControlName="sportClass" type="text" id="sportClass" class="form-control" placeholder="Deportes" ngModel required />
+              </div>
+              <h1></h1>
+              <h3 style="background-color: cornflowerblue;">Información del evento</h3>
+              <div class="form-outline input-group-sm">
+                <label class="form-label" for="content">Descripción del evento</label>
+                <input formControlName="content" type="text" id="content" class="form-control" placeholder="Descripción" ngModel
+                  required />
+              </div>
+              <div class="form-outline input-group-sm">
+                <label class="form-label" for="maxMember">Numero de participantes</label>
+                <input formControlName="maxMember" type="text" id="maxMember" class="form-control" placeholder="Cantidad de participantes" ngModel
+                  required />
+              </div>
+              <h1></h1>
+              <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

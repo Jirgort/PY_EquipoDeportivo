@@ -43,11 +43,22 @@ import { NewsManagementReadComponent } from './components/adminModules/admin-new
 import { NewsManagementDeleteComponent } from './components/adminModules/admin-news/news-management-delete/news-management-delete.component';
 import { NewsSidenavOperationsComponent } from './components/adminModules/admin-news/news-sidenav-operations/news-sidenav-operations.component';
 import { SportSidenavOperationsComponent } from './components/adminModules/admin-sport/sport-sidenav-operations/sport-sidenav-operations.component';
+<<<<<<< HEAD
 import { ClassesManagementCreateComponent } from './components/adminModules/admin-classes/classes-management-create/classes-management-create.component';
 import { ClassesManagementReadComponent } from './components/adminModules/admin-classes/classes-management-read/classes-management-read.component';
 import { ClassesManagementEditComponent } from './components/adminModules/admin-classes/classes-management-edit/classes-management-edit.component';
 import { ClassesManagementDeleteComponent } from './components/adminModules/admin-classes/classes-management-delete/classes-management-delete.component';
 import { ClassesSidenavOperationsComponent } from './components/adminModules/admin-classes/classes-sidenav-operations/classes-sidenav-operations.component';
+=======
+import { EventManagmentCreateComponent } from './components/adminModules/admin-event/event-managment-create/event-managment-create.component';
+import { EventManagmentDeleteComponent } from './components/adminModules/admin-event/event-managment-delete/event-managment-delete.component';
+import { EventManagmentUpdateComponent } from './components/adminModules/admin-event/event-managment-update/event-managment-update.component';
+import { EventManagmentReadComponent } from './components/adminModules/admin-event/event-managment-read/event-managment-read.component';
+import { EventSidenavOperationsComponent } from './components/adminModules/admin-event/event-sidenav-operations/event-sidenav-operations.component';
+import { EventTypeManagementCreateComponent } from './components/adminModules/admin-event/event-type-management-create/event-type-management-create.component';
+import { EventTypeManagementDeleteComponent } from './components/adminModules/admin-event/event-type-management-delete/event-type-management-delete.component';
+
+>>>>>>> 0d5d6c59637619869c6ed01e9f3a4ad7123e1f6f
 
 @NgModule({
   declarations: [
@@ -76,11 +87,21 @@ import { ClassesSidenavOperationsComponent } from './components/adminModules/adm
     NewsManagementDeleteComponent,
     NewsSidenavOperationsComponent,
     SportSidenavOperationsComponent,
+<<<<<<< HEAD
     ClassesManagementCreateComponent,
     ClassesManagementReadComponent,
     ClassesManagementEditComponent,
     ClassesManagementDeleteComponent,
     ClassesSidenavOperationsComponent,
+=======
+    EventManagmentCreateComponent,
+    EventManagmentDeleteComponent,
+    EventManagmentUpdateComponent,
+    EventManagmentReadComponent,
+    EventSidenavOperationsComponent,
+    EventTypeManagementCreateComponent,
+    EventTypeManagementDeleteComponent,
+>>>>>>> 0d5d6c59637619869c6ed01e9f3a4ad7123e1f6f
   ],
   imports: [
     BrowserModule,

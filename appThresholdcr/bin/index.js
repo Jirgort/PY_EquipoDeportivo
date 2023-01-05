@@ -13,6 +13,7 @@ app.use('/api',require('../routes/trainers'))
 app.use('/api',require('../routes/atletas'))
 app.use('/api',require('../routes/news'))
 app.use('/api',require('../routes/class'))
+app.use('/api',require('../routes/events'))
 
 
 app.listen(3000);
