@@ -38,6 +38,11 @@ import { NewsManagementReadComponent } from './components/adminModules/admin-new
 import { NewsManagementDeleteComponent } from './components/adminModules/admin-news/news-management-delete/news-management-delete.component';
 import { NewsSidenavOperationsComponent } from './components/adminModules/admin-news/news-sidenav-operations/news-sidenav-operations.component';
 import { SportSidenavOperationsComponent } from './components/adminModules/admin-sport/sport-sidenav-operations/sport-sidenav-operations.component';
+import { EventManagmentCreateComponent } from './components/adminModules/admin-event/event-managment-create/event-managment-create.component';
+import { EventManagmentDeleteComponent } from './components/adminModules/admin-event/event-managment-delete/event-managment-delete.component';
+import { EventManagmentUpdateComponent } from './components/adminModules/admin-event/event-managment-update/event-managment-update.component';
+import { EventManagmentReadComponent } from './components/adminModules/admin-event/event-managment-read/event-managment-read.component';
+import { EventSidenavOperationsComponent } from './components/adminModules/admin-event/event-sidenav-operations/event-sidenav-operations.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +71,11 @@ import { SportSidenavOperationsComponent } from './components/adminModules/admin
     NewsManagementDeleteComponent,
     NewsSidenavOperationsComponent,
     SportSidenavOperationsComponent,
+    EventManagmentCreateComponent,
+    EventManagmentDeleteComponent,
+    EventManagmentUpdateComponent,
+    EventManagmentReadComponent,
+    EventSidenavOperationsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,60 @@
+<div class="container mt-3">
+    <div class="row row-cols-1 row-cols-md-3 g-2">
+      <div *ngFor="let event of events">
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+          <div class="card-header">Evento</div>
+          <div class="card-body card-text-center">
+            <h6 class="card-title fs-6 text-center">Tipo: {{event.type}}</h6>
+            <h6 class="card-title fs-6 text-center">Titulo: {{event.title}}</h6>
+            <h6 class="card-title fs-6 text-center">Deportes: {{event.sportClass}}</h6>
+            <h6 class="card-title fs-6 text-center">Cantidad de participantes: {{event.maxMember}}</h6>
+          </div>
+          <button class="btn btn-success" (click)="open(content, event)">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #content let-modal>
+    <div class="modal-header" style="margin: 10px;height: 25px">
+      <h4 class="modal-title" id="modal-basic-title">Actualizacion de Evento</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body" style="padding: 5px; margin: 10px">
+      <form [formGroup]="updateForm">
+        <!-- type input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="type">Tipo de evento</label>
+          <input formControlName="type" type="text" id="type" class="form-control" ngModelrequired />
+        </div>
+  
+        <!-- title input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="title">Titulo de Evento</label>
+          <input formControlName="title" type="text" id="title" class="form-control" ngModelrequired />
+        </div>
+  
+        <!-- sports input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="sportClass">Categorías deportivas</label>
+          <input formControlName="sportClass" type="text" id="sportClass" class="form-control" ngModelrequired />
+        </div>
+  
+        <!-- content input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="content">Contenido</label>
+          <input formControlName="content" type="text" id="content" class="form-control" ngModelrequired />
+        </div>
+  
+        <!-- maxMember input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="maxMember">Cantidad de miembros</label>
+          <input formControlName="maxMember" type="text" id="maxMember" class="form-control" ngModelrequired />
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-success" (click)="modal.close('Save click'); updateEvent()">Update</button>
+    </div>
+  </ng-template>
+  <hr />
