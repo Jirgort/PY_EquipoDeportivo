@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-start">
+  <div class="d-flex container justify-content-center w-50">
+    <div class="d-flex align-items-center justify-content-center">
+      <div class="border p-4 rounded shadow bg-white rounded">
+        <div class="row justify-content-center">
+          <h1>Registro de Clases</h1>
+          <form [formGroup]="registerForm" (ngSubmit)="submit()">
+            <div class="form-outline input-group-sm" style="margin-bottom: 15px">
+              <label class="form-label" for="title">Título</label>
+              <input formControlName="title" type="text" id="title" class="form-control" placeholder="Título"
+                ngModelrequired />
+            </div>
+            <div class="form-outline input-group-sm">
+
+              <mat-form-field appearance="fill">
+                <mat-label>Tipo</mat-label>
+                <mat-select id="selectedType" #selectedType>
+                  <mat-option *ngFor="let class of classes" [value]="class">
+                    {{class}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="form-outline input-group-sm">
+
+              <mat-form-field appearance="fill">
+                <mat-label>Entrenador</mat-label>
+                <mat-select id="selectedCoach" #selectedCoach>
+                  <mat-option *ngFor="let coach of coaches;" [value]="coach._id">
+                    {{coach.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+            </div>
+            <div class="form-outline input-group-sm" style="margin-bottom: 15px">
+              <label class="form-label" for="date">Fecha</label>
+              <input formControlName="date" type="text" id="date" class="form-control" placeholder="Fecha" ngModel
+                required />
+
+              <mat-form-field appearance="fill">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+
+            </div>
+            <div class="form-outline input-group-sm">
+              <label class="form-label" for="room">Cupo</label>
+              <input formControlName="room" type="text" id="room" class="form-control" placeholder="Cupo" ngModel
+                required style="margin-bottom: 15px" />
+            </div>
+            <button type="submit" class="btn btn-primary btn-block"
+              (click)="createClass(selectedCoach, selectedType, picker)">Publicar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

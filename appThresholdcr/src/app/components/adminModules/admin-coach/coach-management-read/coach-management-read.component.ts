@@ -1,33 +1,29 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import {TrainersService} from '../../../../services/trainers.service';
+import { TrainersService } from '../../../../services/trainers.service';
 @Component({
   selector: 'app-coach-management-read',
   templateUrl: './coach-management-read.component.html',
-  styleUrls: ['./coach-management-read.component.css']
+  styleUrls: ['./coach-management-read.component.css'],
 })
 export class CoachManagementReadComponent {
-  trainers:any = ["hola","hello","jirgort"];
-constructor(private trainersService:TrainersService){
-  
-}
-ngOnInit(): void {
-  this.getFuncionarios();
+  trainers: any = ['hola', 'hello', 'jirgort'];
+  constructor(private trainersService: TrainersService) {}
 
-}
-getFuncionarios() {
-  this.trainersService.getTrainers()
-    .subscribe(
-      {
-        next: (response: any) => {
-          console.log("holaaaaaaaaaaaaaaaa" );
-          this.trainers = response;
-          console.log(this.trainers );
-        },
-        error: (err) => {
-          console.log(err);
-        }
-      }
-    );
-}
+  ngOnInit(): void {
+    this.getFuncionarios();
+  }
+
+  getFuncionarios() {
+    this.trainersService.getTrainers().subscribe({
+      next: (response: any) => {
+        console.log('holaaaaaaaaaaaaaaaa');
+        this.trainers = response;
+        console.log(this.trainers);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
 }

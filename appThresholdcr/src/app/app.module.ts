@@ -14,6 +14,11 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { DatePipe } from '@angular/common';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
 
 import { AdminHomeComponent } from './components/adminModules/admin-home/admin-home.component';
 
@@ -38,6 +43,11 @@ import { NewsManagementReadComponent } from './components/adminModules/admin-new
 import { NewsManagementDeleteComponent } from './components/adminModules/admin-news/news-management-delete/news-management-delete.component';
 import { NewsSidenavOperationsComponent } from './components/adminModules/admin-news/news-sidenav-operations/news-sidenav-operations.component';
 import { SportSidenavOperationsComponent } from './components/adminModules/admin-sport/sport-sidenav-operations/sport-sidenav-operations.component';
+import { ClassesManagementCreateComponent } from './components/adminModules/admin-classes/classes-management-create/classes-management-create.component';
+import { ClassesManagementReadComponent } from './components/adminModules/admin-classes/classes-management-read/classes-management-read.component';
+import { ClassesManagementEditComponent } from './components/adminModules/admin-classes/classes-management-edit/classes-management-edit.component';
+import { ClassesManagementDeleteComponent } from './components/adminModules/admin-classes/classes-management-delete/classes-management-delete.component';
+import { ClassesSidenavOperationsComponent } from './components/adminModules/admin-classes/classes-sidenav-operations/classes-sidenav-operations.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +76,11 @@ import { SportSidenavOperationsComponent } from './components/adminModules/admin
     NewsManagementDeleteComponent,
     NewsSidenavOperationsComponent,
     SportSidenavOperationsComponent,
+    ClassesManagementCreateComponent,
+    ClassesManagementReadComponent,
+    ClassesManagementEditComponent,
+    ClassesManagementDeleteComponent,
+    ClassesSidenavOperationsComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,6 +95,11 @@ import { SportSidenavOperationsComponent } from './components/adminModules/admin
     MatListModule,
     MatButtonModule,
     MatCardModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],

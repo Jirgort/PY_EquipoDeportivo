@@ -30,12 +30,12 @@ export class NewsManagementDeleteComponent {
   deleteNews(news: any) {
     this.newsService.deleteNews(news._id).subscribe({
       next: (response: any) => {
-        console.log('********** TRAINER DELETED **********');
+        console.log('********** NEWS DELETED **********');
         this.allNews = response;
         console.log(this.allNews);
       },
       error: (err) => {
-        console.log('********** ERR: TRAINER NOT DELETED **********');
+        console.log('********** ERR: NEWS NOT DELETED **********');
         console.log(err);
       },
     });

@@ -11,6 +11,8 @@ app.use('/api',require('../routes/login'))
 app.use('/api',require('../routes/deportes'))
 app.use('/api',require('../routes/trainers'))
 app.use('/api',require('../routes/atletas'))
+app.use('/api',require('../routes/news'))
+app.use('/api',require('../routes/class'))
 
 
 app.listen(3000);
