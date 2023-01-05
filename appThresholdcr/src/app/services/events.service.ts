@@ -17,7 +17,9 @@ export class EventsService {
    getEvents(){
     return this.http.get(`${environment.URL}/events`);
   }
-
+ getEventsType(){
+    return this.http.get(`${environment.URL}/eventsTypes`);
+  }
   /**
    * Obtiene evento por su id
    * @param id id del evento
@@ -30,10 +32,14 @@ export class EventsService {
   newEvent(event: any) {
     return this.http.post<any>(`${environment.URL}/createEvent`, event);
   }
+  newEventType(event: any) {
+    return this.http.post<any>(`${environment.URL}/createEventType`, event);
+  }
 
   getFuncionarios(): Observable<any>{
     return this.http.get(`${environment.URL}/events`);
   }
+ 
 
   updateEvent(id: string, data: any): Observable<any> {
     return this.http.put(`${environment.URL}/events/put/${id}`, data);
@@ -41,6 +47,9 @@ export class EventsService {
 
   deleteEvent(id: string): Observable<any> {
     return this.http.delete(`${environment.URL}/events/delete/${id}`);
+  }
+  deleteEventType(id: string): Observable<any> {
+    return this.http.delete(`${environment.URL}/eventsTypes/delete/${id}`);
   }
 
 }

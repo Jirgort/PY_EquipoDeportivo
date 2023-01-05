@@ -9,6 +9,14 @@
   <mat-drawer-container class="example-container" autosize>
     <mat-drawer #drawer class="example-sidenav" mode="side">
       <div class="d-flex flex-column mb-3">
+        <h4>Tipos de eventos</h4>
+        <button mat-raised-button (click)="changeOperation('createType');">
+          Crear Tipo de Evento
+        </button>
+        <button mat-raised-button (click)="changeOperation('deleteType');">
+          Eliminar Tipo de Evento
+        </button>
+        <h4>Eventos</h4>
         <button mat-raised-button (click)="changeOperation('create');">
           Crear Evento
         </button>
@@ -29,6 +37,8 @@
     <div class="example-sidenav-content">
     </div>
     <div *ngIf="this.currentOperation == ''" style="height: 500px; width: 500px">MANEGEMENT MODULE</div>
+    <app-event-type-management-create *ngIf="this.currentOperation == 'createType'"></app-event-type-management-create>
+    <app-event-type-management-delete *ngIf="this.currentOperation == 'deleteType'"></app-event-type-management-delete>
     <app-event-managment-create *ngIf="this.currentOperation == 'create'"></app-event-managment-create>
     <app-event-managment-read *ngIf="this.currentOperation == 'read'"></app-event-managment-read>
     <app-event-managment-update *ngIf="this.currentOperation == 'update'"></app-event-managment-update>

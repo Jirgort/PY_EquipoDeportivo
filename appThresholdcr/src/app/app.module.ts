@@ -43,6 +43,9 @@ import { EventManagmentDeleteComponent } from './components/adminModules/admin-e
 import { EventManagmentUpdateComponent } from './components/adminModules/admin-event/event-managment-update/event-managment-update.component';
 import { EventManagmentReadComponent } from './components/adminModules/admin-event/event-managment-read/event-managment-read.component';
 import { EventSidenavOperationsComponent } from './components/adminModules/admin-event/event-sidenav-operations/event-sidenav-operations.component';
+import { EventTypeManagementCreateComponent } from './components/adminModules/admin-event/event-type-management-create/event-type-management-create.component';
+import { EventTypeManagementDeleteComponent } from './components/adminModules/admin-event/event-type-management-delete/event-type-management-delete.component';
+
 
 @NgModule({
   declarations: [
@@ -76,6 +79,8 @@ import { EventSidenavOperationsComponent } from './components/adminModules/admin
     EventManagmentUpdateComponent,
     EventManagmentReadComponent,
     EventSidenavOperationsComponent,
+    EventTypeManagementCreateComponent,
+    EventTypeManagementDeleteComponent,
   ],
   imports: [
     BrowserModule,
