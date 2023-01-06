@@ -15,7 +15,7 @@
               <mat-form-field appearance="fill">
                 <mat-label>Tipo</mat-label>
                 <mat-select id="selectedType" #selectedType>
-                  <mat-option *ngFor="let class of classes" [value]="class">
+                  <mat-option *ngFor="let class of classes" [value]="classType">
                     {{class}}
                   </mat-option>
                 </mat-select>
@@ -25,7 +25,7 @@
 
               <mat-form-field appearance="fill">
                 <mat-label>Entrenador</mat-label>
-                <mat-select id="selectedCoach" #selectedCoach>
+                <mat-select id="selectedCoach" #selectedCoach formControlName="coachId" id="coachId">
                   <mat-option *ngFor="let coach of coaches;" [value]="coach._id">
                     {{coach.name}}
                   </mat-option>
@@ -34,13 +34,10 @@
 
             </div>
             <div class="form-outline input-group-sm" style="margin-bottom: 15px">
-              <label class="form-label" for="date">Fecha</label>
-              <input formControlName="date" type="text" id="date" class="form-control" placeholder="Fecha" ngModel
-                required />
 
               <mat-form-field appearance="fill">
                 <mat-label>Choose a date</mat-label>
-                <input matInput [matDatepicker]="picker">
+                <input matInput [matDatepicker]="picker" formControlName="date" id="date">
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>

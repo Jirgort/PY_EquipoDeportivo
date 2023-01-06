@@ -12,7 +12,7 @@ export class ClassesService {
     return this.http.post<any>(`${environment.URL}/createClass`, classes);
   }
 
-  readNews(): Observable<any> {
-    return this.http.get(`${environment.URL}/news`);
+  readClasses(): Observable<any> {
+    return this.http.get(`${environment.URL}/class`);
   }
 }

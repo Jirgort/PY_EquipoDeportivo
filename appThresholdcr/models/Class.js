@@ -4,7 +4,7 @@ const ClassesSchema = new Schema({
     title: String,
     type: String,
     coachId: Number,
-    date: String,
+    date: Date,
     room: Number
 });
 

@@ -14,7 +14,7 @@ export class ClassesManagementCreateComponent {
   coaches: any = ['a'];
   selectecCoach: any = '';
   startDate: any = '';
-
+  classType: any = '';
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
@@ -27,7 +27,7 @@ export class ClassesManagementCreateComponent {
   }
   registerForm = this.formBuilder.group({
     title: ['', Validators.required],
-    type: ['', Validators.required],
+    type: ['x', Validators.required],
     coachId: [0, Validators.required],
     date: ['', Validators.required],
     room: [0, Validators.required],
@@ -54,14 +54,13 @@ export class ClassesManagementCreateComponent {
 
   createClass(coach: any, classType: any, date: any) {
     //let coachData = JSON.stringify(coach.value);
-    console.log(coach.value);
-    console.log(date.getDate);
+    console.log('COACH ASSIGNED TO CLASS:' + coach.value);
+    console.log('CLASS TYPE ASSIGNED TO CLASS:' + this.classType);
 
     //this.registerForm.patchValue({ coachId: coach._id });
 
-    //this.registerForm.get('type')?.setValue(classType);
-    //this.registerForm.get('coachId')?.setValue(Number(coach));
-    //this.registerForm.get('date')?.setValue(date);
+    this.registerForm.get('type')?.setValue(this.classType);
+    this.registerForm.get('coachId')?.setValue(coach.value);
 
     this.classesService.createClass(this.registerForm.value).subscribe(
       (res) => {
