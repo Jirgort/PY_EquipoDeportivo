@@ -3,9 +3,10 @@ const { Schema, model } = require('mongoose');
 const ClassesSchema = new Schema({
     title: String,
     type: String,
-    coachId: Number,
+    coachId: String,
     date: Date,
-    room: Number
+    room: Number,
+    athletes: []
 });
 
 module.exports = model('Classes', ClassesSchema);

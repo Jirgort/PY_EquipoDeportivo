@@ -112,7 +112,7 @@ router.post('/signup',async(req,res)=>{
 
 router.post('/signin',async(req,res)=>{
     const{Contracena,Nombre,TypeUser}=req.body;
-    if(TypeUser=="Manager"){
+    if(TypeUser=="Admin"){
         const user=await User.findOne({Nombre});
         console.log(Nombre)
         console.log(user)
@@ -122,8 +122,7 @@ router.post('/signin',async(req,res)=>{
 
         const token=jwt.sign({_id:user._id}, 'secreteKey');
         return res.status(200).json({token})
-    }
-    if(TypeUser=="Trainer"){
+    } else if(TypeUser=="Entrenador"){
         const userName=Nombre;
         const coach=await Coach.findOne({userName});
         console.log(Nombre)
@@ -134,6 +133,18 @@ router.post('/signin',async(req,res)=>{
         if (coach.password !== Contracena) return res.status(401).send( 'wrong Password');
 
         const token=jwt.sign({_id:coach._id}, 'secreteKey');
+        return res.status(200).json({token})
+    } else if(TypeUser == "Atleta") {
+        const userName = Nombre;
+        const athlete = await Athlete.findOne({userName});
+        console.log(Nombre)
+        console.log(athlete)
+        console.log("xxxxxxxxxxxxxxxxxxxxx")
+        console.log(Contracena)
+        if (!athlete) return res.status(401).send("The athlete name doesn't exists");
+        if (athlete.password !== Contracena) return res.status(401).send( 'wrong Password');
+
+        const token=jwt.sign({_id:athlete._id}, 'secreteKey');
         return res.status(200).json({token})
     }
  

@@ -1,53 +1,53 @@
 <body>
     <div class="box">
         <span>
-       
+
             <div class="container p-5">
-            <div class="row">
-                <div class="card-md-4 mx-auto">
-                    
+                <div class="row">
+                    <div class="card-md-4 mx-auto">
+
                         <div class="card-header">
-                                <h3>Login</h3>
+                            <h3>Login</h3>
                         </div>
-                        
-                            <form (submit)="signIn()">
-                                 <div class="form-group ">
-                                    <div class="card-header">
-                                     <input type="text" [(ngModel)]="user.Nombre" name="name" class="form-control" placeholder="Name" required autofocus>
-                                    </div>
+
+                        <form (submit)="signIn()">
+                            <div class="form-group ">
+                                <div class="card-header">
+                                    <input type="text" [(ngModel)]="user.Nombre" name="name" class="form-control"
+                                        placeholder="Name" required autofocus>
                                 </div>
-                                <p></p>
-                                <div class="form-group ">
-                                    <div class="card-header">
-                                    <input type="text" [(ngModel)]="user.Contracena" name="password" class="form-control" placeholder="Password" required autofocus >
+                            </div>
+                            <p></p>
+                            <div class="form-group ">
+                                <div class="card-header">
+                                    <input type="text" [(ngModel)]="user.Contracena" name="password"
+                                        class="form-control" placeholder="Password" required autofocus>
                                 </div>
-                               </div>
-                               <div class="form-selector">
-                                    <label style="color: white;" for="typeUser">Choose a user:</label>
-                                    <select name="typeUser"[(ngModel)]="user.TypeUser" id="typeUser">
-                                    <option value="Manager">Manager</option>
-                                    <option value="Trainer">Trainer</option>
-                                    <option value="User">User</option>
-                                    </select>
-                               </div>
-                               <div class="card-headerB">
+                            </div>
+                            <div class="form-selector">
+                                <label style="color: white;" for="typeUser">Choose a user:</label>
+                                <select name="typeUser" [(ngModel)]="user.TypeUser" id="typeUser">
+                                    <option value="Admin">Admin</option>
+                                    <option value="Entrenador">Entrenador</option>
+                                    <option value="Atleta">Atleta</option>
+                                </select>
+                            </div>
+                            <div class="card-headerB">
                                 <br>
-                                <button type="submit" >Login</button>  
-                              </div>
-                              
-                            </form>
-                             
-                 
-                
+                                <button type="submit">Login</button>
+                            </div>
+
+                        </form>
+
+
+
+                    </div>
                 </div>
-              </div>      
             </div>
-               
-            
+
+
         </span>
-        
+
     </div>
-    
+
 </body>
-
-

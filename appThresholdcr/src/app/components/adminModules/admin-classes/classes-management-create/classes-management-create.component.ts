@@ -32,6 +32,7 @@ export class ClassesManagementCreateComponent {
     coachId: [0, Validators.required],
     date: ['', Validators.required],
     room: [0, Validators.required],
+    athletes: [[], Validators.required],
   });
   submit() {
     this.newClass(this.registerForm.value);

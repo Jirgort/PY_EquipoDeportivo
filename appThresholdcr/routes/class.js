@@ -9,11 +9,11 @@ const jwt =require('jsonwebtoken');
 
 // CLASSES OPERATIONS START.
 router.post('/createClass',async(req,res) => {
-	const { title, type, coachId, date, room } = req.body;
+	const { title, type, coachId, date, room, athletes } = req.body;
 	console.log("CLASS COACHID TO SAVE: " + req.body.coachId);
 	console.log("CLASS TYPE TO SAVE: " + req.body.type);
-	let coachIdInt = Number(coachId);
-	const newClass = new Class( {title, type, coachIdInt, date, room} );
+
+	const newClass = new Class( {title, type, coachId, date, room, athletes } );
 	await newClass.save();
 	const token = jwt.sign({_id: newClass._id},'secreteKey')
 
@@ -25,6 +25,13 @@ router.get('/class', function(req, res, next) {
 		.then((data) => res.json(data))
 		.catch((err) => res.status(500).json({ message: 'Error getting classes' }));
 });
+
+router.put('/class/enroll', async(req,res)=>{
+	const { id, user } = req.body;
+	console.log("USER " + user + " ENROLLING TO CLASS " + id);
+	Classes.updateOne({_id: id}, {$push: {"athletes.$[]": user}})
+  });
+// CLASSES OPERATIONS END.
 router.get('/classesTypes', function(req, res, next) {
 	Classes
 		.find()
@@ -54,7 +61,6 @@ router.post('/createClassesType',async(req,res)=>{
 		}
 	})
   });
-// CLASSES OPERATIONS END.
 
 
 

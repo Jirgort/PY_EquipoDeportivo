@@ -30,4 +30,8 @@ export class ClassesService {
   deleteClassesType(id: string): Observable<any> {
     return this.http.delete(`${environment.URL}/classesTypes/delete/${id}`);
   }
+
+  enrollClass(ids: any): Observable<any> {
+    return this.http.put(`${environment.URL}/class/enroll`, ids);
+  }
 }

@@ -37,26 +37,51 @@ export class LoginComponent implements OnInit {
       (res) => {
         console.log(this.user);
         localStorage.setItem('token', res.token);
-        if (this.user.TypeUser == 'Manager') {
+        if (this.user.TypeUser == 'Admin') {
           console.log(
             'ADMIN TOKEN INFO IS: ' + JSON.stringify(jwt_decode(res.token))
           );
           let userID: any = jwt_decode(res.token);
           this.router.navigate(['/adminHome']);
-          this.setLoggedInUser(this.user.TypeUser, userID._id);
+          this.setLoggedInUser(
+            this.user.TypeUser,
+            userID._id,
+            this.user.Nombre
+          );
           console.log(
             'USER TYPE IS: ' +
               this.user.TypeUser +
               ' AND USER ID IS: ' +
               userID._id
           );
-        } else if (this.user.TypeUser == 'Trainer') {
-          this.router.navigate(['/coach']);
+        } else if (this.user.TypeUser == 'Entrenador') {
+          this.router.navigate(['/mainContent']);
           console.log(
             'COACH TOKEN INFO IS: ' + JSON.stringify(jwt_decode(res.token))
           );
           let userID: any = jwt_decode(res.token);
-          this.setLoggedInUser(this.user.TypeUser, userID._id);
+          this.setLoggedInUser(
+            this.user.TypeUser,
+            userID._id,
+            this.user.Nombre
+          );
+          console.log(
+            'USER TYPE IS: ' +
+              this.user.TypeUser +
+              ' AND USER ID IS: ' +
+              userID._id
+          );
+        } else if (this.user.TypeUser == 'Atleta') {
+          this.router.navigate(['/mainContent']);
+          console.log(
+            'ATHLETE TOKEN INFO IS: ' + JSON.stringify(jwt_decode(res.token))
+          );
+          let userID: any = jwt_decode(res.token);
+          this.setLoggedInUser(
+            this.user.TypeUser,
+            userID._id,
+            this.user.Nombre
+          );
           console.log(
             'USER TYPE IS: ' +
               this.user.TypeUser +
@@ -71,7 +96,7 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  setLoggedInUser(userType: any, userID: any) {
-    this.currentUser.setCurrentUser(userType, userID);
+  setLoggedInUser(userType: any, userID: any, userName: any) {
+    this.currentUser.setCurrentUser(userType, userID, userName);
   }
 }

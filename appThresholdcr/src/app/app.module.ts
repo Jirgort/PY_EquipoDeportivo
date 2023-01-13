@@ -58,6 +58,7 @@ import { EventTypeManagementDeleteComponent } from './components/adminModules/ad
 import { ClassesTypeManagementCreateComponent } from './components/adminModules/admin-classes/classes-type-management-create/classes-type-management-create.component';
 import { ClassesTypeManagementDeleteComponent } from './components/adminModules/admin-classes/classes-type-management-delete/classes-type-management-delete.component';
 import { CurrentUserService } from 'src/app/services/current-user.service';
+import { MainContentComponent } from './components/main-content/main-content.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +101,7 @@ import { CurrentUserService } from 'src/app/services/current-user.service';
     EventTypeManagementDeleteComponent,
     ClassesTypeManagementCreateComponent,
     ClassesTypeManagementDeleteComponent,
+    MainContentComponent,
   ],
   imports: [
     BrowserModule,

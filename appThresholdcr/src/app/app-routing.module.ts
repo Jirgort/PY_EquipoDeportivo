@@ -13,6 +13,7 @@ import { SportSidenavOperationsComponent } from './components/adminModules/admin
 import { NewsSidenavOperationsComponent } from './components/adminModules/admin-news/news-sidenav-operations/news-sidenav-operations.component';
 import { ClassesSidenavOperationsComponent } from './components/adminModules/admin-classes/classes-sidenav-operations/classes-sidenav-operations.component';
 import { EventSidenavOperationsComponent } from './components/adminModules/admin-event/event-sidenav-operations/event-sidenav-operations.component';
+import { MainContentComponent } from './components/main-content/main-content.component';
 
 const routes: Routes = [
   {
@@ -63,6 +64,10 @@ const routes: Routes = [
   {
     path: 'eventsSidenav',
     component: EventSidenavOperationsComponent,
+  },
+  {
+    path: 'mainContent',
+    component: MainContentComponent,
   },
 ];
 

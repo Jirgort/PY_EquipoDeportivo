@@ -49,5 +49,20 @@ export class ClassesManagementReadComponent {
       this.enrollStatus = 'Matricular';
       this.enrollBtnClass = 'btn btn-success';
     }
+
+    const info = {
+      id: classID,
+      user: this.currrentUser.userName,
+    };
+    this.classService.enrollClass(info).subscribe({
+      next: (response: any) => {
+        console.log('ENROLLING TO CLASS');
+        this.allClasses = response;
+        console.log(this.allClasses);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 }
