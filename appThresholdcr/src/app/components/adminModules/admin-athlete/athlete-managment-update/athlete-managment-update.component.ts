@@ -6,7 +6,7 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-athlete-managment-update',
   templateUrl: './athlete-managment-update.component.html',
-  styleUrls: ['./athlete-managment-update.component.css']
+  styleUrls: ['./athlete-managment-update.component.css'],
 })
 export class AthleteManagmentUpdateComponent {
   athletes: any = ['hola', 'hello', 'jirgort'];
@@ -50,7 +50,6 @@ export class AthleteManagmentUpdateComponent {
   }
 
   updateAthlete() {
-
     console.log('BUTTON WAS CLICKED FOR: ' + this.athleteToUpdate._id);
     let testForm = JSON.stringify(this.updateForm.value);
     console.log('THE DATA TO PASS IS: ' + this.updateForm.value);
@@ -67,6 +66,7 @@ export class AthleteManagmentUpdateComponent {
           console.log(err);
         },
       });
+    this.getFuncionarios();
   }
 
   open(content: any, athlete: any) {

@@ -1,17 +1,16 @@
 <div class="container mt-3">
-    <div  class="row row-cols-1 row-cols-md-3 g-2">
-      <div *ngFor="let trainer of trainers">
-            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-              <div class="card-header">Entrenador</div>
-              <div class="card-body card-text-center">
-                <h6 class="card-title fs-6 text-center">Nombre: {{trainer.name}}</h6>
-                <h6 class="card-title fs-6 text-center">Nombre de usuario: {{trainer.userName}}</h6>
-                <h6 class="card-title fs-6 text-center">Age: {{trainer.age}}</h6>
-                <h6 class="card-title fs-6 text-center">Weight: {{trainer.weight}} kg</h6>
-                <h6 class="card-title fs-6 text-center">Height: {{trainer.height}} cm</h6>
-              </div>
-            </div>
+  <div class="row row-cols-1 row-cols-md-3 g-2">
+    <div *ngFor="let trainer of trainers">
+      <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">Entrenador</div>
+        <div class="card-body card-text-center">
+          <h6 class="card-title fs-6 text-center">Nombre: {{trainer.name}}</h6>
+          <h6 class="card-title fs-6 text-center">Nombre de usuario: {{trainer.userName}}</h6>
+          <h6 class="card-title fs-6 text-center">Fecha de Nacimiento: {{trainer.age}}</h6>
+          <h6 class="card-title fs-6 text-center">Peso: {{trainer.weight}} kg</h6>
+          <h6 class="card-title fs-6 text-center">Altura: {{trainer.height}} cm</h6>
         </div>
       </div>
+    </div>
+  </div>
 </div>
-  

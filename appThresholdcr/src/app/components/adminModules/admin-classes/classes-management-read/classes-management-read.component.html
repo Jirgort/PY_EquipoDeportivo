@@ -11,7 +11,7 @@
         </mat-card-content>
         <mat-card-actions>
           <p class="btn btn-warning">Cupo: {{ class.room }}</p>
-          <button class=" {{ this.enrollBtnClass }}" (click)="enroll()"> {{ this.enrollStatus }}</button>
+          <button ngClass="" (click)="enroll(class._id)"> {{ this.enrollStatus }}</button>
         </mat-card-actions>
       </mat-card>
     </div>

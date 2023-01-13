@@ -1,19 +1,21 @@
 import { Component } from '@angular/core';
-import { EventsService } from '../../../../services/events.service';
+import { ClassesService } from '../../../../services/classes.service';
+import { Router } from '@angular/router';
+
 @Component({
-  selector: 'app-event-type-management-delete',
-  templateUrl: './event-type-management-delete.component.html',
-  styleUrls: ['./event-type-management-delete.component.css'],
+  selector: 'app-classes-type-management-delete',
+  templateUrl: './classes-type-management-delete.component.html',
+  styleUrls: ['./classes-type-management-delete.component.css'],
 })
-export class EventTypeManagementDeleteComponent {
+export class ClassesTypeManagementDeleteComponent {
   events: any = ['hola', 'hello', 'jirgort'];
 
-  constructor(private eventsService: EventsService) {
-    this.getEvents();
+  constructor(private router: Router, private classesService: ClassesService) {
+    this.getClasses();
   }
 
-  getEvents() {
-    this.eventsService.getEventsType().subscribe({
+  getClasses() {
+    this.classesService.getClassesType().subscribe({
       next: (response: any) => {
         console.log('holaaaaaaaaaaaaaaaa');
         this.events = response;
@@ -25,8 +27,8 @@ export class EventTypeManagementDeleteComponent {
     });
   }
 
-  deleteEventType(event: any) {
-    this.eventsService.deleteEventType(event._id).subscribe({
+  deleteClassesType(event: any) {
+    this.classesService.deleteClassesType(event._id).subscribe({
       next: (response: any) => {
         console.log('********** TRAINER DELETED **********');
         this.events = response;
@@ -37,6 +39,6 @@ export class EventTypeManagementDeleteComponent {
         console.log(err);
       },
     });
-    this.getEvents();
+    this.getClasses();
   }
 }

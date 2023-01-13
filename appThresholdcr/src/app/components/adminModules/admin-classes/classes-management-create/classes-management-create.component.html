@@ -16,7 +16,7 @@
                 <mat-label>Tipo</mat-label>
                 <mat-select id="selectedType" #selectedType>
                   <mat-option *ngFor="let class of classes" [value]="classType">
-                    {{class}}
+                    {{class.type}}
                   </mat-option>
                 </mat-select>
               </mat-form-field>

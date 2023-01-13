@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SportService } from '../../../../services/sport.service';
 
-
 @Component({
   selector: 'app-sport-management-delete',
   templateUrl: './sport-management-delete.component.html',
-  styleUrls: ['./sport-management-delete.component.css']
+  styleUrls: ['./sport-management-delete.component.css'],
 })
 export class SportManagementDeleteComponent {
   sports: any = ['hola', 'hello', 'jirgort'];
@@ -40,5 +39,6 @@ export class SportManagementDeleteComponent {
         console.log(err);
       },
     });
+    this.getSport();
   }
 }

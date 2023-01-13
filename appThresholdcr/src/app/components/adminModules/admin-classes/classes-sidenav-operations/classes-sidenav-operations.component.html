@@ -9,6 +9,14 @@
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side">
     <div class="d-flex flex-column mb-3">
+      <h4>Tipos de clases</h4>
+      <button mat-raised-button (click)="changeOperation('createType');">
+        Crear tipo de Clase
+      </button>
+      <button mat-raised-button (click)="changeOperation('deleteType');">
+        Eliminar tipo Clase
+      </button>
+      <h4>Clases</h4>
       <button mat-raised-button (click)="changeOperation('create');">
         Crear Clase
       </button>
@@ -29,6 +37,8 @@
   <div class="example-sidenav-content">
   </div>
   <div *ngIf="this.currentOperation == ''" style="height: 500px; width: 500px">MANEGEMENT MODULE</div>
+  <app-classes-type-management-create *ngIf="this.currentOperation == 'createType'"></app-classes-type-management-create>
+  <app-classes-type-management-delete *ngIf="this.currentOperation == 'deleteType'"></app-classes-type-management-delete>
   <app-classes-management-create *ngIf="this.currentOperation == 'create'"></app-classes-management-create>
   <app-classes-management-read *ngIf="this.currentOperation == 'read'"></app-classes-management-read>
   <app-classes-management-edit *ngIf="this.currentOperation == 'update'"></app-classes-management-edit>

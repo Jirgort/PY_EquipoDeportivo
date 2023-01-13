@@ -1,20 +1,20 @@
 import { Component } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { AthleteService } from '../../../../services/athlete.service';
 
 @Component({
   selector: 'app-athlete-managment-delete',
   templateUrl: './athlete-managment-delete.component.html',
-  styleUrls: ['./athlete-managment-delete.component.css']
+  styleUrls: ['./athlete-managment-delete.component.css'],
 })
 export class AthleteManagmentDeleteComponent {
-  athletes: any =['hola', 'dan', 'marc'];
+  athletes: any = ['hola', 'dan', 'marc'];
 
-  constructor(private athleteService:AthleteService) {
+  constructor(private athleteService: AthleteService) {
     this.getDeportistas();
   }
 
-  getDeportistas(){
+  getDeportistas() {
     this.athleteService.getAthletes().subscribe({
       next: (response: any) => {
         console.log('entre atletas');
@@ -27,7 +27,7 @@ export class AthleteManagmentDeleteComponent {
     });
   }
 
-  deleteAthletes(depor : any) {
+  deleteAthletes(depor: any) {
     this.athleteService.deleteAthlete(depor._id).subscribe({
       next: (response: any) => {
         console.log('Deportista eliminado');
@@ -39,5 +39,6 @@ export class AthleteManagmentDeleteComponent {
         console.log(err);
       },
     });
+    this.getDeportistas();
   }
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ClassesService } from 'src/app/services/classes.service';
+import { CurrentUserService } from 'src/app/services/current-user.service';
 
 @Component({
   selector: 'app-classes-management-read',
@@ -11,10 +12,19 @@ export class ClassesManagementReadComponent {
   enrollStatus = 'Matricular';
   enrollBtnClass = 'btn btn-success';
 
-  constructor(private classService: ClassesService) {}
+  constructor(
+    private classService: ClassesService,
+    public currrentUser: CurrentUserService
+  ) {}
 
   ngOnInit(): void {
     this.getNews();
+    console.log(
+      'CURRENT USER TYPE IS: ' +
+        this.currrentUser.userType +
+        ' AND  USER ID IS: ' +
+        this.currrentUser.userID
+    );
   }
 
   private getNews() {
@@ -30,8 +40,14 @@ export class ClassesManagementReadComponent {
     });
   }
 
-  enroll() {
-    this.enrollStatus = 'Desmatricular';
-    this.enrollBtnClass = 'btn btn-danger';
+  enroll(classID: any) {
+    console.log('CLASS ID IS: ' + classID);
+    if (this.enrollStatus == 'Matricular') {
+      this.enrollStatus = 'Desmatricular';
+      this.enrollBtnClass = 'btn btn-danger';
+    } else {
+      this.enrollStatus = 'Matricular';
+      this.enrollBtnClass = 'btn btn-success';
+    }
   }
 }

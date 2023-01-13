@@ -55,6 +55,9 @@ import { EventManagmentReadComponent } from './components/adminModules/admin-eve
 import { EventSidenavOperationsComponent } from './components/adminModules/admin-event/event-sidenav-operations/event-sidenav-operations.component';
 import { EventTypeManagementCreateComponent } from './components/adminModules/admin-event/event-type-management-create/event-type-management-create.component';
 import { EventTypeManagementDeleteComponent } from './components/adminModules/admin-event/event-type-management-delete/event-type-management-delete.component';
+import { ClassesTypeManagementCreateComponent } from './components/adminModules/admin-classes/classes-type-management-create/classes-type-management-create.component';
+import { ClassesTypeManagementDeleteComponent } from './components/adminModules/admin-classes/classes-type-management-delete/classes-type-management-delete.component';
+import { CurrentUserService } from 'src/app/services/current-user.service';
 
 @NgModule({
   declarations: [
@@ -95,6 +98,8 @@ import { EventTypeManagementDeleteComponent } from './components/adminModules/ad
     EventSidenavOperationsComponent,
     EventTypeManagementCreateComponent,
     EventTypeManagementDeleteComponent,
+    ClassesTypeManagementCreateComponent,
+    ClassesTypeManagementDeleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -115,7 +120,7 @@ import { EventTypeManagementDeleteComponent } from './components/adminModules/ad
     MatNativeDateModule,
     MatInputModule,
   ],
-  providers: [DatePipe],
+  providers: [DatePipe, CurrentUserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

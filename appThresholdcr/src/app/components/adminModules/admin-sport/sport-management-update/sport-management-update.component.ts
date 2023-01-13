@@ -3,11 +3,10 @@ import { SportService } from '../../../../services/sport.service';
 import { Validators, FormBuilder } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-
 @Component({
   selector: 'app-sport-management-update',
   templateUrl: './sport-management-update.component.html',
-  styleUrls: ['./sport-management-update.component.css']
+  styleUrls: ['./sport-management-update.component.css'],
 })
 export class SportManagementUpdateComponent {
   sports: any = ['hola', 'hello', 'jirgort'];
@@ -16,7 +15,7 @@ export class SportManagementUpdateComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private sportService:SportService,
+    private sportService: SportService,
     private modalService: NgbModal
   ) {}
 
@@ -25,10 +24,10 @@ export class SportManagementUpdateComponent {
   });
 
   ngOnInit(): void {
-    this.getFuncionarios();
+    this.getSports();
   }
 
-  getFuncionarios() {
+  getSports() {
     this.sportService.getSports().subscribe({
       next: (response: any) => {
         console.log('hello');
@@ -62,6 +61,7 @@ export class SportManagementUpdateComponent {
           console.log(err);
         },
       });
+    this.getSports();
   }
 
   open(content: any, trainer: any) {

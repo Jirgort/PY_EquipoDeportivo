@@ -15,4 +15,19 @@ export class ClassesService {
   readClasses(): Observable<any> {
     return this.http.get(`${environment.URL}/class`);
   }
+
+  readNews(): Observable<any> {
+    return this.http.get(`${environment.URL}/news`);
+  }
+  getClassesType() {
+    return this.http.get(`${environment.URL}/classesTypes`);
+  }
+
+  newClassesType(event: any) {
+    return this.http.post<any>(`${environment.URL}/createClassesType`, event);
+  }
+
+  deleteClassesType(id: string): Observable<any> {
+    return this.http.delete(`${environment.URL}/classesTypes/delete/${id}`);
+  }
 }

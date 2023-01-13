@@ -10,7 +10,7 @@ import { TrainersService } from '../../../../services/trainers.service';
   styleUrls: ['./classes-management-create.component.css'],
 })
 export class ClassesManagementCreateComponent {
-  classes = ['a', 'b', 'c', 'd', 'e'];
+  classes: any = ['a', 'b', 'c', 'd', 'e'];
   coaches: any = ['a'];
   selectecCoach: any = '';
   startDate: any = '';
@@ -24,6 +24,7 @@ export class ClassesManagementCreateComponent {
 
   ngOnInit(): void {
     this.getCoaches();
+    this.getClassTypes();
   }
   registerForm = this.formBuilder.group({
     title: ['', Validators.required],
@@ -44,6 +45,18 @@ export class ClassesManagementCreateComponent {
       next: (response: any) => {
         console.log('holaaaaaaaaaaaaaaaa');
         this.coaches = response;
+        console.log(this.coaches);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  getClassTypes() {
+    this.classesService.getClassesType().subscribe({
+      next: (response: any) => {
+        this.classes = response;
         console.log(this.coaches);
       },
       error: (err) => {
