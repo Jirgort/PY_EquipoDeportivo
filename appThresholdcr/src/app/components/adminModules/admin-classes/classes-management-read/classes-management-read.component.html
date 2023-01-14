@@ -11,9 +11,21 @@
         </mat-card-content>
         <mat-card-actions>
           <p class="btn btn-warning">Cupo: {{ class.room }}</p>
-          <button ngClass="" (click)="enroll(class._id)"> {{ this.enrollStatus }}</button>
+          <button ngClass="{{ this.enrollClassBtn(class)? 'btn btn-danger' : 'btn btn-success' }}"
+            (click)="enroll(class._id, class)" [disabled]="class.room == 0"> {{
+            this.enrollStatusBtn(class)? 'Desmatricular' : 'Matricular'
+            }}</button>
         </mat-card-actions>
+        <div *ngIf="class.room == 0" class="d-flex justify-content-center">
+          <p style="color: red; font-weight: bolder;">CUPO AGOTADO</p>
+        </div>
       </mat-card>
     </div>
   </div>
 </div>
+
+<!--
+            <button ngClass="{{ this.enrollStatusBtn(class.athletes) }}" (click)="enroll(class._id, class)"> {{
+            this.enrollStatus
+            }}</button>
+-->

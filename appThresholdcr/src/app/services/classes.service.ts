@@ -34,4 +34,8 @@ export class ClassesService {
   enrollClass(ids: any): Observable<any> {
     return this.http.put(`${environment.URL}/class/enroll`, ids);
   }
+
+  enrollClassTest(id: string, data: any): Observable<any> {
+    return this.http.put(`${environment.URL}/class/put/${id}`, data);
+  }
 }

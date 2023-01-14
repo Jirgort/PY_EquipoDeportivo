@@ -6,6 +6,7 @@ const router =Router();
 const Class = require('../models/Class');
 const Classes = require('../models/ClassType');
 const jwt =require('jsonwebtoken');
+const Athlete = require('../models/Athlete');
 
 // CLASSES OPERATIONS START.
 router.post('/createClass',async(req,res) => {
@@ -29,8 +30,24 @@ router.get('/class', function(req, res, next) {
 router.put('/class/enroll', async(req,res)=>{
 	const { id, user } = req.body;
 	console.log("USER " + user + " ENROLLING TO CLASS " + id);
-	Classes.updateOne({_id: id}, {$push: {"athletes.$[]": user}})
+	Classes.findByIdAndUpdate({_id: id}, {$push: {"athletes.$[]": user}})
   });
+
+router.put('/class/put/:id', async(req, res, next) => {
+  console.log('BODY PARAMS ROOM ARE:' + req.body.room);
+  Class.findByIdAndUpdate(req.params.id, {
+      $set: req.body
+    }, (error, data) => {
+      if (error) {
+        return next(error);
+      } else {
+        res.json(data);
+        console.log('UPDATE DATA IS:' + data);
+        console.log('Data updated successfully');
+        return res.status(200).json;
+      }
+    })
+})
 // CLASSES OPERATIONS END.
 router.get('/classesTypes', function(req, res, next) {
 	Classes
