@@ -14,6 +14,14 @@ export class CurrentUserService {
     this.userType = userType;
     this.userID = userID;
     this.userName = userName;
+
+    localStorage.clear();
+    localStorage.removeItem('userType');
+    localStorage.setItem('userType', userType);
+    localStorage.removeItem('userID');
+    localStorage.setItem('userID', userID);
+    localStorage.removeItem('userName');
+    localStorage.setItem('userName', userName);
   }
 
   public getCurrentUserName() {
