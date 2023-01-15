@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import {EventsService} from '../../../../services/events.service';
 import { CurrentUserService } from 'src/app/services/current-user.service';
 import { Validators, FormBuilder } from '@angular/forms';
+
 @Component({
   selector: 'app-event-managment-read',
   templateUrl: './event-managment-read.component.html',
@@ -32,8 +32,6 @@ export class EventManagmentReadComponent {
         //console.log('ATHLETES IS: ' + events.athletes);
         let allAthletes: string[] = event.athletes;
         //console.log('ARRAY LEN IS: ' + allAthletes.length);
-        console.log("largo de atletas: ")
-        console.log(allAthletes.length)
         if (allAthletes.length > 0) {
           if (allAthletes.includes(this.currrentUser.userName)) {
             this.enrollStatus = 'Abandonar';
