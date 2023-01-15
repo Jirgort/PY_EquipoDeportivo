@@ -21,7 +21,8 @@ export class NewsManagementCreateComponent {
     title: ['', Validators.required],
     date: ['', Validators.required],
     content: ['', Validators.required],
-    votes: ['', Validators.required],
+    upVotes: [[''], Validators.required],
+    downVotes: [[''], Validators.required],
   });
 
   createNews(): void {
@@ -32,7 +33,6 @@ export class NewsManagementCreateComponent {
     );
 
     this.newsForm.get('date')?.setValue(currentDateTime);
-    this.newsForm.get('votes')?.setValue('0');
 
     console.log('NEWS DATA IS: ' + JSON.stringify(this.newsForm.value));
     this.newsService.createNews(this.newsForm.value).subscribe(

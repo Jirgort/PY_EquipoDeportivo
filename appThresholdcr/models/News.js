@@ -4,7 +4,9 @@ const NewsSchema = new Schema({
     title: String,
     content: String,
     date: Date,
-    votes: Number
+    upVotes: [],
+    downVotes: []
+
 });
 
 module.exports = model('News', NewsSchema);

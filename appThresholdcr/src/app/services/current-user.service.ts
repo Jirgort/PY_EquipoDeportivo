@@ -29,14 +29,4 @@ export class CurrentUserService {
       localStorage.getItem('userFullName') != null ? 'VAL' : 'NOVAL'
     );
   }
-
-  public getCurrentUserName() {
-    return this.userName;
-  }
-  public getCurrentUserType() {
-    return this.userType;
-  }
-  public getCurrentUserID() {
-    return this.userID;
-  }
 }

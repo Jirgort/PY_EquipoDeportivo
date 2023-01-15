@@ -38,6 +38,23 @@ router.delete('/news/delete/:id', async(req,res)=>{
         }
     })
 })
+
+// PUT/VOTE
+router.put('/news/put/:id', async(req, res, next) => {
+    console.log('BODY PARAMS ROOM ARE:' + req.body.room);
+    News.findByIdAndUpdate(req.params.id, {
+        $set: req.body
+      }, (error, data) => {
+        if (error) {
+          return next(error);
+        } else {
+          res.json(data);
+          console.log('UPDATE DATA IS:' + data);
+          console.log('Data updated successfully');
+          return res.status(200).json;
+        }
+      })
+  })
 // NEWS OPERATIONS END.
 
 module.exports=router;

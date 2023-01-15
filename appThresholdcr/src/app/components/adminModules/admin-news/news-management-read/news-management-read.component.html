@@ -10,9 +10,14 @@
           <p>{{ news.content }}</p>
         </mat-card-content>
         <mat-card-actions>
-          <p>({{ news.votes }})</p>
-          <button mat-button>LIKE</button>
-          <button mat-button>DISLIKE</button>
+          <!-- <p>({{ news.votes }})</p> -->
+          <button
+            ngClass="{{ this.voteStatusBtn(news) == 'novote'? 'btn btn-outline-success' : 'btn btn-outline-success' }}"
+            style="margin-right: 25px" (click)="this.vote(news._id, news, 'like')">¡Me gusta!</button>
+          <button
+            ngClass="{{ this.voteStatusBtn(news) == 'novote'? 'btn btn-outline-danger' : 'btn btn-outline-danger' }}"
+            (click)="this.vote(news._id, news, 'dislike')">¡No me
+            gusta!</button>
         </mat-card-actions>
       </mat-card>
     </div>

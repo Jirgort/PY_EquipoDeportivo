@@ -33,6 +33,10 @@ export class ClassesManagementReadComponent {
 
   ngOnInit(): void {
     this.getClasses();
+    this.refreshUserInfo();
+  }
+
+  refreshUserInfo() {
     this.currrentUser.setCurrentUser(
       localStorage.getItem('userType'),
       localStorage.getItem('userID'),
@@ -63,10 +67,7 @@ export class ClassesManagementReadComponent {
   }
 
   public enrollStatusBtn(classes: any) {
-    //console.log('CLASS IS: ' + JSON.stringify(classes));
-    //console.log('ATHLETES IS: ' + classes.athletes);
     let allAthletes: string[] = classes.athletes;
-    //console.log('ARRAY LEN IS: ' + allAthletes.length);
 
     if (allAthletes.length > 0) {
       if (allAthletes.includes(this.currrentUser.userName)) {

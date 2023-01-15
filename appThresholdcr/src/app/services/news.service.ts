@@ -19,4 +19,8 @@ export class NewsService {
   deleteNews(id: string): Observable<any> {
     return this.http.delete(`${environment.URL}/news/delete/${id}`);
   }
+
+  voteNews(id: string, data: any): Observable<any> {
+    return this.http.put(`${environment.URL}/news/put/${id}`, data);
+  }
 }
