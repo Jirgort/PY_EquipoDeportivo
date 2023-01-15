@@ -6,7 +6,8 @@ const EventSchema = new Schema({
     sportClass: String,
     content: String,
     date: Date,
-    maxMember: String
+    maxMember: String,
+    athletes:[]
 });
 
 module.exports = model('Event', EventSchema);
