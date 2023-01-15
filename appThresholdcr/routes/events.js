@@ -84,4 +84,26 @@ router.delete('/eventsTypes/delete/:id', async(req,res)=>{
       }
   })
 });
+
+router.put('/event/enroll', async(req,res)=>{
+	const { id, user } = req.body;
+	console.log("USER " + user + " ENROLLING TO CLASS " + id);
+	EventType.findByIdAndUpdate({_id: id}, {$push: {"athletes.$[]": user}})
+  });
+
+router.put('/event/put/:id', async(req, res, next) => {
+  console.log('BODY PARAMS ROOM ARE:' + req.body.room);
+  Event.findByIdAndUpdate(req.params.id, {
+      $set: req.body
+    }, (error, data) => {
+      if (error) {
+        return next(error);
+      } else {
+        res.json(data);
+        console.log('UPDATE DATA IS:' + data);
+        console.log('Data updated successfully');
+        return res.status(200).json;
+      }
+    })
+})
 module.exports = router;

@@ -51,5 +51,11 @@ export class EventsService {
   deleteEventType(id: string): Observable<any> {
     return this.http.delete(`${environment.URL}/eventsTypes/delete/${id}`);
   }
+  enrollEvent(ids: any): Observable<any> {
+    return this.http.put(`${environment.URL}/event/enroll`, ids);
+  }
 
+  enrollEventTest(id: string, data: any): Observable<any> {
+    return this.http.put(`${environment.URL}/event/put/${id}`, data);
+  }
 }
