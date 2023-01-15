@@ -2,7 +2,7 @@
     <div  class="row row-cols-1 row-cols-md-3 g-2">
       <div *ngFor="let event of events">
             <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-              <div class="card-header">Evento</div>
+              <div class="card-header">{{event.type}}</div>
               <div class="card-body card-text-center">
                 <h6 class="card-title fs-6 text-center">Tipo: {{event.type}}</h6>
                 <h6 class="card-title fs-6 text-center">Titulo: {{event.title}}</h6>
@@ -13,4 +13,30 @@
         </div>
       </div>
 </div>
+<div class="container">
+  <div *ngFor="let event of events">
+    <div class="card">
+      <div class="face face1">
+        <div class="content">
+          <span class="stars"></span>
+          <h2 class="java">{{event.title}}</h2>
+          <p class="java">{{event.content}}</p>
+          <button class="button2">Participar</button>
+        </div>
+      </div>
+      <div class="face face2">
+        <div class="content">
+          <h1>{{event.sportClass}}</h1>
+       
+          <h2>{{event.type}}</h2>
+
+        </div>
+       
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+
   
