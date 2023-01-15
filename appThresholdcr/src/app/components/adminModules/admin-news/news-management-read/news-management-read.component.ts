@@ -4,6 +4,8 @@ import { CurrentUserService } from 'src/app/services/current-user.service';
 import { Validators, FormBuilder } from '@angular/forms';
 import { TrainersService } from '../../../../services/trainers.service';
 import { Observable, Subscription, interval } from 'rxjs';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-news-management-read',
@@ -15,12 +17,15 @@ export class NewsManagementReadComponent {
   voteStatus = 'novote';
   upVoteBtnClass = 'btn btn-outline-success';
   downVoteBtnClass = 'btn btn-outline-danger';
+  closeResult = '';
+
   private updateSubscription: any;
   constructor(
     private newsService: NewsService,
     public currrentUser: CurrentUserService,
     private formBuilder: FormBuilder,
-    private trainersService: TrainersService
+    private trainersService: TrainersService,
+    private modalService: NgbModal
   ) {}
 
   newsInfo = this.formBuilder.group({
@@ -32,10 +37,10 @@ export class NewsManagementReadComponent {
   });
 
   ngOnInit(): void {
-    this.getNews();
-    //this.updateSubscription = interval(1000).subscribe((val) => {
-    //  this.getNews();
-    //});
+    //this.getNews();
+    this.updateSubscription = interval(1000).subscribe((val) => {
+      this.getNews();
+    });
     this.refreshUserInfo();
   }
 
@@ -172,5 +177,28 @@ export class NewsManagementReadComponent {
     });
     await this.getNews();
     return '';
+  }
+
+  open(content: any) {
+    this.modalService
+      .open(content, { ariaLabelledBy: 'modal-basic-title' })
+      .result.then(
+        (result) => {
+          this.closeResult = `Closed with: ${result}`;
+        },
+        (reason) => {
+          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        }
+      );
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
 }

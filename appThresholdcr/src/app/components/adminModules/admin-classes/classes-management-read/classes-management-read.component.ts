@@ -3,6 +3,7 @@ import { ClassesService } from 'src/app/services/classes.service';
 import { CurrentUserService } from 'src/app/services/current-user.service';
 import { Validators, FormBuilder } from '@angular/forms';
 import { TrainersService } from '../../../../services/trainers.service';
+import { Observable, Subscription, interval } from 'rxjs';
 
 @Component({
   selector: 'app-classes-management-read',
@@ -14,6 +15,8 @@ export class ClassesManagementReadComponent {
   enrollStatus = 'Matricular';
   enrollBtnClass = 'btn btn-success';
   coach: any;
+
+  private updateSubscription: any;
 
   constructor(
     private classService: ClassesService,
@@ -32,7 +35,10 @@ export class ClassesManagementReadComponent {
   });
 
   ngOnInit(): void {
-    this.getClasses();
+    //this.getClasses();
+    this.updateSubscription = interval(1000).subscribe((val) => {
+      this.getClasses();
+    });
     this.refreshUserInfo();
   }
 

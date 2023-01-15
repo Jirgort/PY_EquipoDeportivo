@@ -20,6 +20,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
+import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 
 import { AdminHomeComponent } from './components/adminModules/admin-home/admin-home.component';
 
@@ -123,6 +124,7 @@ import { MainContentComponent } from './components/main-content/main-content.com
     MatNativeDateModule,
     MatInputModule,
     NgbPopoverModule,
+    MdbTabsModule,
   ],
   providers: [DatePipe, CurrentUserService],
   bootstrap: [AppComponent],

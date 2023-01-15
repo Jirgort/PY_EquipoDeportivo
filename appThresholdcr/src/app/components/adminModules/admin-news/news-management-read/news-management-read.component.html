@@ -1,5 +1,8 @@
 <link rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <div class="d-flex justify-content-center">
   <div class="d-flex flex-column-reverse">
     <div style="border-style:solid; border-color: black; margin: 15px;" *ngFor="let news of allNews">
@@ -10,17 +13,6 @@
         </mat-card-header>
         <mat-card-content>
           <p>{{ news.content }}</p>
-          <div class="d-flex flex-row mb-3">
-            <h3>----- LIKES: </h3>
-            <div *ngFor="let user of news.upVotes">
-              <h3> - {{ user }} </h3>
-            </div>
-            <h3>----- DISLIKES: </h3>
-            <div *ngFor="let user of news.downVotes">
-              <h3> - {{ user }} </h3>
-            </div>
-          </div>
-
         </mat-card-content>
         <mat-card-actions>
           <!-- <p>({{ news.votes }})</p> -->
@@ -31,15 +23,83 @@
             ngClass="{{ this.voteStatusBtn(news) == 'novote'? 'btn btn-outline-danger' : this.voteStatusBtn(news) == 'disliked'? 'btn btn-danger' : 'btn btn-outline-danger'}}"
             (click)="this.vote(news._id, news, 'dislike')">¡No me
             gusta!</button>
-          <button mat-icon-button color="warn" ngbPopover="¡Mira quien reaccionó!" triggers="mouseenter:mouseleave">
+          <button mat-icon-button color="warn" ngbPopover="¡Mira quien reaccionó!" triggers="mouseenter:mouseleave"
+            (click)="open(content)">
             <mat-icon>favorite</mat-icon>
           </button>
           <p>{{ news.upVotes.length + news.downVotes.length }}</p>
           <button class="material-symbols-outlined" style="border-style:hidden; background-color:white; color:red"
-            ngbPopover="¡Más información!" triggers="mouseenter:mouseleave" (click)="test();">
+            (click)="open(content)" ngbPopover="¡Más información!" triggers="mouseenter:mouseleave" (click)="test();">
             info
           </button>
           <p>{{ news.upVotes.length + news.downVotes.length }}</p>
+
+          <!-- MODAL STARTS HERE -->
+          <ng-template #content let-modal>
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title" style="height: 5px">Interactions</h4>
+              <button type="button" class="btn-close" aria-label="Close"
+                (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="modal-body">
+              <div class="d-flex justify-content-between">
+                <!--TABLE OF LIKES START -->
+
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">User</th>
+                      <th scope="col">Reacción</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let voter of news.upVotes; index as i">
+                      <th scope="row">{{ i + 1 }}</th>
+                      <td>{{ voter }}</td>
+                      <td> <mat-icon color="warn">favorite</mat-icon>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <!--TABLE OF LIKES END -->
+                <mat-divider vertical style="height:auto; margin:15px;"></mat-divider>
+                <!--TABLE OF DISLIKES START -->
+
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">User</th>
+                      <th scope="col">Reacción</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let voter of news.downVotes index as i">
+                      <th scope="row">{{ i + 1 }}</th>
+                      <td>{{ voter }}</td>
+                      <td>
+                        <span class="material-symbols-outlined" style="background-color:transparent; color:black">
+                          thumb_down_off
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <!--TABLE OF DISLIKES END -->
+              </div>
+
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+              </div>
+            </div>
+
+          </ng-template>
+
+          <!-- MODAL ENDS HERE-->
         </mat-card-actions>
       </mat-card>
     </div>

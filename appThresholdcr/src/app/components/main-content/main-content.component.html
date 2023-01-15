@@ -1,3 +1,39 @@
-<app-news-management-read></app-news-management-read>
-<app-classes-management-read></app-classes-management-read>
-<app-event-managment-read></app-event-managment-read>
+<header>
+  <!-- <a href="https://strava.app.link/wFL2vCxcCwb" target="_blank">Strava Results</a> -->
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <div class="d-flex justify-content-center">
+        <div class="d-flex flex-column mb-3">
+          <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).webp" class="rounded-circle" height="125px"
+            alt="" loading="lazy" />
+          <h1 class="text-white h4" style="justify-self:center">{{ this.currentUser.userName }}</h1>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+</header>
+<mdb-tabs [pills]="true" [justified]="true">
+  <mdb-tab title="Noticias">
+    <app-news-management-read></app-news-management-read>
+  </mdb-tab>
+  <mdb-tab title="Clases">
+    <app-classes-management-read></app-classes-management-read>
+  </mdb-tab>
+  <mdb-tab title="Eventos">
+    <app-event-managment-read></app-event-managment-read>
+  </mdb-tab>
+</mdb-tabs>
+
+<!--
+<img src="https://source.unsplash.com/random?sig={{getRandomNumber()}}" style="height:fit-content; width:1000px">
+-->
