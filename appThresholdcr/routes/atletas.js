@@ -16,6 +16,15 @@ router.get('/athletes', function(req, res, next) {
         .catch((err) => res.status(500).json({ message: 'Error getting athlete' }));
 });
 
+router.get('/athletes/:id', function(req, res, next) {
+	Athlete.findById(req.params.id, (error, data) => {
+    if (error) {
+      return next(error)
+    } else {
+      res.json(data)
+    }
+  })
+});
 
 router.post('/registrarAtleta',async(req,res)=>{
     

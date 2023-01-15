@@ -7,6 +7,7 @@ export class CurrentUserService {
   public userType: any;
   public userID: any;
   public userName: any;
+  public userFullName: any;
 
   constructor() {}
 
@@ -22,6 +23,11 @@ export class CurrentUserService {
     localStorage.setItem('userID', userID);
     localStorage.removeItem('userName');
     localStorage.setItem('userName', userName);
+    //localStorage.removeItem('userFullName');
+    localStorage.setItem(
+      'userFullName',
+      localStorage.getItem('userFullName') != null ? 'VAL' : 'NOVAL'
+    );
   }
 
   public getCurrentUserName() {
