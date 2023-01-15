@@ -13,6 +13,17 @@ router.get('/trainers', function(req, res, next) {
 		.then((data) => res.json(data))
 		.catch((err) => res.status(500).json({ message: 'Error getting trainers' }));
 });
+
+router.get('/trainers/:id', function(req, res, next) {
+	Coach.findById(req.params.id, (error, data) => {
+    if (error) {
+      return next(error)
+    } else {
+      res.json(data)
+    }
+  })
+});
+
 router.post('/registrarEntrenador',async(req,res)=>{
     const {name,userName,password,age,weight,height}=req.body;
     console.log("COACH TO SAVE: " + req.body.age);

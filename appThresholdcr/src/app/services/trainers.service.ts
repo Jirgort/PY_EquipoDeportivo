@@ -22,7 +22,7 @@ export class TrainersService {
    * @returns {Observable<any>} Observable con el entrenador en formato json
    */
   getTrainer(id: string): Observable<any> {
-    return this.http.get(`${environment.URL}/trainer/${id}`);
+    return this.http.get(`${environment.URL}/trainers/${id}`);
   }
 
   newTrainer(user: any) {

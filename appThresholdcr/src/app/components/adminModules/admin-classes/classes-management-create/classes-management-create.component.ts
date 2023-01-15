@@ -12,6 +12,7 @@ import { TrainersService } from '../../../../services/trainers.service';
 export class ClassesManagementCreateComponent {
   classes: any = ['a', 'b', 'c', 'd', 'e'];
   coaches: any = ['a'];
+  coach: any;
   selectecCoach: any = '';
   startDate: any = '';
   classType: any = '';
@@ -46,7 +47,7 @@ export class ClassesManagementCreateComponent {
       next: (response: any) => {
         console.log('holaaaaaaaaaaaaaaaa');
         this.coaches = response;
-        console.log(this.coaches);
+        //console.log(this.coaches);
       },
       error: (err) => {
         console.log(err);
@@ -69,11 +70,11 @@ export class ClassesManagementCreateComponent {
   createClass(coach: any, classType: any, date: any) {
     //let coachData = JSON.stringify(coach.value);
     console.log('COACH ASSIGNED TO CLASS:' + coach.value);
-    console.log('CLASS TYPE ASSIGNED TO CLASS:' + this.classType);
+    console.log('CLASS TYPE ASSIGNED TO CLASS:' + classType.value);
 
     //this.registerForm.patchValue({ coachId: coach._id });
 
-    this.registerForm.get('type')?.setValue(this.classType);
+    this.registerForm.get('type')?.setValue(classType.value);
     this.registerForm.get('coachId')?.setValue(coach.value);
 
     this.classesService.createClass(this.registerForm.value).subscribe(

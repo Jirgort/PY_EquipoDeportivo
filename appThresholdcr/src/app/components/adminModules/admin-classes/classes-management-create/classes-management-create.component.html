@@ -15,7 +15,7 @@
               <mat-form-field appearance="fill">
                 <mat-label>Tipo</mat-label>
                 <mat-select id="selectedType" #selectedType>
-                  <mat-option *ngFor="let class of classes" [value]="classType">
+                  <mat-option *ngFor="let class of classes" [value]="class.type">
                     {{class.type}}
                   </mat-option>
                 </mat-select>

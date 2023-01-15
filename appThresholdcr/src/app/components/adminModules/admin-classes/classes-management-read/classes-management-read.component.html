@@ -9,23 +9,20 @@
         <mat-card-content>
           <p>Tipo de clase: {{ class.type }}</p>
         </mat-card-content>
-        <mat-card-actions>
-          <p class="btn btn-warning">Cupo: {{ class.room }}</p>
-          <button ngClass="{{ this.enrollClassBtn(class)? 'btn btn-danger' : 'btn btn-success' }}"
-            (click)="enroll(class._id, class)" [disabled]="class.room == 0"> {{
+        <mat-card-actions style="justify-content:space-between">
+          <button class="btn btn-outline-info">Cupo: {{ class.room }}</button>
+          <button id="enrollBtn" #enrollBtn
+            ngClass="{{ this.enrollClassBtn(class)? 'btn btn-danger' : 'btn btn-success' }}"
+            (click)="enroll(class._id, class, enrollBtn.value)"
+            [disabled]="class.room == 0 && !this.enrollStatusBtn(class)"
+            [value]="this.enrollStatusBtn(class)? 'Desmatricular' : 'Matricular'"> {{
             this.enrollStatusBtn(class)? 'Desmatricular' : 'Matricular'
             }}</button>
         </mat-card-actions>
         <div *ngIf="class.room == 0" class="d-flex justify-content-center">
-          <p style="color: red; font-weight: bolder;">CUPO AGOTADO</p>
+          <p style="font-weight: bolder;" class="btn btn-danger">¡CUPO AGOTADO!</p>
         </div>
       </mat-card>
     </div>
   </div>
 </div>
-
-<!--
-            <button ngClass="{{ this.enrollStatusBtn(class.athletes) }}" (click)="enroll(class._id, class)"> {{
-            this.enrollStatus
-            }}</button>
--->
