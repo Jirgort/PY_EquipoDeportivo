@@ -5,7 +5,8 @@
         <div class="content">
           <span class="stars"></span>
           <h2 class="java">{{event.title}}</h2>
-          <p class="java">{{event.content}}</p>
+          <p class="java">Descripcion de evento: {{event.content}}</p>
+          <p class="java">Fecha: {{event.date}}</p>
           <button class="button2" id="enrollBtn" #enrollBtn  
             (click)="enroll(event._id, event, enrollBtn.value)"
             [value]="this.enrollStatusBtn(event)? 'Abandonar' : 'Participar'">{{

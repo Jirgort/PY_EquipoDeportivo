@@ -34,7 +34,7 @@ export class EventManagmentCreateComponent {
     }
 
     newEvent(event: any): void {
-      let currentDateTime = this.datepipe.transform(
+      /*let currentDateTime = this.datepipe.transform(
         new Date(),
         'MM/dd/yyyy h:mm:ss'
       );
@@ -48,7 +48,7 @@ export class EventManagmentCreateComponent {
         (err) => {
           console.log(err);
         }
-      );
+      );*/
     }
     getEventTypes() {
       this.eventsService.getEventsType().subscribe({
