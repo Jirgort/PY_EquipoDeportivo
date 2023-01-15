@@ -15,6 +15,7 @@ router.get('/events', function(req, res, next) {
 		.catch((err) => res.status(500).json({ message: 'Error getting events' }));
 });
 router.get('/eventsTypes', function(req, res, next) {
+  console.log('Data updated successfully');
 	EventType
 		.find()
 		.then((data) => res.json(data))
