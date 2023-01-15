@@ -3,6 +3,8 @@ import { NewsService } from '../../../../services/news.service';
 import { CurrentUserService } from 'src/app/services/current-user.service';
 import { Validators, FormBuilder } from '@angular/forms';
 import { TrainersService } from '../../../../services/trainers.service';
+import { Observable, Subscription, interval } from 'rxjs';
+
 @Component({
   selector: 'app-news-management-read',
   templateUrl: './news-management-read.component.html',
@@ -13,7 +15,7 @@ export class NewsManagementReadComponent {
   voteStatus = 'novote';
   upVoteBtnClass = 'btn btn-outline-success';
   downVoteBtnClass = 'btn btn-outline-danger';
-
+  private updateSubscription: any;
   constructor(
     private newsService: NewsService,
     public currrentUser: CurrentUserService,
@@ -31,6 +33,9 @@ export class NewsManagementReadComponent {
 
   ngOnInit(): void {
     this.getNews();
+    //this.updateSubscription = interval(1000).subscribe((val) => {
+    //  this.getNews();
+    //});
     this.refreshUserInfo();
   }
 
@@ -64,20 +69,20 @@ export class NewsManagementReadComponent {
     });
   }
 
+  public test() {
+    console.log('BUTTON PRESSED.........');
+  }
   public voteStatusBtn(news: any) {
     let upVotes: string[] = news.upVotes;
     let downVotes: string[] = news.downVotes;
 
     if (upVotes.length > 0) {
       if (upVotes.includes(this.currrentUser.userName)) {
-        this.upVoteBtnClass = 'btn btn-success';
-        this.voteStatus = 'liked';
         return 'liked';
       }
-    } else if (downVotes.length > 0) {
+    }
+    if (downVotes.length > 0) {
       if (downVotes.includes(this.currrentUser.userName)) {
-        this.downVoteBtnClass = 'btn btn-danger';
-        this.voteStatus = 'disliked';
         return 'disliked';
       }
     }
@@ -99,39 +104,49 @@ export class NewsManagementReadComponent {
     //return false;
   }
 
-  vote(newsID: any, newsObject: any, action: any) {
+  async vote(newsID: any, newsObject: any, action: any) {
     console.log('NEWS IS: ' + JSON.stringify(newsObject));
     console.log('ACTION IS: ' + action);
     // Updates class info...
     let newsUpVotes: any[] = newsObject.upVotes;
-    let newsdownVotes: any[] = newsObject.downVotes;
+    let newsDownVotes: any[] = newsObject.downVotes;
     // If user likes...
     if (action == 'like') {
       // first checks it user already liked...
       if (newsUpVotes.includes(this.currrentUser.userName)) {
+        console.log('CANCELLING LIKE VOTE');
         let athleteIndex = newsUpVotes.lastIndexOf(this.currrentUser.userName);
         newsUpVotes.splice(athleteIndex, 1);
-        //this.upVoteBtnClass = 'btn btn-outline-success';
-        this.voteStatus = 'novote';
-        //return 'btn btn-outline-success';
       } else {
+        console.log('NEW LIKE VOTE');
+        // If the user already disliked the news, we remove it.
+        if (newsDownVotes.includes(this.currrentUser.userName)) {
+          let athleteIndex = newsDownVotes.lastIndexOf(
+            this.currrentUser.userName
+          );
+          newsDownVotes.splice(athleteIndex, 1);
+        }
+        // and then add the vote to upvotes.
         newsUpVotes.push(this.currrentUser.userName);
-        //this.upVoteBtnClass = 'btn btn-success';
-        this.voteStatus = 'liked';
-        //return 'btn btn-success';
       }
     } else if (action == 'dislike') {
-      // first checks it user already liked...
-      if (newsdownVotes.includes(this.currrentUser.userName)) {
-        let athleteIndex = this.downVoteBtnClass.lastIndexOf(
+      // first checks it user already disliked...
+      if (newsDownVotes.includes(this.currrentUser.userName)) {
+        console.log('CANCELLING DISLIKE VOTE');
+        let athleteIndex = newsDownVotes.lastIndexOf(
           this.currrentUser.userName
         );
-        newsdownVotes.splice(athleteIndex, 1);
-        //this.downVoteBtnClass = 'btn btn-outline-danger';
-        this.voteStatus = 'novote';
-        //return 'btn btn-outline-danger';
+        newsDownVotes.splice(athleteIndex, 1);
       } else {
-        newsdownVotes.push(this.currrentUser.userName);
+        // if the user already liked the news, we remove it.
+        if (newsUpVotes.includes(this.currrentUser.userName)) {
+          let athleteIndex = newsUpVotes.lastIndexOf(
+            this.currrentUser.userName
+          );
+          newsUpVotes.splice(athleteIndex, 1);
+        }
+        // and then add the vote to downvotes.
+        newsDownVotes.push(this.currrentUser.userName);
         //this.downVoteBtnClass = 'btn btn-danger';
         this.voteStatus = 'disliked';
         //return 'btn btn-danger';
@@ -141,7 +156,7 @@ export class NewsManagementReadComponent {
     this.newsInfo.get('date')?.setValue(newsObject.type);
     this.newsInfo.get('content')?.setValue(newsObject.coachId);
     this.newsInfo.get('upVotes')?.setValue(newsUpVotes);
-    this.newsInfo.get('downVotes')?.setValue(newsdownVotes);
+    this.newsInfo.get('downVotes')?.setValue(newsDownVotes);
 
     // Service call to API.
     this.newsService.voteNews(newsID, this.newsInfo.value).subscribe({
@@ -155,7 +170,7 @@ export class NewsManagementReadComponent {
         console.log(err);
       },
     });
-    this.getNews();
+    await this.getNews();
     return '';
   }
 }

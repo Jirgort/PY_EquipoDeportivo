@@ -19,6 +19,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
+import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AdminHomeComponent } from './components/adminModules/admin-home/admin-home.component';
 
@@ -121,6 +122,7 @@ import { MainContentComponent } from './components/main-content/main-content.com
     MatDatepickerModule,
     MatNativeDateModule,
     MatInputModule,
+    NgbPopoverModule,
   ],
   providers: [DatePipe, CurrentUserService],
   bootstrap: [AppComponent],
