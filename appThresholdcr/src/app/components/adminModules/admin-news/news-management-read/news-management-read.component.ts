@@ -37,10 +37,12 @@ export class NewsManagementReadComponent {
   });
 
   ngOnInit(): void {
-    //this.getNews();
+    this.getNews();
+    /*
     this.updateSubscription = interval(1000).subscribe((val) => {
       this.getNews();
     });
+    */
     this.refreshUserInfo();
   }
 

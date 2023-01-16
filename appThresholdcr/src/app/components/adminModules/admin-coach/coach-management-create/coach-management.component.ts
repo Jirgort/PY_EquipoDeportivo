@@ -24,7 +24,7 @@ export class CoachManagementComponent {
   });
   submit() {
     this.newTrainer(this.registerForm.value);
-    this.router.navigate(['/adminHome']);
+    //this.router.navigate(['/adminHome']);
   }
   newTrainer(trainer: any): void {
     this.trainersService.newTrainer(this.registerForm.value).subscribe(

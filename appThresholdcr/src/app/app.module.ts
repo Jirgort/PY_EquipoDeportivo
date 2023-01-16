@@ -61,6 +61,7 @@ import { ClassesTypeManagementCreateComponent } from './components/adminModules/
 import { ClassesTypeManagementDeleteComponent } from './components/adminModules/admin-classes/classes-type-management-delete/classes-type-management-delete.component';
 import { CurrentUserService } from 'src/app/services/current-user.service';
 import { MainContentComponent } from './components/main-content/main-content.component';
+import { UserHeaderComponent } from './components/user-header/user-header.component';
 
 @NgModule({
   declarations: [
@@ -104,6 +105,7 @@ import { MainContentComponent } from './components/main-content/main-content.com
     ClassesTypeManagementCreateComponent,
     ClassesTypeManagementDeleteComponent,
     MainContentComponent,
+    UserHeaderComponent,
   ],
   imports: [
     BrowserModule,

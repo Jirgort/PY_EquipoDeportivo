@@ -7,21 +7,23 @@
           <form [formGroup]="registerForm" (ngSubmit)="submit()">
             <div class="form-outline input-group-sm">
               <label class="form-label" for="name">Nombre</label>
-              <input formControlName="name" type="text" id="name" class="form-control" placeholder="Nombre" ngModelrequired />
+              <input formControlName="name" type="text" id="name" class="form-control" placeholder="Nombre"
+                ngModelrequired />
             </div>
             <div class="form-outline input-group-sm">
               <label class="form-label" for="userName">Nombre de usuario</label>
-              <input formControlName="userName" type="text" id="userName" class="form-control" placeholder="Nombre de usuario" ngModel required />
+              <input formControlName="userName" type="text" id="userName" class="form-control"
+                placeholder="Nombre de usuario" ngModel required />
             </div>
             <div class="form-outline input-group-sm">
               <label class="form-label" for="password">Contraseña</label>
-              <input formControlName="password" type="text" id="password" class="form-control" placeholder="Contraseña"
-                ngModel required />
+              <input formControlName="password" type="password" id="password" class="form-control"
+                placeholder="Contraseña" ngModel required />
             </div>
             <h1></h1>
             <h3>Datos de personales</h3>
             <div class="form-outline input-group-sm">
-              <label class="form-label" for="age">Edad</label>
+              <label class="form-label" for="age">Año de Nacimiento</label>
               <input formControlName="age" type="text" id="age" class="form-control" placeholder="Edad" ngModel
                 required />
             </div>

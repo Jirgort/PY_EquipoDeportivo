@@ -1,36 +1,16 @@
-<mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <button style="background-color: transparent; border-style: none;">
-        <mat-icon (click)="drawer.toggle();">menu</mat-icon>
-      </button>
-      <h1>Gestión de Deportistas</h1>
-    </mat-toolbar-row>
-  </mat-toolbar>
-  <mat-drawer-container class="example-container" autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="side">
-      <div class="d-flex flex-column mb-3">
-        <button mat-raised-button (click)="changeOperation('create');">
-          Crear Deportista
-        </button>
-        <button mat-raised-button (click)="changeOperation('read');">
-          Mostrar Deportistas
-        </button>
-        <button mat-raised-button (click)="changeOperation('update');">
-          Modificar Deportista
-        </button>
-        <button mat-raised-button (click)="changeOperation('delete');">
-          Eliminar Deportista
-        </button>
-        <button mat-raised-button routerLink="/adminHome">
-          Volver
-        </button>
-      </div>
-    </mat-drawer>
-    <div class="example-sidenav-content">
+<mdb-tabs [pills]="true" [justified]="true">
+  <mdb-tab title="Crear Atleta" style="accent-color: red;">
+    <div class="justify-content-lg-start">
+      <app-athlete-managment-create></app-athlete-managment-create>
     </div>
-    <div *ngIf="this.currentOperation == ''" style="height: 500px; width: 500px">MANEGEMENT MODULE</div>
-    <app-athlete-managment-create *ngIf="this.currentOperation == 'create'"></app-athlete-managment-create>
-    <app-athlete-managment-read *ngIf="this.currentOperation == 'read'"></app-athlete-managment-read>
-    <app-athlete-managment-update *ngIf="this.currentOperation == 'update'">UPDATE OPERATION</app-athlete-managment-update>
-    <app-athlete-managment-delete *ngIf="this.currentOperation == 'delete'">DELETE OPERATION</app-athlete-managment-delete>
-  </mat-drawer-container>
+  </mdb-tab>
+  <mdb-tab title=" Mostrar Atletas">
+    <app-athlete-managment-read></app-athlete-managment-read>
+  </mdb-tab>
+  <mdb-tab title="Modificar Atleta">
+    <app-athlete-managment-update></app-athlete-managment-update>
+  </mdb-tab>
+  <mdb-tab title="Eliminar Atleta">
+    <app-athlete-managment-delete></app-athlete-managment-delete>
+  </mdb-tab>
+</mdb-tabs>

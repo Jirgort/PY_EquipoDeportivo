@@ -21,7 +21,7 @@ export class ClassesTypeManagementCreateComponent {
 
   submit() {
     this.newClassesType(this.registerForm.value);
-    this.router.navigate(['/classesSidenav']);
+    //this.router.navigate(['/classesSidenav']);
   }
 
   newClassesType(event: any): void {

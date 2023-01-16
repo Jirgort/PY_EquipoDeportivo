@@ -35,10 +35,12 @@ export class ClassesManagementReadComponent {
   });
 
   ngOnInit(): void {
-    //this.getClasses();
+    this.getClasses();
+    /*
     this.updateSubscription = interval(1000).subscribe((val) => {
       this.getClasses();
     });
+    */
     this.refreshUserInfo();
   }
 

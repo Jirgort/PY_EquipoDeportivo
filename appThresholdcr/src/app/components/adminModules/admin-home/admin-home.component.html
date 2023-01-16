@@ -1,42 +1,27 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <button style="background-color: transparent; border-style: none;">
-      <mat-icon (click)="drawer.toggle();">menu</mat-icon>
-    </button>
-    <h1>Administración Equipo Threshold</h1>
-  </mat-toolbar-row>
-</mat-toolbar>
-<mat-drawer-container class="example-container" style="width: 1500px; height: auto;">
-  <mat-drawer #drawer class="example-sidenav" mode="side">
-    <div class="d-flex flex-column mb-3">
-      <button mat-raised-button>
-        Inicio
-      </button>
-      <button mat-raised-button routerLink="/coachSidenav">
-        Gestión de Entrenadores
-      </button>
-      <button mat-raised-button routerLink="/athleteSidenav">
-        Gestión de Atletas
-      </button>
-      <button mat-raised-button routerLink="/sportSidenav">
-        Gestión de Deportes
-      </button>
-      <button mat-raised-button routerLink="/newsFeed">
-        Gestión de Noticias
-      </button>
-      <button mat-raised-button routerLink="/classesSidenav">
-        Gestión de Clases
-      </button>
-      <button mat-raised-button routerLink="/eventsSidenav">
-        Gestión de Eventos
-      </button>
-      <button mat-raised-button routerLink="/login">
-        Salir
-      </button>
+<app-user-header></app-user-header>
+<mdb-tabs [pills]="true" [vertical]="true">
+  <mdb-tab title="ThresholdCR">
+    <div class="d-flex justify-content-center" style="margin-top: 25px">
+      <img src=" ./assets/thresholdPics/thresholdMainPic.png" alt="Threshold new logo" height="auto" width="auto">
     </div>
-  </mat-drawer>
-  <div class="example-sidenav-content">
-    <app-news-management-read></app-news-management-read>
-  </div>
-
-</mat-drawer-container>
+  </mdb-tab>
+  <mdb-tab title="Gestión de Entrenadores">
+    <app-coach-sidenav-operations></app-coach-sidenav-operations>
+  </mdb-tab>
+  <mdb-tab title="Gestión de Atletas">
+    <app-athlete-sidenav-operations></app-athlete-sidenav-operations>
+  </mdb-tab>
+  <mdb-tab title="Gestión de Deportes">
+    <app-sport-sidenav-operations></app-sport-sidenav-operations>
+  </mdb-tab>
+  <mdb-tab title="Gestión de Noticias">
+    <app-news-sidenav-operations></app-news-sidenav-operations>
+  </mdb-tab>
+  <mdb-tab title="Gestión de Clases">
+    <app-classes-sidenav-operations></app-classes-sidenav-operations>
+  </mdb-tab>
+  <mdb-tab title="Gestión de Eventos">
+    <app-event-sidenav-operations></app-event-sidenav-operations>
+  </mdb-tab>
+  <mdb-tab title="Salir">Salir</mdb-tab>
+</mdb-tabs>

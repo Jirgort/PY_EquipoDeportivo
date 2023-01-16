@@ -1,51 +1,16 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <button style="background-color: transparent; border-style: none;">
-      <mat-icon (click)="drawer.toggle();">menu</mat-icon>
-    </button>
-    <h1>Gestión de Entrenadores</h1>
-  </mat-toolbar-row>
-</mat-toolbar>
-<mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
-    <div class="d-flex flex-column mb-3">
-      <button mat-raised-button (click)="changeOperation('create');">
-        Crear Entrenador
-      </button>
-      <button mat-raised-button (click)="changeOperation('read');">
-        Mostrar Entrenadores
-      </button>
-      <button mat-raised-button (click)="changeOperation('update');">
-        Modificar Entrenador
-      </button>
-      <button mat-raised-button (click)="changeOperation('delete');">
-        Eliminar Entrenador
-      </button>
-      <button mat-raised-button routerLink="/adminHome">
-        Volver
-      </button>
+<mdb-tabs [pills]="true" [justified]="true">
+  <mdb-tab title="Crear Entrenador" style="accent-color: red;">
+    <div class="justify-content-lg-start">
+      <app-coach-management></app-coach-management>
     </div>
-  </mat-drawer>
-  <div class="example-sidenav-content">
-  </div>
-  <div *ngIf="this.currentOperation == ''" style="height: 500px; width: 500px">MANEGEMENT MODULE</div>
-  <app-coach-management *ngIf="this.currentOperation == 'create'"></app-coach-management>
-  <app-coach-management-read *ngIf="this.currentOperation == 'read'"></app-coach-management-read>
-  <app-coach-management-edit *ngIf="this.currentOperation == 'update'"></app-coach-management-edit>
-  <app-coach-management-delete *ngIf="this.currentOperation == 'delete'">DELETE OPERATION</app-coach-management-delete>
-</mat-drawer-container>
-
-<!--
-<div *ngIf="this.currentOperation == 'create'">
-  <h1>CREATE OPERATION</h1>
-</div>
-<div *ngIf="this.currentOperation == 'read'">
-  <h1>READ OPERATION</h1>
-</div>
-<div *ngIf="this.currentOperation == 'update'">
-  <h1>UPDATE OPERATION</h1>
-</div>
-<div *ngIf="this.currentOperation == 'delete'">
-  <h1>DELETE OPERATION</h1>
-</div>
--->
+  </mdb-tab>
+  <mdb-tab title=" Mostrar Entrenadores">
+    <app-coach-management-read></app-coach-management-read>
+  </mdb-tab>
+  <mdb-tab title="Modificar Entrenador">
+    <app-coach-management-edit></app-coach-management-edit>
+  </mdb-tab>
+  <mdb-tab title="Eliminar Entrenador">
+    <app-coach-management-delete></app-coach-management-delete>
+  </mdb-tab>
+</mdb-tabs>

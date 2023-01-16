@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { CurrentUserService } from 'src/app/services/current-user.service';
 
 @Component({
-  selector: 'app-main-content',
-  templateUrl: './main-content.component.html',
-  styleUrls: ['./main-content.component.css'],
+  selector: 'app-user-header',
+  templateUrl: './user-header.component.html',
+  styleUrls: ['./user-header.component.css'],
 })
-export class MainContentComponent {
+export class UserHeaderComponent {
   constructor(public currentUser: CurrentUserService) {}
 
   ngOnInit() {
@@ -19,9 +19,5 @@ export class MainContentComponent {
       localStorage.getItem('userID'),
       localStorage.getItem('userName')
     );
-  }
-
-  getRandomNumber() {
-    return Math.floor(Math.random() * 10);
   }
 }
