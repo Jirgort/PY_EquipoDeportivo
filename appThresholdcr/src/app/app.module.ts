@@ -23,7 +23,6 @@ import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 
 import { AdminHomeComponent } from './components/adminModules/admin-home/admin-home.component';
-
 import { CoachManagementComponent } from './components/adminModules/admin-coach/coach-management-create/coach-management.component';
 import { CoachSidenavOperationsComponent } from './components/adminModules/admin-coach/coach-sidenav-operations/coach-sidenav-operations.component';
 import { CoachManagementReadComponent } from './components/adminModules/admin-coach/coach-management-read/coach-management-read.component';

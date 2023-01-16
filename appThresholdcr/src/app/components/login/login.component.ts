@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 import { CurrentUserService } from 'src/app/services/current-user.service';
 import { TrainersService } from '../../services/trainers.service';
 import { AthleteService } from '../../services/athlete.service';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import jwt_decode from 'jwt-decode';
 
@@ -20,6 +21,8 @@ import jwt_decode from 'jwt-decode';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  closeResult = '';
+  errTagHidden = true;
   user = {
     Nombre: '',
     Contracena: '',
@@ -35,7 +38,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     public currentUser: CurrentUserService,
     private trainersService: TrainersService,
-    private athleteService: AthleteService
+    private athleteService: AthleteService,
+    private modalService: NgbModal
   ) {}
   ngOnInit() {}
   signIn() {
@@ -99,8 +103,10 @@ export class LoginComponent implements OnInit {
       },
       (err) => {
         console.log(err);
+        this.errTagHidden = false;
       }
     );
+    //this.modalService.dismissAll();
   }
 
   setLoggedInUser(userType: any, userID: any, userName: any) {

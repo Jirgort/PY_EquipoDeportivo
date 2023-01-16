@@ -1,9 +1,13 @@
 
-  body{
+.carousel {
+  width: 25% !important;
+  min-height: 100px;
+  max-height: 500px;
+}
+  .body{
     background-color: #010049;
     padding: 0px;
     margin: 0px;
-    display: grid;
     place-items: center;
     min-height: 100vh;
 }
@@ -61,7 +65,7 @@
   display: grid;
 }
 
-button{
+.buttonClass{
     background: black;
     cursor: pointer;
     border: none;
@@ -72,7 +76,7 @@ button{
     position: relative;
     border-radius: 12px;
   }
-  button::before{
+  .buttonClass::before{
     content: "";
     position: absolute;
     top:0;
