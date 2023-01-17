@@ -29,10 +29,7 @@ export class EventManagmentReadComponent {
     athletes: [[''], Validators.required],
   });
   public enrollStatusBtn(event: any) {
-    //console.log('CLASS IS: ' + JSON.stringify(events));
-    //console.log('ATHLETES IS: ' + events.athletes);
     let allAthletes: string[] = event.athletes;
-    //console.log('ARRAY LEN IS: ' + allAthletes.length);
     if (allAthletes.length > 0) {
       if (allAthletes.includes(this.currrentUser.userName)) {
         this.enrollStatus = 'Abandonar';
@@ -58,8 +55,6 @@ export class EventManagmentReadComponent {
     return false;
   }
   enroll(eventID: any, eventObject: any, action: any) {
-    console.log('CLASS IS: ' + JSON.stringify(eventObject));
-    console.log('ACTIOS IS: ' + action);
     // Updates class info...
     let athletesArray: any[] = eventObject.athletes;
     let newRoom = eventObject.room;
@@ -87,27 +82,24 @@ export class EventManagmentReadComponent {
       .enrollEventTest(eventID, this.eventInfo.value)
       .subscribe({
         next: (response: any) => {
-          console.log('ENROLLING TO CLASS');
           //this.allevents = response;
           //console.log(this.allevents);
         },
         error: (err) => {
-          console.log('********** ERR **********');
           console.log(err);
         },
       });
-    this.getFuncionarios();
+    this.getEvents();
   }
 
   ngOnInit(): void {
-    this.getFuncionarios();
+    this.getEvents();
   }
-  getFuncionarios() {
+  getEvents() {
     this.eventsService.getEvents().subscribe({
       next: (response: any) => {
-        console.log('holaaaaaaaaaaaaaaaa');
         this.events = response;
-        console.log(this.events);
+        //console.log(this.events);
       },
       error: (err) => {
         console.log(err);

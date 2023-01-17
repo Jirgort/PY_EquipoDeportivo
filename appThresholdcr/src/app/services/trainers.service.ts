@@ -26,6 +26,7 @@ export class TrainersService {
   }
 
   newTrainer(user: any) {
+    console.log('DATA IN SERVICE: ' + JSON.stringify(user));
     return this.http.post<any>(`${environment.URL}/registrarEntrenador`, user);
   }
 

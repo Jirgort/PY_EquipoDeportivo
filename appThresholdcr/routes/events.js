@@ -24,17 +24,16 @@ router.get('/eventsTypes', function(req, res, next) {
 
 router.post('/createEvent',async(req,res)=>{
   console.log("entra")
-    const {type,title,sportClass,content,date,maxMember}=req.body;
-    const newEvent=new Event({type,title,sportClass,content,date,maxMember});
+    const {eventType,eventTitle,sportClass,eventContent,eventDate}=req.body;
+    const newEvent=new Event({eventType,eventTitle,sportClass,eventContent,eventDate});
     await newEvent.save();
     const token=jwt.sign({_id: newEvent._id},'secreteKey')
 
     res.status(200).json({token});
 })
 router.post('/createEventType',async(req,res)=>{
-  console.log("entra")
-    const {type}=req.body;
-    const newEventType=new EventType({type});
+    const {eventType}=req.body;
+    const newEventType=new EventType({eventType});
     await newEventType.save();
     const token=jwt.sign({_id: newEventType._id},'secreteKey')
 

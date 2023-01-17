@@ -4,29 +4,25 @@
       <div class="face face1">
         <div class="content">
           <span class="stars"></span>
-          <h2 class="java">{{event.title}}</h2>
-          <p class="java">Descripcion de evento: {{event.content}}</p>
-          <p class="java">Fecha: {{event.date}}</p>
-          <button class="button2" id="enrollBtn" #enrollBtn  
-            (click)="enroll(event._id, event, enrollBtn.value)"
+          <h2 class="java">{{event.eventTitle}}</h2>
+          <p class="java">Descripcion de evento: {{event.eventContent}}</p>
+          <p class="java">Fecha: {{event.eventDate}}</p>
+          <button class="button2" id="enrollBtn" #enrollBtn (click)="enroll(event._id, event, enrollBtn.value)"
             [value]="this.enrollStatusBtn(event)? 'Abandonar' : 'Participar'">{{
-              this.enrollStatusBtn(event)? 'Abandonar' : 'Participar'
-              }}</button>
+            this.enrollStatusBtn(event)? 'Abandonar' : 'Participar'
+            }}</button>
         </div>
       </div>
       <div class="face face2">
         <div class="content">
           <h1>{{event.sportClass}}</h1>
-       
+
           <h2>{{event.type}}</h2>
 
         </div>
-       
+
       </div>
-     
+
     </div>
   </div>
 </div>
-
-
-  

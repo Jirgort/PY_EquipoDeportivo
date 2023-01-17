@@ -1,67 +1,63 @@
-
 <div class="d-flex justify-content-start">
-    <div class="d-flex container justify-content-center w-50">
-      <div class="d-flex align-items-center justify-content-center">
-        <div class="border p-4 rounded shadow bg-white rounded">
-          <div class="row justify-content-center">
-            <h1>Registro de Eventos</h1>
-            <form [formGroup]="registerForm" (ngSubmit)="submit()">
-              <div class="form-outline input-group-sm">
-                <mat-form-field appearance="fill">
-                  <mat-label>Tipo de evento</mat-label>
-                  <mat-select id="selectedType" #selectedType>
-                    <mat-option *ngFor="let event of events" [value]="event.type">
-                      {{event.type}}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-                
-              </div>
-              
-              <div class="form-outline input-group-sm">
+  <div class="d-flex container justify-content-center w-50">
+    <div class="d-flex align-items-center justify-content-center">
+      <div class="border p-4 rounded shadow bg-white rounded">
+        <div class="row justify-content-center">
+          <h1>Registro de Eventos</h1>
+          <form [formGroup]="registerForm" (ngSubmit)="submit()">
+            <div class="form-outline input-group-sm">
+              <mat-form-field appearance="fill">
+                <mat-label>Tipo de evento</mat-label>
+                <mat-select id="selectedType" #selectedType>
+                  <mat-option *ngFor="let event of events" [value]="event.eventType">
+                    {{event.eventType}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
 
-                <mat-form-field appearance="fill">
-                  <mat-label>Deporte</mat-label>
-                  <mat-select id="selectedSport" #selectedSport>
-                    <mat-option *ngFor="let sport of sports" [value]="sport.name">
-                      {{sport.name}}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
+            </div>
 
-              </div>
-              <div class="form-outline input-group-sm">
-                <label class="form-label" for="title">Titulo de evento</label>
-                <input formControlName="title" type="text" id="title" class="form-control" placeholder="Titulo" ngModel required />
-              </div>
-              <h1></h1>
-              <h3 style="background-color: cornflowerblue;">Información del evento</h3>
-              <div class="form-outline input-group-sm">
-                <label class="form-label" for="content">Descripción del evento</label>
-                <input formControlName="content" type="text" id="content" class="form-control" placeholder="Descripción" ngModel
-                  required />
-              </div>
-              <div class="form-outline input-group-sm">
-                <label class="form-label" for="maxMember">Numero de participantes</label>
-                <input formControlName="maxMember" type="text" id="maxMember" class="form-control" placeholder="Cantidad de participantes" ngModel
-                  required />
-              </div>
-              <div class="form-outline input-group-sm" style="margin-bottom: 15px">
+            <div class="form-outline input-group-sm">
 
-                <mat-form-field appearance="fill">
-                  <mat-label>Choose a date</mat-label>
-                  <input matInput [matDatepicker]="picker" formControlName="date" id="date">
-                  <mat-hint>MM/DD/YYYY</mat-hint>
-                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                  <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field>
-  
-              </div>
-              <h1></h1>
-              <button type="submit" class="btn btn-primary btn-block" (click)="createEvent(selectedSport, selectedType,picker)">Guardar</button>
-            </form>
-          </div>
+              <mat-form-field appearance="fill">
+                <mat-label>Deporte</mat-label>
+                <mat-select id="selectedSport" #selectedSport>
+                  <mat-option *ngFor="let sport of sports" [value]="sport.sportName">
+                    {{sport.sportName}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+            </div>
+            <div class="form-outline input-group-sm">
+              <label class="form-label" for="title">Titulo de evento</label>
+              <input formControlName="eventTitle" type="text" id="eventTitle" class="form-control" placeholder="Titulo"
+                ngModel required />
+            </div>
+            <h1></h1>
+            <h3 style="background-color: cornflowerblue;">Información del evento</h3>
+            <div class="form-outline input-group-sm">
+              <label class="form-label" for="content">Descripción del evento</label>
+              <input formControlName="eventContent" type="text" id="eventContent" class="form-control"
+                placeholder="Descripción" ngModel required />
+            </div>
+            <div class="form-outline input-group-sm" style="margin-bottom: 15px">
+
+              <mat-form-field appearance="fill">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="eventDate" id="eventDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+
+            </div>
+            <h1></h1>
+            <button type="submit" class="btn btn-primary btn-block"
+              (click)="createEvent(selectedSport, selectedType,picker)">Guardar</button>
+          </form>
         </div>
       </div>
     </div>
   </div>
+</div>

@@ -7,35 +7,35 @@
           <form [formGroup]="registerForm" (ngSubmit)="submit()">
             <div class="form-outline input-group-sm">
               <label class="form-label" for="name">Nombre</label>
-              <input formControlName="name" type="text" id="name" class="form-control" placeholder="Nombre"
-                ngModelrequired />
+              <input formControlName="athleteName" type="text" id="athleteName" class="form-control"
+                placeholder="Nombre" ngModelrequired />
             </div>
             <div class="form-outline input-group-sm">
               <label class="form-label" for="userName">Nombre de usuario</label>
-              <input formControlName="userName" type="text" id="userName" class="form-control"
+              <input formControlName="athleteUserName" type="text" id="athleteUserName" class="form-control"
                 placeholder="Nombre de usuario" ngModel required />
             </div>
             <div class="form-outline input-group-sm">
               <label class="form-label" for="password">Contraseña</label>
-              <input formControlName="password" type="password" id="password" class="form-control"
+              <input formControlName="athletePassword" type="password" id="athletePassword" class="form-control"
                 placeholder="Contraseña" ngModel required />
             </div>
             <h1></h1>
             <h3>Datos de personales</h3>
             <div class="form-outline input-group-sm">
               <label class="form-label" for="age">Año de Nacimiento</label>
-              <input formControlName="age" type="text" id="age" class="form-control" placeholder="Edad" ngModel
-                required />
+              <input formControlName="athleteBirth" type="text" id="athleteBirth" class="form-control"
+                placeholder="Año de nacimiento" ngModel required />
             </div>
             <div class="form-outline input-group-sm">
               <label class="form-label" for="weight">Peso</label>
-              <input formControlName="weight" type="text" id="weight" class="form-control" placeholder="Peso" ngModel
-                required />
+              <input formControlName="athleteWeight" type="text" id="athleteWeight" class="form-control"
+                placeholder="Peso" ngModel required />
             </div>
             <div class="form-outline input-group-sm">
               <label class="form-label" for="height">Altura</label>
-              <input formControlName="height" type="text" id="height" class="form-control" placeholder="Altura" ngModel
-                required />
+              <input formControlName="athleteHeight" type="text" id="athleteHeight" class="form-control"
+                placeholder="Altura" ngModel required />
             </div>
             <h1></h1>
             <button type="submit" class="btn btn-primary btn-block">Guardar</button>

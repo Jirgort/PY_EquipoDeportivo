@@ -17,27 +17,28 @@ export class CoachManagementEditComponent {
     private formBuilder: FormBuilder,
     private trainersService: TrainersService,
     private modalService: NgbModal
-  ) {}
+  ) {
+    this.getCoaches();
+  }
 
   updateForm = this.formBuilder.group({
-    name: ['', Validators.required],
-    userName: ['', Validators.required],
-    password: ['', Validators.required],
-    age: ['', Validators.required],
-    weight: ['', Validators.required],
-    height: ['', Validators.required],
+    coachName: ['', Validators.required],
+    coachUserName: ['', Validators.required],
+    coachPassword: ['', Validators.required],
+    coachBirth: ['', Validators.required],
+    coachWeight: ['', Validators.required],
+    coachHeight: ['', Validators.required],
   });
 
   ngOnInit(): void {
-    this.getFuncionarios();
+    this.getCoaches();
   }
 
-  getFuncionarios() {
+  getCoaches() {
     this.trainersService.getTrainers().subscribe({
       next: (response: any) => {
-        console.log('holaaaaaaaaaaaaaaaa');
         this.trainers = response;
-        console.log(this.trainers);
+        //console.log(this.trainers);
       },
       error: (err) => {
         console.log(err);
@@ -45,38 +46,20 @@ export class CoachManagementEditComponent {
     });
   }
 
-  test(name: string) {
-    console.log('BUTTON WAS CLICKED FOR: ' + name);
-  }
-
-  updateCoach() {
-    /*
-    this.updateForm.setValue({
-      name: 'Garp',
-      userName: 'thehero',
-      password: 'jajaxD',
-      age: '78',
-      weight: '102',
-      height: '198',
-    });
-    */
-    console.log('BUTTON WAS CLICKED FOR: ' + this.trainerToUpdate._id);
+  async updateCoach() {
     let testForm = JSON.stringify(this.updateForm.value);
-    console.log('THE DATA TO PASS IS: ' + this.updateForm.value);
     this.trainersService
       .updateTrainer(this.trainerToUpdate._id, this.updateForm.value)
       .subscribe({
         next: (response: any) => {
-          console.log('********** TRAINER UPDATED **********');
-          this.trainers = response;
-          console.log(this.trainers);
+          //this.trainers = response;
+          //console.log(this.trainers);
         },
         error: (err) => {
-          console.log('********** ERR: TRAINER NOT UPDATED **********');
           console.log(err);
         },
       });
-    this.getFuncionarios();
+    await this.getCoaches();
   }
 
   open(content: any, trainer: any) {
@@ -107,12 +90,12 @@ export class CoachManagementEditComponent {
   private autoFillForm(trainer: any) {
     // Autofills the form with the coach to update.
     this.updateForm.setValue({
-      name: trainer.name,
-      userName: trainer.userName,
-      password: trainer.password,
-      age: trainer.age,
-      weight: trainer.weight,
-      height: trainer.height,
+      coachName: trainer.coachName,
+      coachUserName: trainer.coachUserName,
+      coachPassword: trainer.coachPassword,
+      coachBirth: trainer.coachBirth,
+      coachWeight: trainer.coachWeight,
+      coachHeight: trainer.coachHeight,
     });
   }
 }

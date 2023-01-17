@@ -20,7 +20,7 @@ export class SportManagementUpdateComponent {
   ) {}
 
   updateForm = this.formBuilder.group({
-    name: ['', Validators.required],
+    sportName: ['', Validators.required],
   });
 
   ngOnInit(): void {
@@ -30,9 +30,8 @@ export class SportManagementUpdateComponent {
   getSports() {
     this.sportService.getSports().subscribe({
       next: (response: any) => {
-        console.log('hello');
         this.sports = response;
-        console.log(this.sports);
+        //console.log(this.sports);
       },
       error: (err) => {
         console.log(err);
@@ -40,33 +39,24 @@ export class SportManagementUpdateComponent {
     });
   }
 
-  test(name: string) {
-    console.log('BUTTON WAS CLICKED FOR: ' + name);
-  }
-
   updateSport() {
-    console.log('BUTTON WAS CLICKED FOR: ' + this.sportToUpdate._id);
-    let testForm = JSON.stringify(this.updateForm.value);
-    console.log('THE DATA TO PASS IS: ' + this.updateForm.value);
     this.sportService
       .updateSport(this.sportToUpdate._id, this.updateForm.value)
       .subscribe({
         next: (response: any) => {
-          console.log('********** SPORT UPDATED **********');
-          this.sports = response;
-          console.log(this.sports);
+          //this.sports = response;
+          //console.log(this.sports);
         },
         error: (err) => {
-          console.log('********** ERR: SPORT NOT UPDATED **********');
           console.log(err);
         },
       });
     this.getSports();
   }
 
-  open(content: any, trainer: any) {
-    this.sportToUpdate = trainer;
-    this.autoFillForm(trainer);
+  open(content: any, sport: any) {
+    this.sportToUpdate = sport;
+    this.autoFillForm(sport);
     this.modalService
       .open(content, { ariaLabelledBy: 'modal-basic-title' })
       .result.then(
@@ -92,7 +82,7 @@ export class SportManagementUpdateComponent {
   private autoFillForm(sport: any) {
     // Autofills the form with the coach to update.
     this.updateForm.setValue({
-      name: sport.name,
+      sportName: sport.sportName,
     });
   }
 }

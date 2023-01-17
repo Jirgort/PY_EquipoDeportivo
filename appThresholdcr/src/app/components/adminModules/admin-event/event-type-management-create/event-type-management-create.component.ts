@@ -16,7 +16,7 @@ export class EventTypeManagementCreateComponent {
     private eventsService: EventsService
   ) {}
   registerForm = this.formBuilder.group({
-    type: ['', Validators.required],
+    eventType: ['', Validators.required],
   });
 
   submit() {

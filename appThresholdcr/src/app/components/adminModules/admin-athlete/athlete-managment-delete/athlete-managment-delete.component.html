@@ -4,11 +4,11 @@
       <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
         <div class="card-header">Deportista</div>
         <div class="card-body card-text-center">
-          <h6 class="card-title fs-6 text-center">Nombre: {{athlete.name}}</h6>
-          <h6 class="card-title fs-6 text-center">Nombre de usuario: {{athlete.userName}}</h6>
-          <h6 class="card-title fs-6 text-center">Fecha de Nacimiento: {{athlete.age}}</h6>
-          <h6 class="card-title fs-6 text-center">Peso: {{athlete.weight}} kg</h6>
-          <h6 class="card-title fs-6 text-center">Altura: {{athlete.height}} cm</h6>
+          <h6 class="card-title fs-6 text-center">Nombre: {{athlete.athleteName}}</h6>
+          <h6 class="card-title fs-6 text-center">Nombre de usuario: {{athlete.athleteUserName}}</h6>
+          <h6 class="card-title fs-6 text-center">Año de Nacimiento: {{athlete.athleteBirth}}</h6>
+          <h6 class="card-title fs-6 text-center">Peso: {{athlete.athleteWeight}} kg</h6>
+          <h6 class="card-title fs-6 text-center">Altura: {{athlete.athleteHeight}} cm</h6>
         </div>
         <button type="button" (click)="deleteAthletes(athlete)" class="btn btn-danger">Delete</button>
       </div>

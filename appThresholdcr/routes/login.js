@@ -19,9 +19,10 @@ router.get('/trainers', function(req, res, next) {
 		.catch((err) => res.status(500).json({ message: 'Error getting trainers' }));
 });
 router.post('/registrarEntrenador',async(req,res)=>{
-    const {name,userName,password,age,weight,height}=req.body;
-    console.log("COACH TO SAVE: " + req.body.age);
-    const newUser=new Coach({name,userName,password,age,weight,height});
+    console.log("REQUEST TO SAVE: " + req.body.coachName.toString());
+    const {coachName,coachUserName,coachPassword,coachBirth,coachWeight,coachHeight}=req.body;
+    //console.log("COACH TO SAVE: " + req.body.age);
+    const newUser=new Coach({coachName,coachUserName,coachPassword,coachBirth,coachWeight,coachHeight});
     await newUser.save();
     const token=jwt.sign({_id: newUser._id},'secreteKey')
 
@@ -70,9 +71,9 @@ router.get('/athletes', function(req, res, next) {
 
 router.post('/registrarAtleta',async(req,res)=>{
     
-    const {name,userName,password,category,age,weight,height}=req.body;
+    const {athleteName,athleteUserName,athletePassword,category,athleteBirth,athleteWeight,athleteHeight}=req.body;
     
-    const newUser=new Athlete({name,userName,password,category,age,weight,height});
+    const newUser=new Athlete({athleteName,athleteUserName,athletePassword,category,athleteBirth,athleteWeight,athleteHeight});
     console.log(newUser);
     await newUser.save();
     const token=jwt.sign({_id: newUser._id},'secreteKey')
@@ -123,26 +124,26 @@ router.post('/signin',async(req,res)=>{
         const token=jwt.sign({_id:user._id}, 'secreteKey');
         return res.status(200).json({token})
     } else if(TypeUser=="Entrenador"){
-        const userName=Nombre;
-        const coach=await Coach.findOne({userName});
+        const coachUserName=Nombre;
+        const coach=await Coach.findOne({coachUserName});
         console.log(Nombre)
         console.log(coach)
         console.log("xxxxxxxxxxxxxxxxxxxxx")
         console.log(Contracena)
         if (!coach) return res.status(401).send("The name trainer doesn't exists");
-        if (coach.password !== Contracena) return res.status(401).send( 'wrong Password');
+        if (coach.coachPassword !== Contracena) return res.status(401).send( 'wrong Password');
 
         const token=jwt.sign({_id:coach._id}, 'secreteKey');
         return res.status(200).json({token})
     } else if(TypeUser == "Atleta") {
-        const userName = Nombre;
-        const athlete = await Athlete.findOne({userName});
+        const athleteUserName = Nombre;
+        const athlete = await Athlete.findOne({athleteUserName});
         console.log(Nombre)
         console.log(athlete)
         console.log("xxxxxxxxxxxxxxxxxxxxx")
         console.log(Contracena)
         if (!athlete) return res.status(401).send("The athlete name doesn't exists");
-        if (athlete.password !== Contracena) return res.status(401).send( 'wrong Password');
+        if (athlete.athletePassword !== Contracena) return res.status(401).send( 'wrong Password');
 
         const token=jwt.sign({_id:athlete._id}, 'secreteKey');
         return res.status(200).json({token})

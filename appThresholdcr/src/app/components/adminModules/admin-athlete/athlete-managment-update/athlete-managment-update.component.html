@@ -4,11 +4,11 @@
       <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
         <div class="card-header">Atleta</div>
         <div class="card-body card-text-center">
-          <h6 class="card-title fs-6 text-center">Nombre: {{athlete.name}}</h6>
-          <h6 class="card-title fs-6 text-center">Nombre de usuario: {{athlete.userName}}</h6>
-          <h6 class="card-title fs-6 text-center">Año de Nacimiento: {{athlete.age}}</h6>
-          <h6 class="card-title fs-6 text-center">Peso: {{athlete.weight}} kg</h6>
-          <h6 class="card-title fs-6 text-center">Altura: {{athlete.height}} cm</h6>
+          <h6 class="card-title fs-6 text-center">Nombre: {{athlete.athleteName}}</h6>
+          <h6 class="card-title fs-6 text-center">Nombre de usuario: {{athlete.athleteUserName}}</h6>
+          <h6 class="card-title fs-6 text-center">Año de Nacimiento: {{athlete.athleteBirth}}</h6>
+          <h6 class="card-title fs-6 text-center">Peso: {{athlete.athleteWeight}} kg</h6>
+          <h6 class="card-title fs-6 text-center">Altura: {{athlete.athleteHeight}} cm</h6>
         </div>
         <button class="btn btn-success" (click)="open(content, athlete)">Update</button>
       </div>
@@ -25,38 +25,39 @@
     <form [formGroup]="updateForm">
       <!-- name input -->
       <div class="form-outline mb-4">
-        <label class="form-label" for="name">Nombre</label>
-        <input formControlName="name" type="text" id="name" class="form-control" ngModelrequired />
+        <label class="form-label" for="athleteName">Nombre</label>
+        <input formControlName="athleteName" type="text" id="athleteName" class="form-control" ngModelrequired />
       </div>
 
       <!-- username input -->
       <div class="form-outline mb-4">
-        <label class="form-label" for="userName">Nombre de Usuario</label>
-        <input formControlName="userName" type="text" id="userName" class="form-control" ngModelrequired />
+        <label class="form-label" for="athleteUserName">Nombre de Usuario</label>
+        <input formControlName="athleteUserName" type="text" id="athleteUserName" class="form-control"
+          ngModelrequired />
       </div>
 
       <!-- password input -->
       <div class="form-outline mb-4">
-        <label class="form-label" for="password">Contraseña</label>
-        <input formControlName="password" type="password" id="coachPass" class="form-control" ngModelrequired />
+        <label class="form-label" for="athletePassword">Contraseña</label>
+        <input formControlName="athletePassword" type="password" id="coachPass" class="form-control" ngModelrequired />
       </div>
 
       <!-- age input -->
       <div class="form-outline mb-4">
-        <label class="form-label" for="age">Edad</label>
-        <input formControlName="age" type="text" id="age" class="form-control" ngModelrequired />
+        <label class="form-label" for="athleteBirth">Edad</label>
+        <input formControlName="athleteBirth" type="text" id="athleteBirth" class="form-control" ngModelrequired />
       </div>
 
       <!-- weight input -->
       <div class="form-outline mb-4">
-        <label class="form-label" for="weight">Peso</label>
-        <input formControlName="weight" type="text" id="weight" class="form-control" ngModelrequired />
+        <label class="form-label" for="athleteWeight">Peso</label>
+        <input formControlName="athleteWeight" type="text" id="athleteWeight" class="form-control" ngModelrequired />
       </div>
 
       <!-- height input -->
       <div class="form-outline mb-4">
-        <label class="form-label" for="height">Peso</label>
-        <input formControlName="height" type="text" id="height" class="form-control" ngModelrequired />
+        <label class="form-label" for="athleteHeight">Altura</label>
+        <input formControlName="athleteHeight" type="text" id="athleteHeight" class="form-control" ngModelrequired />
       </div>
     </form>
   </div>

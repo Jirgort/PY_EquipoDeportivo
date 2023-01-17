@@ -9,9 +9,9 @@ const jwt =require('jsonwebtoken');
 
 // NEWS OPERATIONS START.
 router.post('/createNews',async(req,res) => {
-	const { title, content, date, votes } = req.body;
+	const { newsTitle, newsContent, newsDate } = req.body;
 	console.log("NEWS TO SAVE: " + req.body.title);
-	const newNews = new News( {title, content, date, votes} );
+	const newNews = new News( {newsTitle, newsContent, newsDate} );
 	await newNews.save();
 	const token = jwt.sign({_id: newNews._id},'secreteKey')
 

@@ -1,13 +1,13 @@
 <div class="container mt-3">
-    <div class="row row-cols-1 row-cols-md-3 g-2">
-      <div *ngFor="let sport of sports">
-        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-          <div class="card-header">Deporte</div>
-          <div class="card-body card-text-center">
-            <h6 class="card-title fs-6 text-center">Nombre: {{sport.name}}</h6>
-          </div>
-          <button type="button" (click)="deleteSport(sport)" class="btn btn-danger">Delete</button>
+  <div class="row row-cols-1 row-cols-md-3 g-2">
+    <div *ngFor="let sport of sports">
+      <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">Deporte</div>
+        <div class="card-body card-text-center">
+          <h6 class="card-title fs-6 text-center">Nombre: {{sport.sportName}}</h6>
         </div>
+        <button type="button" (click)="deleteSport(sport)" class="btn btn-danger">Delete</button>
       </div>
     </div>
   </div>
+</div>

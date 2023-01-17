@@ -21,12 +21,11 @@ export class EventManagmentCreateComponent {
     private sportService: SportService
   ) {}
   registerForm = this.formBuilder.group({
-    type: ['', Validators.required],
-    title: ['', Validators.required],
+    eventType: ['', Validators.required],
+    eventTitle: ['', Validators.required],
     sportClass: ['', Validators.required],
-    content: ['', Validators.required],
-    date: ['', Validators.required],
-    maxMember: ['', Validators.required],
+    eventContent: ['', Validators.required],
+    eventDate: ['', Validators.required],
   });
 
   ngOnInit(): void {
@@ -70,7 +69,6 @@ export class EventManagmentCreateComponent {
   getSports() {
     this.sportService.getSports().subscribe({
       next: (response: any) => {
-        console.log('holaaaaaaaaaaaaaaaa');
         this.sports = response;
         //console.log(this.coaches);
       },
@@ -80,13 +78,7 @@ export class EventManagmentCreateComponent {
     });
   }
   createEvent(sport: any, eventType: any, date: any) {
-    //let coachData = JSON.stringify(coach.value);
-    console.log('COACH ASSIGNED TO CLASS:' + sport.value);
-    console.log('CLASS TYPE ASSIGNED TO CLASS:' + eventType.value);
-
-    //this.registerForm.patchValue({ coachId: coach._id });
-
-    this.registerForm.get('type')?.setValue(eventType.value);
+    this.registerForm.get('eventType')?.setValue(eventType.value);
     this.registerForm.get('sportClass')?.setValue(sport.value);
 
     this.eventsService.newEvent(this.registerForm.value).subscribe(

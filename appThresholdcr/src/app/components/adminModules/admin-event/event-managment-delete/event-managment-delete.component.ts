@@ -17,9 +17,8 @@ export class EventManagmentDeleteComponent {
   getEvents() {
     this.eventsService.getEvents().subscribe({
       next: (response: any) => {
-        console.log('holaaaaaaaaaaaaaaaa');
         this.events = response;
-        console.log(this.events);
+        //console.log(this.events);
       },
       error: (err) => {
         console.log(err);
@@ -30,12 +29,10 @@ export class EventManagmentDeleteComponent {
   deleteEvent(event: any) {
     this.eventsService.deleteEvent(event._id).subscribe({
       next: (response: any) => {
-        console.log('********** TRAINER DELETED **********');
-        this.events = response;
-        console.log(this.events);
+        //this.events = response;
+        //console.log(this.events);
       },
       error: (err) => {
-        console.log('********** ERR: TRAINER NOT DELETED **********');
         console.log(err);
       },
     });

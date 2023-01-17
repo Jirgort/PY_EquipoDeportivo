@@ -10,11 +10,11 @@ const Athlete = require('../models/Athlete');
 
 // CLASSES OPERATIONS START.
 router.post('/createClass',async(req,res) => {
-	const { title, type, coachId, date, room, athletes } = req.body;
+	const { classTitle, type, coachId, classDate, room, athletes } = req.body;
 	console.log("CLASS COACHID TO SAVE: " + req.body.coachId);
 	console.log("CLASS TYPE TO SAVE: " + req.body.type);
 
-	const newClass = new Class( {title, type, coachId, date, room, athletes } );
+	const newClass = new Class( { classTitle, type, coachId, classDate, room, athletes } );
 	await newClass.save();
 	const token = jwt.sign({_id: newClass._id},'secreteKey')
 
@@ -48,6 +48,20 @@ router.put('/class/put/:id', async(req, res, next) => {
       }
     })
 })
+
+router.delete('/class/delete/:id', async(req,res)=>{
+	Class.deleteOne({
+		_id: req.params.id
+	}, function(err) {
+		if(err) {
+			console.log("DELETE OPERATION FAILED.");
+			res.json(err);
+		} else {
+			console.log("DELETE OPERATION SUCCEDED.");
+			//res.redirect('/')
+		}
+	})
+  });
 // CLASSES OPERATIONS END.
 router.get('/classesTypes', function(req, res, next) {
 	Classes
@@ -57,8 +71,8 @@ router.get('/classesTypes', function(req, res, next) {
 });
 router.post('/createClassesType',async(req,res)=>{
 	console.log("entra")
-	  const {type}=req.body;
-	  const newClassesType=new Classes({type});
+	  const {classType}=req.body;
+	  const newClassesType=new Classes({classType});
 	  await newClassesType.save();
 	  const token=jwt.sign({_id: newClassesType._id},'secreteKey')
   

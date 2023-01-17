@@ -1,9 +1,9 @@
 const { Schema, model } = require('mongoose');
 
 const NewsSchema = new Schema({
-    title: String,
-    content: String,
-    date: Date,
+    newsTitle: String,
+    newsContent: String,
+    newsDate: Date,
     upVotes: [],
     downVotes: []
 

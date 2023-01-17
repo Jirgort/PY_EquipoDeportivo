@@ -8,11 +8,11 @@
     <div style="border-style:solid; border-color: black; margin: 15px;" *ngFor="let news of allNews">
       <mat-card style="width: 750px;">
         <mat-card-header>
-          <mat-card-title>{{ news.title }}</mat-card-title>
-          <mat-card-subtitle> Published on: {{ news.date }}</mat-card-subtitle>
+          <mat-card-title>{{ news.newsTitle }}</mat-card-title>
+          <mat-card-subtitle> Published on: {{ news.newsDate }}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-          <p>{{ news.content }}</p>
+          <p>{{ news.newsContent }}</p>
         </mat-card-content>
         <mat-card-actions>
           <!-- <p>({{ news.votes }})</p> -->
@@ -29,7 +29,7 @@
           </button>
           <p>{{ news.upVotes.length + news.downVotes.length }}</p>
           <button class="material-symbols-outlined" style="border-style:hidden; background-color:white; color:red"
-            (click)="open(content)" ngbPopover="¡Más información!" triggers="mouseenter:mouseleave" (click)="test();">
+            (click)="open(content)" ngbPopover="¡Más información!" triggers="mouseenter:mouseleave">
             info
           </button>
           <p>{{ news.upVotes.length + news.downVotes.length }}</p>

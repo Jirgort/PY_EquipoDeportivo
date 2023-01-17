@@ -1,1 +1,21 @@
-<p>classes-management-delete works!</p>
+<div class="d-flex justify-content-center">
+  <div class="d-flex flex-column-reverse">
+    <div style="border-style:solid; border-color: black; margin: 15px;" *ngFor="let class of allClasses">
+      <mat-card style="width: 750px;">
+        <mat-card-header>
+          <mat-card-title>{{ class.classTitle }}</mat-card-title>
+          <mat-card-subtitle> Fecha: {{ class.classDate }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Tipo de clase: {{ class.type }}</p>
+        </mat-card-content>
+        <mat-card-actions style="justify-content:space-between">
+          <button class="btn btn-outline-info">Cupo: {{ class.room }}</button>
+          <button mat-fab color="warn" (click)="deleteClass(class)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

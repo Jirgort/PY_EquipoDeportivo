@@ -17,9 +17,8 @@ export class AthleteManagmentDeleteComponent {
   getDeportistas() {
     this.athleteService.getAthletes().subscribe({
       next: (response: any) => {
-        console.log('entre atletas');
         this.athletes = response;
-        console.log(this.athletes);
+        //console.log(this.athletes);
       },
       error: (err) => {
         console.log(err);
@@ -30,12 +29,10 @@ export class AthleteManagmentDeleteComponent {
   deleteAthletes(depor: any) {
     this.athleteService.deleteAthlete(depor._id).subscribe({
       next: (response: any) => {
-        console.log('Deportista eliminado');
-        this.athletes = response;
-        console.log(this.athletes);
+        //this.athletes = response;
+        //console.log(this.athletes);
       },
       error: (err) => {
-        console.log('Error al eliminar deportista');
         console.log(err);
       },
     });

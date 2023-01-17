@@ -20,24 +20,23 @@ export class AthleteManagmentUpdateComponent {
   ) {}
 
   updateForm = this.formBuilder.group({
-    name: ['', Validators.required],
-    userName: ['', Validators.required],
-    password: ['', Validators.required],
-    age: ['', Validators.required],
-    weight: ['', Validators.required],
-    height: ['', Validators.required],
+    athleteName: ['', Validators.required],
+    athleteUserName: ['', Validators.required],
+    athletePassword: ['', Validators.required],
+    athleteBirth: [Validators.required],
+    athleteWeight: [Validators.required],
+    athleteHeight: ['', Validators.nullValidator],
   });
 
   ngOnInit(): void {
-    this.getFuncionarios();
+    this.getAthletes();
   }
 
-  getFuncionarios() {
+  getAthletes() {
     this.athleteService.getAthletes().subscribe({
       next: (response: any) => {
-        console.log('hola');
         this.athletes = response;
-        console.log(this.athletes);
+        //console.log(this.athletes);
       },
       error: (err) => {
         console.log(err);
@@ -45,28 +44,20 @@ export class AthleteManagmentUpdateComponent {
     });
   }
 
-  test(name: string) {
-    console.log('BUTTON WAS CLICKED FOR: ' + name);
-  }
-
   updateAthlete() {
-    console.log('BUTTON WAS CLICKED FOR: ' + this.athleteToUpdate._id);
     let testForm = JSON.stringify(this.updateForm.value);
-    console.log('THE DATA TO PASS IS: ' + this.updateForm.value);
     this.athleteService
       .updateAthlete(this.athleteToUpdate._id, this.updateForm.value)
       .subscribe({
         next: (response: any) => {
-          console.log('********** ATHLETE UPDATED **********');
-          this.athletes = response;
-          console.log(this.athletes);
+          //this.athletes = response;
+          //console.log(this.athletes);
         },
         error: (err) => {
-          console.log('********** ERR: ATHLETE NOT UPDATED **********');
           console.log(err);
         },
       });
-    this.getFuncionarios();
+    this.getAthletes();
   }
 
   open(content: any, athlete: any) {
@@ -97,12 +88,12 @@ export class AthleteManagmentUpdateComponent {
   private autoFillForm(athlete: any) {
     // Autofills the form with the coach to update.
     this.updateForm.setValue({
-      name: athlete.name,
-      userName: athlete.userName,
-      password: athlete.password,
-      age: athlete.age,
-      weight: athlete.weight,
-      height: athlete.height,
+      athleteName: athlete.athleteName,
+      athleteUserName: athlete.athleteUserName,
+      athletePassword: athlete.athletePassword,
+      athleteBirth: athlete.athleteBirth,
+      athleteWeight: athlete.athleteWeight,
+      athleteHeight: athlete.athleteHeight,
     });
   }
 }

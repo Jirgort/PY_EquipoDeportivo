@@ -16,9 +16,8 @@ export class AthleteManagmentReadComponent {
   getFuncionarios() {
     this.athleteservice.getAthletes().subscribe({
       next: (response: any) => {
-        console.log('holaaaaaaaaaaaaaaaa');
         this.athletes = response;
-        console.log(this.athletes);
+        //console.log(this.athletes);
       },
       error: (err) => {
         console.log(err);

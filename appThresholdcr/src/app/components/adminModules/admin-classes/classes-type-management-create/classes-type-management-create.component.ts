@@ -16,7 +16,7 @@ export class ClassesTypeManagementCreateComponent {
     private classesService: ClassesService
   ) {}
   registerForm = this.formBuilder.group({
-    type: ['', Validators.required],
+    classType: ['', Validators.required],
   });
 
   submit() {

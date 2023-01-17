@@ -11,15 +11,14 @@ export class CoachManagementReadComponent {
   constructor(private trainersService: TrainersService) {}
 
   ngOnInit(): void {
-    this.getFuncionarios();
+    this.getCoaches();
   }
 
-  getFuncionarios() {
+  getCoaches() {
     this.trainersService.getTrainers().subscribe({
       next: (response: any) => {
-        console.log('holaaaaaaaaaaaaaaaa');
         this.trainers = response;
-        console.log(this.trainers);
+        //console.log(this.trainers);
       },
       error: (err) => {
         console.log(err);

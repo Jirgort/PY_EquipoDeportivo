@@ -16,7 +16,7 @@ export class SportManagementCreateComponent {
   ) {}
 
   registerForm = this.formBuilder.group({
-    name: ['', Validators.required],
+    sportName: ['', Validators.required],
   });
 
   submit() {

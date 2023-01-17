@@ -18,9 +18,9 @@ export class NewsManagementCreateComponent {
   ) {}
 
   newsForm = this.formBuilder.group({
-    title: ['', Validators.required],
-    date: ['', Validators.required],
-    content: ['', Validators.required],
+    newsTitle: ['', Validators.required],
+    newsDate: ['', Validators.required],
+    newsContent: ['', Validators.required],
     upVotes: [[''], Validators.required],
     downVotes: [[''], Validators.required],
   });
@@ -32,9 +32,8 @@ export class NewsManagementCreateComponent {
       'MM/dd/yyyy h:mm:ss'
     );
 
-    this.newsForm.get('date')?.setValue(currentDateTime);
+    this.newsForm.get('newsDate')?.setValue(currentDateTime);
 
-    console.log('NEWS DATA IS: ' + JSON.stringify(this.newsForm.value));
     this.newsService.createNews(this.newsForm.value).subscribe(
       (res) => {
         console.log(this.newsForm);

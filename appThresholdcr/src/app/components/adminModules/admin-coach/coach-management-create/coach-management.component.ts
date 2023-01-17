@@ -15,21 +15,22 @@ export class CoachManagementComponent {
     private trainersService: TrainersService
   ) {}
   registerForm = this.formBuilder.group({
-    name: ['', Validators.required],
-    userName: ['', Validators.required],
-    password: ['', Validators.required],
-    age: [Validators.required],
-    weight: [Validators.required],
-    height: ['', Validators.nullValidator],
+    coachName: ['', Validators.required],
+    coachUserName: ['', Validators.required],
+    coachPassword: ['', Validators.required],
+    coachBirth: [Validators.required],
+    coachWeight: [Validators.required],
+    coachHeight: ['', Validators.nullValidator],
   });
   submit() {
     this.newTrainer(this.registerForm.value);
     //this.router.navigate(['/adminHome']);
   }
   newTrainer(trainer: any): void {
+    console.log('DATA: ' + JSON.stringify(this.registerForm.value));
     this.trainersService.newTrainer(this.registerForm.value).subscribe(
       (res) => {
-        console.log(this.registerForm);
+        //console.log(this.registerForm);
         localStorage.setItem('token', res.token);
       },
       (err) => {

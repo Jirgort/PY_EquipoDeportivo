@@ -20,24 +20,22 @@ export class EventManagmentUpdateComponent {
   ) {}
 
   updateForm = this.formBuilder.group({
-    type: ['', Validators.required],
-    title: ['', Validators.required],
+    eventType: ['', Validators.required],
+    eventTitle: ['', Validators.required],
     sportClass: ['', Validators.required],
-    content: ['', Validators.required],
-    date: ['', Validators.required],
-    maxMember: ['', Validators.required],
+    eventContent: ['', Validators.required],
+    eventDate: ['', Validators.required],
   });
 
   ngOnInit(): void {
-    this.getFuncionarios();
+    this.getEvents();
   }
 
-  getFuncionarios() {
+  getEvents() {
     this.eventsServices.getEvents().subscribe({
       next: (response: any) => {
-        console.log('holaaaaaaaaaaaaaaaa');
         this.events = response;
-        console.log(this.events);
+        //console.log(this.events);
       },
       error: (err) => {
         console.log(err);
@@ -45,27 +43,20 @@ export class EventManagmentUpdateComponent {
     });
   }
 
-  test(name: string) {
-    console.log('BUTTON WAS CLICKED FOR: ' + name);
-  }
-
   updateEvent() {
-    console.log('BUTTON WAS CLICKED FOR: ' + this.eventToUpdate._id);
     let testForm = JSON.stringify(this.updateForm.value);
-    console.log('THE DATA TO PASS IS: ' + this.updateForm.value);
     this.eventsServices
       .updateEvent(this.eventToUpdate._id, this.updateForm.value)
       .subscribe({
         next: (response: any) => {
-          console.log('********** EVENT UPDATED **********');
-          this.events = response;
-          console.log(this.events);
+          //this.events = response;
+          //console.log(this.events);
         },
         error: (err) => {
-          console.log('********** ERR: TRAINER NOT UPDATED **********');
           console.log(err);
         },
       });
+    this.getEvents();
   }
 
   open(content: any, event: any) {
@@ -96,12 +87,11 @@ export class EventManagmentUpdateComponent {
   private autoFillForm(event: any) {
     // Autofills the form with the coach to update.
     this.updateForm.setValue({
-      type: event.type,
-      title: event.title,
+      eventType: event.eventType,
+      eventTitle: event.eventTitle,
       sportClass: event.sportClass,
-      content: event.content,
-      date: null,
-      maxMember: event.maxMember,
+      eventContent: event.eventContent,
+      eventDate: event.eventDate,
     });
   }
 }

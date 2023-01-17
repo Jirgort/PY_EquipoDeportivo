@@ -17,9 +17,9 @@ router.get('/Sports', function(req, res, next) {
 });
 
 router.post('/registrarDeporte',async(req,res)=>{
-    const {name}=req.body;
+    const {sportName}=req.body;
     console.log("SPORT TO SAVE: " + req.body.age);
-    const newUser=new Sport({name});
+    const newUser=new Sport({sportName});
     await newUser.save();
     const token=jwt.sign({_id: newUser._id},'secreteKey')
 
@@ -27,7 +27,6 @@ router.post('/registrarDeporte',async(req,res)=>{
 })
 
 router.put('/Sports/put/:id', async(req, res, next) => {
-    console.log('BODY PARAMS ARE:' + req.body.age);
     Sport.findByIdAndUpdate(req.params.id, {
         $set: req.body
       }, (error, data) => {

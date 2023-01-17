@@ -26,10 +26,10 @@ export class ClassesManagementReadComponent {
   ) {}
 
   classInfo = this.formBuilder.group({
-    title: ['', Validators.required],
+    classTitle: ['', Validators.required],
     type: ['x', Validators.required],
     coachId: [0, Validators.required],
-    date: ['', Validators.required],
+    classDate: ['', Validators.required],
     room: [0, Validators.required],
     athletes: [[''], Validators.required],
   });
@@ -50,21 +50,11 @@ export class ClassesManagementReadComponent {
       localStorage.getItem('userID'),
       localStorage.getItem('userName')
     );
-
-    console.log(
-      'CURRENT USER TYPE IS: ' +
-        this.currrentUser.userType +
-        ' AND  USER ID IS: ' +
-        this.currrentUser.userID +
-        'AND USERNAME IS: ' +
-        this.currrentUser.userName
-    );
   }
 
   private getClasses() {
     this.classService.readClasses().subscribe({
       next: (response: any) => {
-        console.log('GETTIN CLASSES');
         this.allClasses = response;
         //console.log(this.allClasses);
       },
@@ -104,8 +94,6 @@ export class ClassesManagementReadComponent {
   }
 
   enroll(classID: any, classObject: any, action: any) {
-    console.log('CLASS IS: ' + JSON.stringify(classObject));
-    console.log('ACTIOS IS: ' + action);
     // Updates class info...
     let athletesArray: any[] = classObject.athletes;
     let newRoom = classObject.room;
@@ -120,17 +108,16 @@ export class ClassesManagementReadComponent {
     //let newRoom =
     //  action == 'Matricular' ? classObject.room - 1 : classObject.room + 1;
     //athletesArray.push(this.currrentUser.userName);
-    this.classInfo.get('title')?.setValue(classObject.title);
+    this.classInfo.get('classTitle')?.setValue(classObject.classTitle);
     this.classInfo.get('type')?.setValue(classObject.type);
     this.classInfo.get('coachId')?.setValue(classObject.coachId);
-    this.classInfo.get('date')?.setValue(classObject.date);
+    this.classInfo.get('classDate')?.setValue(classObject.classDate);
     this.classInfo.get('room')?.setValue(newRoom);
     this.classInfo.get('athletes')?.setValue(athletesArray);
 
     // Service call to API.
     this.classService.enrollClassTest(classID, this.classInfo.value).subscribe({
       next: (response: any) => {
-        console.log('ENROLLING TO CLASS');
         //this.allClasses = response;
         //console.log(this.allClasses);
       },
@@ -146,7 +133,6 @@ export class ClassesManagementReadComponent {
     this.trainersService.getTrainer(id).subscribe({
       next: (response: any) => {
         this.coach = response;
-        console.log('COACH GOTTEN BY ID: ' + this.coach.name);
       },
       error: (err) => {
         console.log(err);

@@ -17,9 +17,8 @@ export class NewsManagementDeleteComponent {
   private getNews() {
     this.newsService.readNews().subscribe({
       next: (response: any) => {
-        console.log('GETTIN NEWS');
         this.allNews = response;
-        console.log(this.allNews);
+        //console.log(this.allNews);
       },
       error: (err) => {
         console.log(err);
@@ -30,12 +29,10 @@ export class NewsManagementDeleteComponent {
   deleteNews(news: any) {
     this.newsService.deleteNews(news._id).subscribe({
       next: (response: any) => {
-        console.log('********** NEWS DELETED **********');
-        this.allNews = response;
-        console.log(this.allNews);
+        //this.allNews = response;
+        //console.log(this.allNews);
       },
       error: (err) => {
-        console.log('********** ERR: NEWS NOT DELETED **********');
         console.log(err);
       },
     });

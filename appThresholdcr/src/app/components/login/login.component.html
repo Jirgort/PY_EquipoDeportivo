@@ -5,64 +5,77 @@
   <div class="d-flex justify-content-center">
 
     <div>
-      <img src=" ./assets/thresholdPics/thresholdPic2.png" class="d-block w-100" alt="..." height="auto">
+      <img src=" ./assets/thresholdPics/thresholdPic2.png" class="img-fluid" alt="...">
     </div>
 
-
     <div style="display: grid; place-items: center;">
-      <div class="box">
-        <span>
+      <div class="d-flex flex-column mb-3">
 
-          <div class="container p-5">
-            <div class="row">
-              <div class="card-md-4 mx-auto">
+        <div class="box">
+          <span>
+            <div class="container p-5">
+              <div class="row">
+                <div class="card-md-4 mx-auto">
 
-                <div class="card-header">
-                  <h3>Login</h3>
-                </div>
+                  <div class="card-header">
+                    <h3>Login</h3>
+                  </div>
 
-                <form (submit)="signIn()">
+                  <form (submit)="signIn()">
 
-                  <div class="form-group ">
-                    <div class="card-header">
-                      <input type="text" [(ngModel)]="user.Nombre" name="name" class="form-control" placeholder="Name"
-                        required autofocus>
+                    <div class="form-group ">
+                      <div class="card-header">
+                        <input type="text" [(ngModel)]="user.Nombre" name="name" class="form-control"
+                          placeholder="Usuario" required autofocus>
+                      </div>
                     </div>
-                  </div>
-                  <p></p>
-                  <div class="form-group ">
-                    <div class="card-header">
-                      <input type="password" [(ngModel)]="user.Contracena" name="password" class="form-control"
-                        placeholder="Password" required autofocus>
+                    <p></p>
+                    <div class="form-group ">
+                      <div class="card-header">
+                        <input type="password" [(ngModel)]="user.Contracena" name="password" class="form-control"
+                          placeholder="Contraseña" required autofocus>
+                      </div>
                     </div>
-                  </div>
-                  <div class="form-selector">
-                    <label style="color: white;" for="typeUser">Choose a user:</label>
-                    <select name="typeUser" [(ngModel)]="user.TypeUser" id="typeUser">
-                      <option value="Admin">Admin</option>
-                      <option value="Entrenador">Entrenador</option>
-                      <option value="Atleta">Atleta</option>
-                    </select>
-                  </div>
-                  <div class="card-headerB">
                     <br>
-                    <button class="buttonClass" type="submit">Login</button>
-                  </div>
-                  <br>
-                  <div class="alert alert-danger" role="alert" [hidden]="this.errTagHidden">
-                    Error: usuario o contraseña incorrectas
-                  </div>
-                </form>
+                    <div class="d-flex justify-content-center">
+
+                      <div class="form-selector d-flex flex-column mb-3">
+                        <label style="color: white;" for="typeUser">Tipo de usuario</label>
+                        <br>
+                        <select name="typeUser" [(ngModel)]="user.TypeUser" id="typeUser">
+                          <option value="Admin">Admin</option>
+                          <option value="Entrenador">Entrenador</option>
+                          <option value="Atleta">Atleta</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="card-headerB">
+                      <br>
+                      <button class="buttonClass" type="submit">Login</button>
+                    </div>
+                    <br>
+                    <div class="alert alert-danger" role="alert" [hidden]="this.errTagHidden">
+                      Error: usuario o contraseña incorrectas
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
-          </div>
-        </span>
+          </span>
+        </div>
+
       </div>
+
     </div>
 
     <div>
-      <img src=" ./assets/thresholdPics/thresholdPic1.png" class="d-block w-100" alt="..." height="auto">
+      <img src=" ./assets/thresholdPics/thresholdPic1.png" class="img-fluid" alt="...">
     </div>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <img src=" ./assets/thresholdPics/thresholdLogo2.png" class="img-fluid" alt="...">
   </div>
 
 </div>

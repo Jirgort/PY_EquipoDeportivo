@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const ClassTypeSchema = new Schema({
-    type: String
+    classType: String
 });
 
 module.exports = model('ClassType', ClassTypeSchema);

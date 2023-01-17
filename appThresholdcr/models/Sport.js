@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const SportSchema = new Schema({
-    name: String
+    sportName: String
 });
 
 module.exports = model('Sport', SportSchema);

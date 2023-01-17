@@ -9,15 +9,14 @@ export class EventTypeManagementDeleteComponent {
   events: any = ['hola', 'hello', 'jirgort'];
 
   constructor(private eventsService: EventsService) {
-    this.getEvents();
+    this.getEventTypes();
   }
 
-  getEvents() {
+  getEventTypes() {
     this.eventsService.getEventsType().subscribe({
       next: (response: any) => {
-        console.log('holaaaaaaaaaaaaaaaa');
         this.events = response;
-        console.log(this.events);
+        //console.log(this.events);
       },
       error: (err) => {
         console.log(err);
@@ -28,15 +27,13 @@ export class EventTypeManagementDeleteComponent {
   deleteEventType(event: any) {
     this.eventsService.deleteEventType(event._id).subscribe({
       next: (response: any) => {
-        console.log('********** TRAINER DELETED **********');
-        this.events = response;
-        console.log(this.events);
+        //this.events = response;
+        //console.log(this.events);
       },
       error: (err) => {
-        console.log('********** ERR: TRAINER NOT DELETED **********');
         console.log(err);
       },
     });
-    this.getEvents();
+    this.getEventTypes();
   }
 }

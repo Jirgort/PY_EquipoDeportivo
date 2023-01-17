@@ -15,7 +15,7 @@ export class ClassesManagementCreateComponent {
   coach: any;
   selectecCoach: any = '';
   startDate: any = '';
-  classType: any = '';
+  type: any = '';
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
@@ -28,16 +28,16 @@ export class ClassesManagementCreateComponent {
     this.getClassTypes();
   }
   registerForm = this.formBuilder.group({
-    title: ['', Validators.required],
+    classTitle: ['', Validators.required],
     type: ['x', Validators.required],
     coachId: [0, Validators.required],
-    date: ['', Validators.required],
+    classDate: ['', Validators.required],
     room: [0, Validators.required],
     athletes: [[], Validators.required],
   });
   submit() {
     this.newClass(this.registerForm.value);
-    this.router.navigate(['/classesSidenav']);
+    //this.router.navigate(['/classesSidenav']);
   }
 
   private newClass(classes: any) {}
@@ -45,7 +45,6 @@ export class ClassesManagementCreateComponent {
   getCoaches() {
     this.trainersService.getTrainers().subscribe({
       next: (response: any) => {
-        console.log('holaaaaaaaaaaaaaaaa');
         this.coaches = response;
         //console.log(this.coaches);
       },
@@ -59,7 +58,7 @@ export class ClassesManagementCreateComponent {
     this.classesService.getClassesType().subscribe({
       next: (response: any) => {
         this.classes = response;
-        console.log(this.coaches);
+        //console.log(this.coaches);
       },
       error: (err) => {
         console.log(err);
@@ -69,9 +68,6 @@ export class ClassesManagementCreateComponent {
 
   createClass(coach: any, classType: any, date: any) {
     //let coachData = JSON.stringify(coach.value);
-    console.log('COACH ASSIGNED TO CLASS:' + coach.value);
-    console.log('CLASS TYPE ASSIGNED TO CLASS:' + classType.value);
-
     //this.registerForm.patchValue({ coachId: coach._id });
 
     this.registerForm.get('type')?.setValue(classType.value);
@@ -79,7 +75,7 @@ export class ClassesManagementCreateComponent {
 
     this.classesService.createClass(this.registerForm.value).subscribe(
       (res) => {
-        console.log(this.registerForm);
+        //console.log(this.registerForm);
         localStorage.setItem('token', res.token);
       },
       (err) => {

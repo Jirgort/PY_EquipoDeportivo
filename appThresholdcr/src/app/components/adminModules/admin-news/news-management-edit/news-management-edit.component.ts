@@ -18,9 +18,8 @@ export class NewsManagementEditComponent {
   private getNews() {
     this.newsService.readNews().subscribe({
       next: (response: any) => {
-        console.log('GETTIN NEWS');
         this.allNews = response;
-        console.log(this.allNews);
+        //console.log(this.allNews);
       },
       error: (err) => {
         console.log(err);

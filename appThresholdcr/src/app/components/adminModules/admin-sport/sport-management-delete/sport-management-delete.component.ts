@@ -17,9 +17,8 @@ export class SportManagementDeleteComponent {
   getSport() {
     this.sportService.getSports().subscribe({
       next: (response: any) => {
-        console.log('HI');
         this.sports = response;
-        console.log(this.sports);
+        //console.log(this.sports);
       },
       error: (err) => {
         console.log(err);
@@ -30,12 +29,10 @@ export class SportManagementDeleteComponent {
   deleteSport(sport: any) {
     this.sportService.deleteSport(sport._id).subscribe({
       next: (response: any) => {
-        console.log('********** SPORT DELETED **********');
         this.sports = response;
-        console.log(this.sports);
+        //console.log(this.sports);
       },
       error: (err) => {
-        console.log('********** ERR: SPORT NOT DELETED **********');
         console.log(err);
       },
     });

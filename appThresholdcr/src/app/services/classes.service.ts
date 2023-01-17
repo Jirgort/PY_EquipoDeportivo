@@ -16,6 +16,9 @@ export class ClassesService {
     return this.http.get(`${environment.URL}/class`);
   }
 
+  deleteClass(id: string): Observable<any> {
+    return this.http.delete(`${environment.URL}/class/delete/${id}`);
+  }
   readNews(): Observable<any> {
     return this.http.get(`${environment.URL}/news`);
   }

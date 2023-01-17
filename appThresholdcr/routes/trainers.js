@@ -25,9 +25,8 @@ router.get('/trainers/:id', function(req, res, next) {
 });
 
 router.post('/registrarEntrenador',async(req,res)=>{
-    const {name,userName,password,age,weight,height}=req.body;
-    console.log("COACH TO SAVE: " + req.body.age);
-    const newUser=new Coach({name,userName,password,age,weight,height});
+    const {coachName,coachUserName,coachPassword,coachAge,coachWeight,coachHeight}=req.body;
+    const newUser=new Coach({coachName,coachUserName,coachPassword,coachAge,coachWeight,coachHeight});
     await newUser.save();
     const token=jwt.sign({_id: newUser._id},'secreteKey')
 

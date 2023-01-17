@@ -28,9 +28,9 @@ router.get('/athletes/:id', function(req, res, next) {
 
 router.post('/registrarAtleta',async(req,res)=>{
     
-    const {name,userName,password,category,age,weight,height}=req.body;
+    const {athleteName,athleteUserName,athletePassword,category,athleteBirth,athleteWeight,athleteHeight}=req.body;
     
-    const newUser=new Athlete({name,userName,password,category,age,weight,height});
+    const newUser=new Athlete({athleteName,athleteUserName,athletePassword,category,athleteBirth,athleteWeight,athleteHeight});
     console.log(newUser);
     await newUser.save();
     const token=jwt.sign({_id: newUser._id},'secreteKey')

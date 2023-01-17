@@ -4,11 +4,11 @@
       <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
         <div class="card-header">Entrenador</div>
         <div class="card-body card-text-center">
-          <h6 class="card-title fs-6 text-center">Nombre: {{trainer.name}}</h6>
-          <h6 class="card-title fs-6 text-center">Nombre de usuario: {{trainer.userName}}</h6>
-          <h6 class="card-title fs-6 text-center">Fecha de Nacimiento: {{trainer.age}}</h6>
-          <h6 class="card-title fs-6 text-center">Peso: {{trainer.weight}} kg</h6>
-          <h6 class="card-title fs-6 text-center">Altura: {{trainer.height}} cm</h6>
+          <h6 class="card-title fs-6 text-center">Nombre: {{trainer.coachName}}</h6>
+          <h6 class="card-title fs-6 text-center">Nombre de usuario: {{trainer.coachUserName}}</h6>
+          <h6 class="card-title fs-6 text-center">Fecha de Nacimiento: {{trainer.coachBirth}}</h6>
+          <h6 class="card-title fs-6 text-center">Peso: {{trainer.coachWeight}} kg</h6>
+          <h6 class="card-title fs-6 text-center">Altura: {{trainer.coachHeight}} cm</h6>
         </div>
         <button type="button" (click)="deleteCoach(trainer)" class="btn btn-danger">Delete</button>
       </div>

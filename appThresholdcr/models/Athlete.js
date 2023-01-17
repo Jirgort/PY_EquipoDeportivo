@@ -1,13 +1,13 @@
 const { Schema, model } = require('mongoose');
 
 const AthleteSchema = new Schema({
-    name: String,
-    userName:String,
-    password:String,
+    athleteName: String,
+    athleteUserName:String,
+    athletePassword:String,
     category: [],
-    age: Number,
-    weight: Number,
-    height: Number
+    athleteBirth: Number,
+    athleteWeight: Number,
+    athleteHeight: Number
 });
 
 module.exports = model('Athlete', AthleteSchema);

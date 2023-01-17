@@ -14,12 +14,15 @@ export class CoachManagementDeleteComponent {
     this.getCoaches();
   }
 
+  ngOnInit() {
+    this.getCoaches();
+  }
+
   getCoaches() {
     this.trainersService.getTrainers().subscribe({
       next: (response: any) => {
-        console.log('holaaaaaaaaaaaaaaaa');
         this.trainers = response;
-        console.log(this.trainers);
+        //console.log(this.trainers);
       },
       error: (err) => {
         console.log(err);
@@ -27,18 +30,16 @@ export class CoachManagementDeleteComponent {
     });
   }
 
-  deleteCoach(coach: any) {
+  async deleteCoach(coach: any) {
     this.trainersService.deleteTrainer(coach._id).subscribe({
       next: (response: any) => {
-        console.log('********** TRAINER DELETED **********');
-        this.trainers = response;
-        console.log(this.trainers);
+        //this.trainers = response;
+        //console.log(this.trainers);
       },
       error: (err) => {
-        console.log('********** ERR: TRAINER NOT DELETED **********');
         console.log(err);
       },
     });
-    this.getCoaches();
+    await this.getCoaches();
   }
 }

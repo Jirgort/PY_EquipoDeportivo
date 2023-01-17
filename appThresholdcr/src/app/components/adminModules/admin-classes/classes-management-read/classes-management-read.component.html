@@ -3,8 +3,8 @@
     <div style="border-style:solid; border-color: black; margin: 15px;" *ngFor="let class of allClasses">
       <mat-card style="width: 750px;">
         <mat-card-header>
-          <mat-card-title>{{ class.title }}</mat-card-title>
-          <mat-card-subtitle> Fecha: {{ class.date }}</mat-card-subtitle>
+          <mat-card-title>{{ class.classTitle }}</mat-card-title>
+          <mat-card-subtitle> Fecha: {{ class.classDate }}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
           <p>Tipo de clase: {{ class.type }}</p>

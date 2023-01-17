@@ -1,10 +1,10 @@
 const { Schema, model } = require('mongoose');
 
 const ClassesSchema = new Schema({
-    title: String,
+    classTitle: String,
     type: String,
     coachId: String,
-    date: Date,
+    classDate: Date,
     room: Number,
     athletes: []
 });

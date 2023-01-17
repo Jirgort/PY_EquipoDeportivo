@@ -14,13 +14,13 @@ export class AthleteManagmentCreateComponent {
     private athleteService: AthleteService
   ) {}
   registerForm = this.formBuilder.group({
-    name: ['', Validators.required],
-    userName: ['', Validators.required],
-    password: ['', Validators.required],
+    athleteName: ['', Validators.required],
+    athleteUserName: ['', Validators.required],
+    athletePassword: ['', Validators.required],
     category: [[], Validators.required],
-    age: [Validators.required],
-    weight: [Validators.required],
-    height: ['', Validators.nullValidator],
+    athleteBirth: [Validators.required],
+    athleteWeight: [Validators.required],
+    athleteHeight: ['', Validators.nullValidator],
   });
   submit() {
     this.newAthlete(this.registerForm.value);
