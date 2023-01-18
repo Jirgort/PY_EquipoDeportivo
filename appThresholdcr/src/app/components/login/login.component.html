@@ -18,7 +18,7 @@
                 <div class="card-md-4 mx-auto">
 
                   <div class="card-header">
-                    <h3>Login</h3>
+                    <h3 >Login</h3>
                   </div>
 
                   <form (submit)="signIn()">
@@ -33,14 +33,14 @@
                     <div class="form-group ">
                       <div class="card-header">
                         <input type="password" [(ngModel)]="user.Contracena" name="password" class="form-control"
-                          placeholder="Contraseña" required autofocus>
+                          placeholder="Contraseña" required autofocus >
                       </div>
                     </div>
                     <br>
                     <div class="d-flex justify-content-center">
 
                       <div class="form-selector d-flex flex-column mb-3">
-                        <label style="color: white;" for="typeUser">Tipo de usuario</label>
+                        <label style="color: black;" for="typeUser">Tipo de usuario</label>
                         <br>
                         <select name="typeUser" [(ngModel)]="user.TypeUser" id="typeUser">
                           <option value="Admin">Admin</option>

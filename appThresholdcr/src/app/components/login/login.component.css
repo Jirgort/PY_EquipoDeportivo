@@ -25,7 +25,7 @@
     position: absolute;
     width: 500px;
     height: 500px;
-    background-image: conic-gradient(transparent,transparent,transparent,#00ffad);
+    background-image: conic-gradient(transparent,transparent,transparent,purple);
     animation: rotate 4s linear infinite;
 }
 .box:after{
@@ -33,7 +33,7 @@
     position: absolute;
     width: 500px;
     height: 500px;
-    background-image: conic-gradient(transparent,transparent,transparent,#00ffad);
+    background-image: conic-gradient(transparent,transparent,transparent,orangered);
     animation: rotate 4s linear infinite;
     animation-delay: -2s;
 }
@@ -41,14 +41,14 @@
     position: absolute;
     inset: 5px;
     border-radius: 16px;
-    background-color: rgb(3, 52, 97);
+    background-color: rgb(151, 68, 151);
     z-index: 2;
 }
 .box h3 {
     position: relative;
     display: grid;
     border-radius: 20px;
-    background-color: #2213f7;
+    background-color:rgb(238, 88, 50);
     place-items: center;
 }
 @keyframes rotate{
