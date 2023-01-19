@@ -45,19 +45,19 @@ body {
           
 
           .java {
-            background-color: #fffc00;
+            background-color: rebeccapurple;
             background-clip: text;
             -webkit-text-fill-color: transparent;
           }
 
           .python {
-            background-color: #00fffc;
+            background-color: blueviolet;
             background-clip: text;
             -webkit-text-fill-color: transparent;
           }
 
           .cSharp {
-            background-color: #fc00ff;
+            background-color: rgb(41, 0, 223);
             background-clip: text;
             -webkit-text-fill-color: transparent;
           }
@@ -96,9 +96,9 @@ body {
     .card:nth-child(1) .face.face2 {
       background-image: linear-gradient(
         40deg,
-        #15c249 0%,
-        #b1b734 45%,
-        #c7390e 100%
+        orangered 0%,
+        blueviolet 45%,
+        rgb(41, 0, 223) 100%
       );
       border-radius: 15px;
     }
