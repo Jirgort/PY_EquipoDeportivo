@@ -76,7 +76,7 @@ export class ClassesManagementCreateComponent {
 
   createClass(coach: any, classType: any, date: any) {
     //let coachData = JSON.stringify(coach.value);
-    //this.registerForm.patchValue({ coachId: coach._id });
+    //this.registerForm.patchValue({ coachId: coach._id })
 
     this.registerForm.get('type')?.setValue(classType.value);
     this.registerForm.get('coachId')?.setValue(coach.value);
