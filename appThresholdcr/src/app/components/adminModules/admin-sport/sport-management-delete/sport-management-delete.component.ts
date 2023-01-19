@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SportService } from '../../../../services/sport.service';
+import { CurrentUserService } from 'src/app/services/current-user.service';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-sport-management-delete',
@@ -9,9 +11,33 @@ import { SportService } from '../../../../services/sport.service';
 })
 export class SportManagementDeleteComponent {
   sports: any = ['hola', 'hello', 'jirgort'];
+  private updateSubscription: any;
 
-  constructor(private sportService: SportService) {
+  constructor(
+    private sportService: SportService,
+    public currrentUser: CurrentUserService
+  ) {
     this.getSport();
+  }
+
+  ngOnInit(): void {
+    //this.getNews();
+    this.updateSubs();
+    this.refreshUserInfo();
+  }
+
+  updateSubs() {
+    this.updateSubscription = interval(1000).subscribe((val) => {
+      this.getSport();
+    });
+  }
+
+  refreshUserInfo() {
+    this.currrentUser.setCurrentUser(
+      localStorage.getItem('userType'),
+      localStorage.getItem('userID'),
+      localStorage.getItem('userName')
+    );
   }
 
   getSport() {

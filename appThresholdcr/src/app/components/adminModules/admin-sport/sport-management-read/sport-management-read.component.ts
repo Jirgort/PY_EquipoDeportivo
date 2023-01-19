@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { SportService } from '../../../../services/sport.service';
+import { CurrentUserService } from 'src/app/services/current-user.service';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-sport-management-read',
@@ -8,9 +10,31 @@ import { SportService } from '../../../../services/sport.service';
 })
 export class SportManagementReadComponent {
   Sports: any = ['hola', 'hello', 'jirgort'];
-  constructor(private sportservice: SportService) {}
+  private updateSubscription: any;
+
+  constructor(
+    private sportservice: SportService,
+    public currrentUser: CurrentUserService
+  ) {}
+
   ngOnInit(): void {
-    this.getSports();
+    //this.getNews();
+    this.updateSubs();
+    this.refreshUserInfo();
+  }
+
+  updateSubs() {
+    this.updateSubscription = interval(1000).subscribe((val) => {
+      this.getSports();
+    });
+  }
+
+  refreshUserInfo() {
+    this.currrentUser.setCurrentUser(
+      localStorage.getItem('userType'),
+      localStorage.getItem('userID'),
+      localStorage.getItem('userName')
+    );
   }
 
   getSports() {

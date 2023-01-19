@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { EventsService } from '../../../../services/events.service';
 import { CurrentUserService } from 'src/app/services/current-user.service';
 import { Validators, FormBuilder } from '@angular/forms';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-event-managment-read',
@@ -14,11 +15,34 @@ export class EventManagmentReadComponent {
   enrollStatus = 'Participar';
   enrollBtnClass = 'btn btn-success';
   coach: any;
+  private updateSubscription: any;
+
   constructor(
     private eventsService: EventsService,
     private formBuilder: FormBuilder,
     public currrentUser: CurrentUserService
   ) {}
+
+  ngOnInit(): void {
+    //this.getNews();
+    this.updateSubs();
+    this.refreshUserInfo();
+  }
+
+  updateSubs() {
+    this.updateSubscription = interval(1000).subscribe((val) => {
+      this.getEvents();
+    });
+  }
+
+  refreshUserInfo() {
+    this.currrentUser.setCurrentUser(
+      localStorage.getItem('userType'),
+      localStorage.getItem('userID'),
+      localStorage.getItem('userName')
+    );
+  }
+
   eventInfo = this.formBuilder.group({
     type: ['x', Validators.required],
     title: ['', Validators.required],
@@ -92,9 +116,6 @@ export class EventManagmentReadComponent {
     this.getEvents();
   }
 
-  ngOnInit(): void {
-    this.getEvents();
-  }
   getEvents() {
     this.eventsService.getEvents().subscribe({
       next: (response: any) => {

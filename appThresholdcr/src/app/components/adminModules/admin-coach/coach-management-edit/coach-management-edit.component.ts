@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { TrainersService } from '../../../../services/trainers.service';
 import { Validators, FormBuilder } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { interval } from 'rxjs';
+import { CurrentUserService } from 'src/app/services/current-user.service';
 
 @Component({
   selector: 'app-coach-management-edit',
@@ -12,11 +14,13 @@ export class CoachManagementEditComponent {
   trainers: any = ['hola', 'hello', 'jirgort'];
   closeResult = '';
   trainerToUpdate: any = ['trainer'];
+  private updateSubscription: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private trainersService: TrainersService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    public currrentUser: CurrentUserService
   ) {
     this.getCoaches();
   }
@@ -31,7 +35,23 @@ export class CoachManagementEditComponent {
   });
 
   ngOnInit(): void {
-    this.getCoaches();
+    //this.getNews();
+    this.updateSubs();
+    this.refreshUserInfo();
+  }
+
+  updateSubs() {
+    this.updateSubscription = interval(1000).subscribe((val) => {
+      this.getCoaches();
+    });
+  }
+
+  refreshUserInfo() {
+    this.currrentUser.setCurrentUser(
+      localStorage.getItem('userType'),
+      localStorage.getItem('userID'),
+      localStorage.getItem('userName')
+    );
   }
 
   getCoaches() {

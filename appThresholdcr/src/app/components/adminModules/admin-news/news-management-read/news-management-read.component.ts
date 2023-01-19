@@ -3,9 +3,9 @@ import { NewsService } from '../../../../services/news.service';
 import { CurrentUserService } from 'src/app/services/current-user.service';
 import { Validators, FormBuilder } from '@angular/forms';
 import { TrainersService } from '../../../../services/trainers.service';
-import { Observable, Subscription, interval } from 'rxjs';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MatDividerModule } from '@angular/material/divider';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-news-management-read',
@@ -37,13 +37,15 @@ export class NewsManagementReadComponent {
   });
 
   ngOnInit(): void {
-    this.getNews();
-    /*
+    //this.getNews();
+    this.updateSubs();
+    this.refreshUserInfo();
+  }
+
+  updateSubs() {
     this.updateSubscription = interval(1000).subscribe((val) => {
       this.getNews();
     });
-    */
-    this.refreshUserInfo();
   }
 
   refreshUserInfo() {

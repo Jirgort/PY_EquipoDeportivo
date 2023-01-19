@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { SportService } from '../../../../services/sport.service';
 import { Validators, FormBuilder } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CurrentUserService } from 'src/app/services/current-user.service';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-sport-management-update',
@@ -12,11 +14,13 @@ export class SportManagementUpdateComponent {
   sports: any = ['hola', 'hello', 'jirgort'];
   closeResult = '';
   sportToUpdate: any = ['trainer'];
+  private updateSubscription: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private sportService: SportService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    public currrentUser: CurrentUserService
   ) {}
 
   updateForm = this.formBuilder.group({
@@ -24,7 +28,23 @@ export class SportManagementUpdateComponent {
   });
 
   ngOnInit(): void {
-    this.getSports();
+    //this.getNews();
+    this.updateSubs();
+    this.refreshUserInfo();
+  }
+
+  updateSubs() {
+    this.updateSubscription = interval(1000).subscribe((val) => {
+      this.getSports();
+    });
+  }
+
+  refreshUserInfo() {
+    this.currrentUser.setCurrentUser(
+      localStorage.getItem('userType'),
+      localStorage.getItem('userID'),
+      localStorage.getItem('userName')
+    );
   }
 
   getSports() {

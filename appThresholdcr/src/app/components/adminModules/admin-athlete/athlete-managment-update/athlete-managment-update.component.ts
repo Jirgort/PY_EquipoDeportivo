@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { AthleteService } from '../../../../services/athlete.service';
 import { Validators, FormBuilder } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { interval } from 'rxjs';
+import { CurrentUserService } from 'src/app/services/current-user.service';
 
 @Component({
   selector: 'app-athlete-managment-update',
@@ -12,12 +14,34 @@ export class AthleteManagmentUpdateComponent {
   athletes: any = ['hola', 'hello', 'jirgort'];
   closeResult = '';
   athleteToUpdate: any = ['athlete'];
+  private updateSubscription: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private athleteService: AthleteService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    public currrentUser: CurrentUserService
   ) {}
+
+  ngOnInit(): void {
+    //this.getNews();
+    this.updateSubs();
+    this.refreshUserInfo();
+  }
+
+  updateSubs() {
+    this.updateSubscription = interval(1000).subscribe((val) => {
+      this.getAthletes();
+    });
+  }
+
+  refreshUserInfo() {
+    this.currrentUser.setCurrentUser(
+      localStorage.getItem('userType'),
+      localStorage.getItem('userID'),
+      localStorage.getItem('userName')
+    );
+  }
 
   updateForm = this.formBuilder.group({
     athleteName: ['', Validators.required],
@@ -27,10 +51,6 @@ export class AthleteManagmentUpdateComponent {
     athleteWeight: [Validators.required],
     athleteHeight: ['', Validators.nullValidator],
   });
-
-  ngOnInit(): void {
-    this.getAthletes();
-  }
 
   getAthletes() {
     this.athleteService.getAthletes().subscribe({

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { EventsService } from '../../../../services/events.service';
 import { Validators, FormBuilder } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { interval } from 'rxjs';
+import { CurrentUserService } from 'src/app/services/current-user.service';
 
 @Component({
   selector: 'app-event-managment-update',
@@ -12,12 +14,34 @@ export class EventManagmentUpdateComponent {
   events: any = ['hola', 'hello', 'jirgort'];
   closeResult = '';
   eventToUpdate: any = ['event'];
+  private updateSubscription: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private eventsServices: EventsService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    public currrentUser: CurrentUserService
   ) {}
+
+  ngOnInit(): void {
+    //this.getNews();
+    this.updateSubs();
+    this.refreshUserInfo();
+  }
+
+  updateSubs() {
+    this.updateSubscription = interval(1000).subscribe((val) => {
+      this.getEvents();
+    });
+  }
+
+  refreshUserInfo() {
+    this.currrentUser.setCurrentUser(
+      localStorage.getItem('userType'),
+      localStorage.getItem('userID'),
+      localStorage.getItem('userName')
+    );
+  }
 
   updateForm = this.formBuilder.group({
     eventType: ['', Validators.required],
@@ -26,10 +50,6 @@ export class EventManagmentUpdateComponent {
     eventContent: ['', Validators.required],
     eventDate: ['', Validators.required],
   });
-
-  ngOnInit(): void {
-    this.getEvents();
-  }
 
   getEvents() {
     this.eventsServices.getEvents().subscribe({
