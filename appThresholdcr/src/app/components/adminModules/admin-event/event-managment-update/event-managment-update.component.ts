@@ -4,6 +4,7 @@ import { Validators, FormBuilder } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { interval } from 'rxjs';
 import { CurrentUserService } from 'src/app/services/current-user.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-event-managment-update',
@@ -15,13 +16,17 @@ export class EventManagmentUpdateComponent {
   closeResult = '';
   eventToUpdate: any = ['event'];
   private updateSubscription: any;
+  message: MatSnackBar;
 
   constructor(
     private formBuilder: FormBuilder,
     private eventsServices: EventsService,
     private modalService: NgbModal,
-    public currrentUser: CurrentUserService
-  ) {}
+    public currrentUser: CurrentUserService,
+    private messageSnackBar: MatSnackBar
+  ) {
+    this.message = messageSnackBar;
+  }
 
   ngOnInit(): void {
     //this.getNews();
@@ -71,6 +76,13 @@ export class EventManagmentUpdateComponent {
         next: (response: any) => {
           //this.events = response;
           //console.log(this.events);
+          this.messageSnackBar.open(
+            'Evento modificado satisfactoriamente.',
+            'OK!',
+            {
+              duration: 3000,
+            }
+          );
         },
         error: (err) => {
           console.log(err);

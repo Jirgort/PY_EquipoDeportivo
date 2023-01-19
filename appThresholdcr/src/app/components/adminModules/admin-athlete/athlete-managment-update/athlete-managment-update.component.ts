@@ -4,6 +4,7 @@ import { Validators, FormBuilder } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { interval } from 'rxjs';
 import { CurrentUserService } from 'src/app/services/current-user.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-athlete-managment-update',
@@ -15,13 +16,17 @@ export class AthleteManagmentUpdateComponent {
   closeResult = '';
   athleteToUpdate: any = ['athlete'];
   private updateSubscription: any;
+  message: MatSnackBar;
 
   constructor(
     private formBuilder: FormBuilder,
     private athleteService: AthleteService,
     private modalService: NgbModal,
-    public currrentUser: CurrentUserService
-  ) {}
+    public currrentUser: CurrentUserService,
+    private messageSnackBar: MatSnackBar
+  ) {
+    this.message = messageSnackBar;
+  }
 
   ngOnInit(): void {
     //this.getNews();
@@ -72,6 +77,13 @@ export class AthleteManagmentUpdateComponent {
         next: (response: any) => {
           //this.athletes = response;
           //console.log(this.athletes);
+          this.messageSnackBar.open(
+            'Atleta modificado satisfactoriamente.',
+            'OK!',
+            {
+              duration: 3000,
+            }
+          );
         },
         error: (err) => {
           console.log(err);

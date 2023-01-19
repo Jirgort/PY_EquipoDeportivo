@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Validators, FormBuilder } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { TrainersService } from '../../../../services/trainers.service';
 
 @Component({
@@ -9,11 +10,16 @@ import { TrainersService } from '../../../../services/trainers.service';
   styleUrls: ['./coach-management.component.css'],
 })
 export class CoachManagementComponent {
+  message: MatSnackBar;
+
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private trainersService: TrainersService
-  ) {}
+    private trainersService: TrainersService,
+    private messageSnackBar: MatSnackBar
+  ) {
+    this.message = messageSnackBar;
+  }
   registerForm = this.formBuilder.group({
     coachName: ['', Validators.required],
     coachUserName: ['', Validators.required],
@@ -32,6 +38,9 @@ export class CoachManagementComponent {
       (res) => {
         //console.log(this.registerForm);
         localStorage.setItem('token', res.token);
+        this.messageSnackBar.open('Entrenador creado satisfactoriamente.', 'OK!', {
+          duration: 3000,
+        });
       },
       (err) => {
         console.log(err);

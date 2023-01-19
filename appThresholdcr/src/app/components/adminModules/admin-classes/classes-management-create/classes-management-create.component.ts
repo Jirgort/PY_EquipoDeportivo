@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Validators, FormBuilder } from '@angular/forms';
 import { ClassesService } from '../../../../services/classes.service';
 import { TrainersService } from '../../../../services/trainers.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-classes-management-create',
@@ -16,12 +18,18 @@ export class ClassesManagementCreateComponent {
   selectecCoach: any = '';
   startDate: any = '';
   type: any = '';
+  message: MatSnackBar;
+
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
     private classesService: ClassesService,
-    private trainersService: TrainersService
-  ) {}
+    private trainersService: TrainersService,
+    private messageSnackBar: MatSnackBar
+
+  ) {
+    this.message = messageSnackBar;
+  }
 
   ngOnInit(): void {
     this.getCoaches();
@@ -77,6 +85,9 @@ export class ClassesManagementCreateComponent {
       (res) => {
         //console.log(this.registerForm);
         localStorage.setItem('token', res.token);
+        this.messageSnackBar.open('Clase creada satisfactoriamente.', 'OK!', {
+          duration: 3000,
+        });
       },
       (err) => {
         console.log(err);
