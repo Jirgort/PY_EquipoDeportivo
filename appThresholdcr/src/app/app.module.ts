@@ -21,6 +21,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AdminHomeComponent } from './components/adminModules/admin-home/admin-home.component';
 import { CoachManagementComponent } from './components/adminModules/admin-coach/coach-management-create/coach-management.component';
@@ -126,6 +127,7 @@ import { UserHeaderComponent } from './components/user-header/user-header.compon
     MatInputModule,
     NgbPopoverModule,
     MdbTabsModule,
+    MatSnackBarModule
   ],
   providers: [DatePipe, CurrentUserService],
   bootstrap: [AppComponent],

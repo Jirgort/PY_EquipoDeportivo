@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NewsService } from '../../../../services/news.service';
 import { Validators, FormBuilder } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-news-management-create',
@@ -10,12 +11,16 @@ import { DatePipe } from '@angular/common';
 })
 export class NewsManagementCreateComponent {
   bool: any;
+  message: MatSnackBar;
 
   constructor(
     private formBuilder: FormBuilder,
     private newsService: NewsService,
-    public datepipe: DatePipe
-  ) {}
+    public datepipe: DatePipe,
+    private messageSnackBar: MatSnackBar
+  ) {
+    this.message = messageSnackBar;
+  }
 
   newsForm = this.formBuilder.group({
     newsTitle: ['', Validators.required],
@@ -38,6 +43,9 @@ export class NewsManagementCreateComponent {
       (res) => {
         console.log(this.newsForm);
         localStorage.setItem('token', res.token);
+        this.messageSnackBar.open('Noticia creada satisfactoriamente.', 'OK!', {
+          duration: 3000,
+        });
       },
       (err) => {
         console.log(err);

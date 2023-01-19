@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { EventsService } from '../../../../services/events.service';
 import { Validators, FormBuilder } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-event-managment-update',
@@ -12,12 +13,16 @@ export class EventManagmentUpdateComponent {
   events: any = ['hola', 'hello', 'jirgort'];
   closeResult = '';
   eventToUpdate: any = ['event'];
+  message: MatSnackBar;
 
   constructor(
     private formBuilder: FormBuilder,
     private eventsServices: EventsService,
-    private modalService: NgbModal
-  ) {}
+    private modalService: NgbModal,
+    private messageSnackBar: MatSnackBar
+  ) {
+    this.message = messageSnackBar;
+  }
 
   updateForm = this.formBuilder.group({
     eventType: ['', Validators.required],
@@ -51,6 +56,9 @@ export class EventManagmentUpdateComponent {
         next: (response: any) => {
           //this.events = response;
           //console.log(this.events);
+          this.messageSnackBar.open('Evento modificado satisfactoriamente.', 'OK!', {
+            duration: 3000,
+          });
         },
         error: (err) => {
           console.log(err);

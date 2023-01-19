@@ -7,7 +7,7 @@
           <form [formGroup]="registerForm" (ngSubmit)="submit()">
             <div class="form-outline input-group-sm">
               <label class="form-label" for="coachName">Nombre</label>
-              <input formControlName="coachName" type="text" id="coachName" class="form-control" placeholder="Nombre"
+              <input formControlName="coachName" type="text" id="coachName" #coachName class="form-control" placeholder="Nombre"
                 ngModelrequired />
             </div>
             <div class="form-outline input-group-sm">
@@ -38,7 +38,7 @@
                 placeholder="Altura" ngModel required />
             </div>
             <h1></h1>
-            <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+            <button type="submit" class="btn btn-primary btn-block" (click)="coachName.value=''">Guardar</button>
           </form>
         </div>
       </div>

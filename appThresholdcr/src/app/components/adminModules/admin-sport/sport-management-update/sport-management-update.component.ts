@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { SportService } from '../../../../services/sport.service';
 import { Validators, FormBuilder } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-sport-management-update',
@@ -12,12 +13,16 @@ export class SportManagementUpdateComponent {
   sports: any = ['hola', 'hello', 'jirgort'];
   closeResult = '';
   sportToUpdate: any = ['trainer'];
+  message: MatSnackBar;
 
   constructor(
     private formBuilder: FormBuilder,
     private sportService: SportService,
-    private modalService: NgbModal
-  ) {}
+    private modalService: NgbModal,
+    private messageSnackBar: MatSnackBar
+  ) {
+    this.message = messageSnackBar;
+  }
 
   updateForm = this.formBuilder.group({
     sportName: ['', Validators.required],
@@ -46,6 +51,9 @@ export class SportManagementUpdateComponent {
         next: (response: any) => {
           //this.sports = response;
           //console.log(this.sports);
+          this.messageSnackBar.open('Deporte modificado satisfactoriamente.', 'OK!', {
+            duration: 3000,
+          });
         },
         error: (err) => {
           console.log(err);

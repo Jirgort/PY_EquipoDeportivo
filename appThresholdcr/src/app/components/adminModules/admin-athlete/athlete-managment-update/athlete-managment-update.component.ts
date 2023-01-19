@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AthleteService } from '../../../../services/athlete.service';
 import { Validators, FormBuilder } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-athlete-managment-update',
@@ -12,12 +13,17 @@ export class AthleteManagmentUpdateComponent {
   athletes: any = ['hola', 'hello', 'jirgort'];
   closeResult = '';
   athleteToUpdate: any = ['athlete'];
+  message: MatSnackBar;
+
 
   constructor(
     private formBuilder: FormBuilder,
     private athleteService: AthleteService,
-    private modalService: NgbModal
-  ) {}
+    private modalService: NgbModal,
+    private messageSnackBar: MatSnackBar
+  ) {
+    this.message = messageSnackBar;
+  }
 
   updateForm = this.formBuilder.group({
     athleteName: ['', Validators.required],
@@ -52,6 +58,9 @@ export class AthleteManagmentUpdateComponent {
         next: (response: any) => {
           //this.athletes = response;
           //console.log(this.athletes);
+          this.messageSnackBar.open('Atleta modificado satisfactoriamente.', 'OK!', {
+            duration: 3000,
+          });
         },
         error: (err) => {
           console.log(err);

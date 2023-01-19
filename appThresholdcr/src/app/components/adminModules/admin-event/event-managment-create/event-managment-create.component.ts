@@ -4,6 +4,7 @@ import { Validators, FormBuilder } from '@angular/forms';
 import { EventsService } from '../../../../services/events.service';
 import { SportService } from '../../../../services/sport.service';
 import { DatePipe } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-event-managment-create',
@@ -13,13 +14,17 @@ import { DatePipe } from '@angular/common';
 export class EventManagmentCreateComponent {
   events: any = ['a', 'b', 'c', 'd', 'e'];
   sports: any = ['a'];
+  message: MatSnackBar;
   constructor(
     public datepipe: DatePipe,
     private router: Router,
     private formBuilder: FormBuilder,
     private eventsService: EventsService,
-    private sportService: SportService
-  ) {}
+    private sportService: SportService,
+    private messageSnackBar: MatSnackBar
+  ) {
+    this.message = messageSnackBar;
+  }
   registerForm = this.formBuilder.group({
     eventType: ['', Validators.required],
     eventTitle: ['', Validators.required],
@@ -85,6 +90,9 @@ export class EventManagmentCreateComponent {
       (res) => {
         console.log(this.registerForm);
         localStorage.setItem('token', res.token);
+        this.messageSnackBar.open('Evento creado satisfactoriamente.', 'OK!', {
+          duration: 3000,
+        });
       },
       (err) => {
         console.log(err);
