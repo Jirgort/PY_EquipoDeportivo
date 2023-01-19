@@ -23,11 +23,6 @@
             ngClass="{{ this.voteStatusBtn(news) == 'novote'? 'btn btn-outline-danger' : this.voteStatusBtn(news) == 'disliked'? 'btn btn-danger' : 'btn btn-outline-danger'}}"
             (click)="this.vote(news._id, news, 'dislike')">¡No me
             gusta!</button>
-          <button mat-icon-button color="warn" ngbPopover="¡Mira quien reaccionó!" triggers="mouseenter:mouseleave"
-            (click)="open(content)">
-            <mat-icon>favorite</mat-icon>
-          </button>
-          <p>{{ news.upVotes.length + news.downVotes.length }}</p>
           <button class="material-symbols-outlined" style="border-style:hidden; background-color:white; color:red"
             (click)="open(content)" ngbPopover="¡Más información!" triggers="mouseenter:mouseleave">
             info
