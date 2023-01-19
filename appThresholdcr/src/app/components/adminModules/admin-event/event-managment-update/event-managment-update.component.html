@@ -22,9 +22,16 @@
   <div class="modal-body" style="padding: 5px; margin: 10px">
     <form [formGroup]="updateForm">
       <!-- type input -->
-      <div class="form-outline mb-4">
-        <label class="form-label" for="eventType">Tipo de evento</label>
-        <input formControlName="eventType" type="text" id="eventType" class="form-control" ngModelrequired />
+      <div class="form-outline input-group-sm">
+        <mat-form-field appearance="fill">
+          <label>Tipo de evento</label>
+          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="selectedType" #selectedType>
+            <option *ngFor="let event of events" [value]="event.eventType">
+              {{event.eventType}}
+            </option>
+          </select>
+        </mat-form-field>
+
       </div>
 
       <!-- title input -->
@@ -34,9 +41,17 @@
       </div>
 
       <!-- sports input -->
-      <div class="form-outline mb-4">
-        <label class="form-label" for="sportClass">Categorías deportivas</label>
-        <input formControlName="sportClass" type="text" id="sportClass" class="form-control" ngModelrequired />
+      <div class="form-outline input-group-sm" >
+
+        <mat-form-field appearance="fill" >
+          <label>Deporte</label>
+          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="selectedSport" #selectedSport>
+            <option *ngFor="let sport of sports" [value]="sport.sportName">
+              {{sport.sportName}}
+            </option>
+          </select>
+        </mat-form-field>
+
       </div>
 
       <!-- content input -->
@@ -45,6 +60,17 @@
         <input formControlName="eventContent" type="text" id="eventContent" class="form-control" ngModelrequired />
       </div>
 
+      <div class="form-outline input-group-sm" style="margin-bottom: 15px">
+
+        <mat-form-field appearance="fill">
+          <label>Fecha</label>
+          <input placeholder="MM/DD/YYYY" matInput [matDatepicker]="picker" formControlName="eventDate" id="eventDate">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+      </div>
+      
     </form>
   </div>
   <div class="modal-footer">

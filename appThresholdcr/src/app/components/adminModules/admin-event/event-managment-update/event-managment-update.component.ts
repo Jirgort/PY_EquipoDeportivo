@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { EventsService } from '../../../../services/events.service';
+import { SportService } from '../../../../services/sport.service';
 import { Validators, FormBuilder } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { interval } from 'rxjs';
@@ -13,6 +14,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class EventManagmentUpdateComponent {
   events: any = ['hola', 'hello', 'jirgort'];
+  sports: any = ['a'];
   closeResult = '';
   eventToUpdate: any = ['event'];
   private updateSubscription: any;
@@ -23,7 +25,8 @@ export class EventManagmentUpdateComponent {
     private eventsServices: EventsService,
     private modalService: NgbModal,
     public currrentUser: CurrentUserService,
-    private messageSnackBar: MatSnackBar
+    private messageSnackBar: MatSnackBar,
+    private sportService: SportService,
   ) {
     this.message = messageSnackBar;
   }
@@ -32,7 +35,11 @@ export class EventManagmentUpdateComponent {
     //this.getNews();
     this.updateSubs();
     this.refreshUserInfo();
+    this.getSports();
+    this.getEventTypes();
   }
+
+
 
   updateSubs() {
     this.updateSubscription = interval(1000).subscribe((val) => {
@@ -91,6 +98,32 @@ export class EventManagmentUpdateComponent {
     this.getEvents();
   }
 
+  
+
+  getEventTypes() {
+    this.eventsServices.getEventsType().subscribe({
+      next: (response: any) => {
+        this.events = response;
+        //console.log(this.coaches);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  getSports() {
+    this.sportService.getSports().subscribe({
+      next: (response: any) => {
+        this.sports = response;
+        //console.log(this.coaches);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+      
   open(content: any, event: any) {
     this.eventToUpdate = event;
     this.autoFillForm(event);
